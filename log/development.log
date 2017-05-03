@@ -3667,3 +3667,350 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:39:45 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (5.8ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 12:39:46 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 68ms (Views: 54.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 12:40:49 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 12:45:23 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:45:25 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (7.6ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:46:20 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (3.6ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 49ms (Views: 46.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:46:31 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (4.4ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:46:32 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (6.0ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:46:33 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (4.3ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 34ms (Views: 27.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2017-05-03 12:46:42 -0300
+Processing by SchoolsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (3.5ms) [cache miss]
+  Rendered schools/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/schools" for 127.0.0.1 at 2017-05-03 12:47:08 -0300
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cD5G2C9J56heiNGMBbXKyQW9ZP8aBxD+XVIAZ9ocSg4vpVdXKXLzNBpmIn82IFsi7n4lnoKWYZh5JLI3g/hHQg==", "school"=>{"name"=>"Santiago College", "RBD"=>"79879", "address"=>"Los Trapenses 1010", "phone"=>"546456"}, "commit"=>"Create School"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schools" ("name", "RBD", "address", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Santiago College"], ["RBD", "79879"], ["address", "Los Trapenses 1010"], ["phone", "546456"], ["created_at", "2017-05-03 15:47:08.934435"], ["updated_at", "2017-05-03 15:47:08.934435"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schools_users" ("school_id", "user_id") VALUES (?, ?)[0m  [["school_id", 2], ["user_id", 2]]
+  [1m[35m (234.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 247ms (ActiveRecord: 235.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 12:47:09 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (2.6ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 12:47:13 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/2" for 127.0.0.1 at 2017-05-03 12:47:18 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 12:47:22 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 36ms (Views: 31.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/schools/2" for 127.0.0.1 at 2017-05-03 12:47:25 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/schools/2" for 127.0.0.1 at 2017-05-03 12:47:30 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 39ms (Views: 34.6ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-05-03 13:16:17 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HKuKBFZ3Xh0ecaXc2F2Tu8wiDVd2sEjuH63GEpo85eb2d5fRW8txYjL60cno6O5Ki4jx7KQcWsRrJrLPMMQ8MQ=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-03 13:16:17 -0300
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-03 13:16:17 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-03 13:58:55 -0300
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms) [cache miss]
+  Rendered devise/registrations/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 260ms (Views: 259.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-03 13:59:39 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t52rVTJ69DakwD/EVZYMOVLzD9YCOKM46e8nzN3s9fovpg4P3tbCkCBzJKP/2NuLBmHyzQtrD6GhPaA6SrlNDQ==", "user"=>{"email"=>"cjsalame@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "cjsalame@uc.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-05-03 16:59:39.282502"], ["sign_in_count", 2], ["updated_at", "2017-05-03 16:59:39.284431"], ["id", 1]]
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 280ms (ActiveRecord: 87.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-03 13:59:39 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-05-03 13:59:39 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_teacher_profile.html.erb (0.2ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-05-03 14:06:20 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GEfjIdLuoVvzdDXookADHXo7VOeCke1DePhWNWSyckvnAaYL4XuLjU/KxaNvn7Y1gpBtWvlU9+UfbLmL1q/FNw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-03 14:06:20 -0300
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-03 14:06:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-03 14:06:25 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/9YW5H6eNQlUZinWSlAN3VZCu2uvBwzbVlY2aDsYoUEM0qXbNrYxWgnuQh0m028Ztj4TJBYe3Wf4d3kFZx1Qtg==", "user"=>{"email"=>"tulio@31minutos.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tulio@31minutos.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-05-03 17:06:26.126830"], ["sign_in_count", 2], ["updated_at", "2017-05-03 17:06:26.127447"], ["id", 2]]
+  [1m[35m (165.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 340ms (ActiveRecord: 166.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-03 14:06:26 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 14:06:26 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (2.7ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/schools/new" for 127.0.0.1 at 2017-05-03 14:06:37 -0300
+Processing by SchoolsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (4.9ms) [cache miss]
+  Rendered schools/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 41ms (Views: 35.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/schools" for 127.0.0.1 at 2017-05-03 14:07:32 -0300
+Processing by SchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ghq4NF3hOKwjNuuqSoankUWkZB4yt8fAhpSxkdETlx2uZXWOlypmwJnzVNx0Tgzh8xXy6GSCJhU2X03qlw3vnw==", "school"=>{"name"=>"UC", "RBD"=>"576", "address"=>"san joaquin", "phone"=>"456356"}, "commit"=>"Create School"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schools" ("name", "RBD", "address", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "UC"], ["RBD", "576"], ["address", "san joaquin"], ["phone", "456356"], ["created_at", "2017-05-03 17:07:32.592297"], ["updated_at", "2017-05-03 17:07:32.592297"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schools_users" ("school_id", "user_id") VALUES (?, ?)[0m  [["school_id", 3], ["user_id", 2]]
+  [1m[35m (262.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 283ms (ActiveRecord: 265.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-05-03 14:07:32 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/_utp_profile.html.erb (2.8ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2017-05-03 14:07:38 -0300
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 42ms (Views: 37.9ms | ActiveRecord: 0.5ms)
+
+

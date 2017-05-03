@@ -2,9 +2,9 @@
 
 <h2> Colegios Registrados </h2>
 <% @user.schools.each do |school| %>
-  <p> <%= school.name %> </p>
+  <p> <%= link_to school.name, school_path(school.id) %> </p>
 <% end %>
 
 <% if can? :create, School %>
-  <%= link_to "Ingresar Nuevo Colegio", new_school_path %>
+  <p> <%= link_to "Ingresar Nuevo Colegio", new_school_path %> </p>
 <% end %>
