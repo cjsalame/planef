@@ -1,0 +1,10 @@
+<h3> (Jefe UTP) </h3>
+
+<h2> Colegios Registrados </h2>
+<% @user.schools.each do |school| %>
+  <p> <%= school.name %> </p>
+<% end %>
+
+<% if can? :create, School %>
+  <%= link_to "Ingresar Nuevo Colegio", new_school_path %>
+<% end %>
