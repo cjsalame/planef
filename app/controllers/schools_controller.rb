@@ -24,7 +24,7 @@ class SchoolsController < ApplicationController
   # POST /schools
   # POST /schools.json
   def create
-    authorize! :create, @school
+    authorize! :create, School
     @user = current_user
     @school = @user.schools.build(school_params)
     @user.schools << @school
