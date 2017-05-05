@@ -34,7 +34,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         format.html do
-          redirect_to @user, notice: 'School was successfully created.'
+          redirect_to @user, notice: 'Colegio creada con éxito.'
         end
         format.json { render :show, status: :created, location: @school }
       else
@@ -53,7 +53,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.update(school_params)
         format.html do
-          redirect_to @school, notice: 'School was successfully updated.'
+          redirect_to @school, notice: 'Colegio editada con éxito'
         end
         format.json { render :show, status: :ok, location: @school }
       else
