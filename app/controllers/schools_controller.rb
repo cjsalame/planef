@@ -15,11 +15,14 @@ class SchoolsController < ApplicationController
 
   # GET /schools/new
   def new
+    authorize! :create, School
     @school = School.new
   end
 
   # GET /schools/1/edit
-  def edit; end
+  def edit
+    authorize! :update, @school
+  end
 
   # POST /schools
   # POST /schools.json
@@ -46,6 +49,7 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
   def update
+    authorize! :update, @school
     respond_to do |format|
       if @school.update(school_params)
         format.html do

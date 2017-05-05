@@ -1,1 +1,22 @@
-<h2> Eres un profesor </h2>
+<h3> (Profesor) </h3>
+
+<h2> Colegios en los que trabajas </h2>
+
+<% @user.schools.each do |school| %>
+  <p>
+  <%= link_to school.name, user_school_path(school.id) %>
+  <%= form_tag({controller: "users", action: "unsubschool"}, method: "delete") do |f| %>
+    <%= hidden_field_tag "schoolid", school.id %>
+    <%= submit_tag("Eliminar") %>
+  <% end %>
+</p>
+<% end %>
+
+<h3> Agregar Nuevo Colegio </h3>
+
+<%= form_tag(:action => "subscribeschool") do |f| %>
+
+  <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
+
+  <%= submit_tag("Agregar") %>
+<% end %>
