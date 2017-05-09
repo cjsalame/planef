@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :planifications
+  resources :planifications do 
+  	resources :lectures
+  end
+
   root 'home#index'
   # root 'users#current_user_show'
   devise_for :users, controllers: { registrations: 'registrations' }
