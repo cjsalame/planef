@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
+  <!-- CAMPOS DE LA PLANIFICACIÓN PER SE -->
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :título %>
     <%= form.text_field :name, id: :planification_name %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :fecha %>
     <%= form.date_select :date, id: :planification_date %>
   </div>
 
-  <div class="field">
+<!--   <div class="field">
     <%= form.label :rating %>
     <%= form.text_field :rating, id: :planification_rating %>
   </div>
@@ -29,7 +30,14 @@
   <div class="field">
     <%= form.label :downloads %>
     <%= form.text_field :downloads, id: :planification_downloads %>
-  </div>
+  </div> -->
+
+
+  <!-- CAMPOS DE LA CLASE -->
+<!--   <div class="field">
+    <%= form.label :objetivos %>
+    <%= form.text_area :objetivos %>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>
