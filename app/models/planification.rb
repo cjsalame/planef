@@ -1,6 +1,6 @@
 class Planification < ApplicationRecord
 	has_many :lectures
-
+	accepts_nested_attributes_for :lectures
 	after_initialize :set_defaults, unless: :persisted?
 
 	def set_defaults

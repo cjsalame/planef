@@ -15,6 +15,7 @@ class PlanificationsController < ApplicationController
   # GET /planifications/new
   def new
     @planification = Planification.new
+    @planification.lectures.build
   end
 
   # GET /planifications/1/edit
@@ -69,6 +70,8 @@ class PlanificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planification_params
-      params.require(:planification).permit(:name, :date, :rating, :downloads)
+      params.require(:planification).permit(:name, :date, :rating, :downloads, 
+        lectures_attributes: [ :lectures, :objectives, :starting, :developing,
+      :finalizing, :content, :resources, :duration, :evaluation ])
     end
 end

@@ -1,10 +1,11 @@
-<%= form_with(model: planification, local: true) do |form| %>
-  <% if planification.errors.any? %>
+<%= simple_form_for @planification do |f| %>
+
+  <% if @planification.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
 
       <ul>
-      <% planification.errors.full_messages.each do |message| %>
+      <% @planification.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,33 +14,40 @@
 
   <!-- CAMPOS DE LA PLANIFICACIÓN PER SE -->
   <div class="field">
-    <%= form.label :título %>
-    <%= form.text_field :name, id: :planification_name %>
+    <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :date, id: :planification_date %>
+    <%= f.input :date, label: "Fecha" %>
   </div>
 
+  <%= f.simple_fields_for :lectures do |g| %>
+
+    <%= g.input :objectives, label: "Objetivos" %>
+    <%= g.input :starting, label: "Inicio" %>
+    <%= g.input :developing, label: "Desarrollo" %>
+    <%= g.input :finalizing, label: "Cierre" %>
+    <%= g.input :content, label: "Contenidos" %>
+    <%= g.input :resources, label: "Recursos" %>
+    <%= g.input :duration, label: "Tiempo" %>
+    <%= g.input :evaluation, label: "Indicador de Evaluación" %>
+    <!-- FALTA OBJETIVOS DE APRENDIZAJE -->
+  <% end %>
+
+
 <!--   <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :planification_rating %>
+    <%= f.label :rating %>
+    <%= f.text_field :rating, id: :planification_rating %>
   </div>
 
   <div class="field">
-    <%= form.label :downloads %>
-    <%= form.text_field :downloads, id: :planification_downloads %>
+    <%= f.label :downloads %>
+    <%= f.text_field :downloads, id: :planification_downloads %>
   </div> -->
 
 
-  <!-- CAMPOS DE LA CLASE -->
-<!--   <div class="field">
-    <%= form.label :objetivos %>
-    <%= form.text_area :objetivos %>
-  </div> -->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
