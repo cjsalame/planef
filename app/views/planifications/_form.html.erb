@@ -1,0 +1,37 @@
+<%= form_with(model: planification, local: true) do |form| %>
+  <% if planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :planification_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :planification_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.text_field :rating, id: :planification_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :downloads %>
+    <%= form.text_field :downloads, id: :planification_downloads %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

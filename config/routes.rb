@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :planifications
   root 'home#index'
   # root 'users#current_user_show'
   devise_for :users, controllers: { registrations: 'registrations' }

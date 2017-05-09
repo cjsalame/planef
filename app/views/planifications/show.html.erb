@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @planification.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @planification.date %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @planification.rating %>
+</p>
+
+<p>
+  <strong>Downloads:</strong>
+  <%= @planification.downloads %>
+</p>
+
+<%= link_to 'Edit', edit_planification_path(@planification) %> |
+<%= link_to 'Back', planifications_path %>
