@@ -20,21 +20,9 @@
   <div class="field">
     <%= f.input :date, label: "Fecha" %>
   </div>
-
-  <%= f.simple_fields_for :lectures do |g| %>
-
-    <%= g.input :objectives, label: "Objetivos" %>
-    <%= g.input :starting, label: "Inicio" %>
-    <%= g.input :developing, label: "Desarrollo" %>
-    <%= g.input :finalizing, label: "Cierre" %>
-    <%= g.input :content, label: "Contenidos" %>
-    <%= g.input :resources, label: "Recursos" %>
-    <%= g.input :duration, label: "Tiempo" %>
-    <%= g.input :evaluation, label: "Indicador de Evaluación" %>
-    <!-- FALTA OBJETIVOS DE APRENDIZAJE -->
-  <% end %>
-
-
+  
+<!-- No los setea el usuario. Cambian automáticamete -->
+<!-- Dejados ahí para saber que estaban. Se borrarán luego -->
 <!--   <div class="field">
     <%= f.label :rating %>
     <%= f.text_field :rating, id: :planification_rating %>
@@ -44,6 +32,10 @@
     <%= f.label :downloads %>
     <%= f.text_field :downloads, id: :planification_downloads %>
   </div> -->
+
+<!-- Los campos de la clase -->
+  <%= render partial: 'lectures/form', locals: {f: f} %>
+
 
 
 

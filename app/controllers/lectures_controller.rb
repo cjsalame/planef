@@ -12,4 +12,5 @@ class LecturesController < ApplicationController
     params.require(:lecture).permit(:objectives, :starting, :developing,
     	:finalizing, :content, :resources, :duration, :evaluation)
   end
+  
 end

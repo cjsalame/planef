@@ -10,6 +10,13 @@ class PlanificationsController < ApplicationController
   # GET /planifications/1
   # GET /planifications/1.json
   def show
+    # En vez de renderizar HTML para las vistas del show, renderiza pretty JSON.
+    # Luego:
+    # + Mostrar además los campos no propios a la planificación (school.{name, address, corporation}, user.{name, lastname}, etc) 
+    # + Generar documento "imprimible" (.doc?, .pdf?) a partir de este documento JSON
+    render json: JSON.pretty_generate(JSON.parse(
+      @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} } ) 
+    ))
   end
 
   # GET /planifications/new
@@ -20,6 +27,7 @@ class PlanificationsController < ApplicationController
 
   # GET /planifications/1/edit
   def edit
+    @n_lectures = @planification.lectures.length
   end
 
   # POST /planifications
@@ -29,7 +37,7 @@ class PlanificationsController < ApplicationController
 
     respond_to do |format|
       if @planification.save
-        format.html { redirect_to @planification, notice: 'Planification was successfully created.' }
+        format.html { redirect_to edit_planification_path(@planification) , notice: 'Planification was successfully created.' }
         format.json { render :show, status: :created, location: @planification }
       else
         format.html { render :new }
