@@ -20,7 +20,7 @@
   <div class="field">
     <%= f.input :date, label: "Fecha" %>
   </div>
-  
+
 <!-- No los setea el usuario. Cambian automáticamete -->
 <!-- Dejados ahí para saber que estaban. Se borrarán luego -->
 <!--   <div class="field">
@@ -34,8 +34,7 @@
   </div> -->
 
 <!-- Los campos de la clase -->
-  <%= render partial: 'lectures/form', locals: {f: f} %>
-
+  <%= render partial: 'lectures/form', locals: {f: f, planification: @planification} %>
 
 
 

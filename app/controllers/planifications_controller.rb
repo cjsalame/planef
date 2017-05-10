@@ -22,7 +22,9 @@ class PlanificationsController < ApplicationController
   # GET /planifications/new
   def new
     @planification = Planification.new
-    @planification.lectures.build
+    # Está en el fields_for del form partial lectures/form
+    # Lo dejo para borrarlo después
+    # @planification.lectures.build
   end
 
   # GET /planifications/1/edit

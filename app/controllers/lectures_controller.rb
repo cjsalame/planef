@@ -5,6 +5,8 @@ class LecturesController < ApplicationController
     @lecture = @planification.lecture.create(lecture_params)
     redirect_to planification_path(@planification)
   end
+
+  # TODO: edit, destroy
  
   private
 
@@ -12,5 +14,5 @@ class LecturesController < ApplicationController
     params.require(:lecture).permit(:objectives, :starting, :developing,
     	:finalizing, :content, :resources, :duration, :evaluation)
   end
-  
+
 end
