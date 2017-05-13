@@ -66,3 +66,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hirb'
 
 gem 'simple_form'
+
+gem 'jquery-rails'
+gem 'jquery-turbolinks'

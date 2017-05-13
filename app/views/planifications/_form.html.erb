@@ -33,12 +33,19 @@
     <%= f.text_field :downloads, id: :planification_downloads %>
   </div> -->
 
+<% @builder = f %>
 <!-- Los campos de la clase -->
-  <%= render partial: 'lectures/form', locals: {f: f, planification: @planification} %>
+  <button id="lecture-button" type="button">Agregar Clase</button>
 
+
+  <div id="lecture-form">
+
+
+  </div>
 
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
