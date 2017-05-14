@@ -34,7 +34,8 @@ j0.schools << School.new(
   name:                  'Teresiano Enrique de Ossó',
   RBD:                   '789789',
   address:               'Av. Ossa 4545',
-  phone:                 '987987'
+  phone:                 '987987',
+  user_id:               1
 )
 
 j0.schools << School.new(

@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @subjects_teacher = @user.subjects_teachers.new
   end
 
   def current_user_show
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     @user.schools.delete(School.find(schoolid))
     redirect_to @user, notice: 'Colegio eliminado.'
   end
-  def subscribeschool
+  def subscribe_school
     @user = User.find(params[:id])
     schoolid = params[:schoolid]
     if schoolid == "Selecciona un colegio..."
@@ -27,8 +28,16 @@ class UsersController < ApplicationController
     #else
       #@user.schools.delete(School.find(schoolid))
     end
-
   end
 
+  def subscribe_subject
+    @user = User.find(params[:id])
+    subjectid = params[:subjectid]
+    if @user.subjects.exists?(subjectid)
+      redirect_to @user, notice: 'Usted ya agregó este curso en este colegio'
+    else
+      Subjects_User.create(subject_id: subjectid, user_id: @user.id)
+    end
+  end
 
 end

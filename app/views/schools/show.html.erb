@@ -26,7 +26,9 @@
   <h2> Asignaturas dictadas en Colegio <%= @school.name %>: </h2>
   <% @school.subjects.each do |s| %>
     <p><%= s.name %>
-      <%= link_to 'Eliminar', school_subject_path(s.school, s) ,method: :delete %> </p>
+      <% if(current_user.role == 'Jefe UTP') %>
+        <%= link_to 'Eliminar', school_subject_path(s.school, s) ,method: :delete %> </p>
+      <% end %>
   <% end %>
 <% end %>
 

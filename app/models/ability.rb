@@ -6,11 +6,12 @@ class Ability
     if user.role == 'Jefe UTP'
       can :create, School
       can :update, School do |school|
-        school.users.find_by(id: user.id)
+        school.user_id == user.id
       end
       can :destroy, School do |school|
-        school.users.find_by(id: user.id)
+        school.user_id == user.id
       end
+      can :read, School
     end
 
     # Define abilities for the passed in user here. For example:
