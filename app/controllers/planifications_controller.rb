@@ -1,5 +1,11 @@
 class PlanificationsController < ApplicationController
-  before_action :set_planification, only: [:show, :edit, :update, :destroy]
+  before_action :set_planification, only: [:show, :edit, :update, :destroy, :add_lecture_edit]
+
+  def add_lecture
+    @planification = Planification.new
+    @planification.lectures.build
+    render "add_lecture", layout: false
+  end
 
   # GET /planifications
   # GET /planifications.json
@@ -15,7 +21,7 @@ class PlanificationsController < ApplicationController
     # + Mostrar además los campos no propios a la planificación (school.{name, address, corporation}, user.{name, lastname}, etc) 
     # + Generar documento "imprimible" (.doc?, .pdf?) a partir de este documento JSON
     render json: JSON.pretty_generate(JSON.parse(
-      @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} } ) 
+      @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id] ) 
     ))
   end
 

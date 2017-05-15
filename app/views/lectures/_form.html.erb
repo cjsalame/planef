@@ -1,6 +1,6 @@
 <!-- FALTA OBJETIVOS DE APRENDIZAJE -->
 <!-- PONERLOS COMO SEEDS -->
-<%= f.simple_fields_for :lectures, planification.lectures.build do |g| %>
+<%= f.simple_fields_for :lectures, child_index: Time.now.to_i do |g| %>
 
   <%= g.input :objectives, label: "Objetivos" %>
   <%= g.input :starting, label: "Inicio" %>
@@ -10,6 +10,5 @@
   <%= g.input :resources, label: "Recursos" %>
   <%= g.input :duration, label: "Tiempo" %>
   <%= g.input :evaluation, label: "Indicador de Evaluación" %>
-  <!-- <%= g.button :submit %> -->
 
 <% end %>

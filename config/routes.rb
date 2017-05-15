@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :planifications do 
   	resources :lectures
+  	get :add_lecture, on: :collection
   end
 
   root 'home#index'

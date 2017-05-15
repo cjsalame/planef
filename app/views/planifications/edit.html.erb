@@ -15,11 +15,3 @@ Tienes
 
 <%= link_to 'Show', @planification %> |
 <%= link_to 'Back', planifications_path %>
-
-<div>
-<script type="text/javascript">
-  $("#lecture-button").click(function () {
-     $("#lecture-form").append("<%= escape_javascript(" #{render partial: 'lectures/form', locals: {f: @builder, planification: @planification} }").html_safe %> <% @planification.lectures.build %>");
-  });
-</script>
-</div>

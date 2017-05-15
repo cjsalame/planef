@@ -10870,3 +10870,873 @@ Processing by PlanificationsController#edit as HTML
 Completed 200 OK in 4334ms (Views: 4070.1ms | ActiveRecord: 4.8ms)
 
 
+Started GET "/planifications/" for 127.0.0.1 at 2017-05-14 21:42:27 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.7ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (163.7ms)
+Completed 200 OK in 5239ms (Views: 5194.3ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/planifications/23" for 127.0.0.1 at 2017-05-14 21:42:46 -0400
+Processing by PlanificationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y476ZgMoVgcqj23UOMaEI+JkRXaBiP01FcD1b2d8flihOXAC7GWu2s5O2qaShLF43tz4q41y0hwhrZxXXE9HLA==", "id"=>"23"}
+  [1m[36mPlanification Load (0.7ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (84.2ms)[0m  [1m[31mDELETE FROM "planifications" WHERE "planifications"."id" = ?[0m  [["id", 23]]
+  [1m[35m (451.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications
+Completed 302 Found in 618ms (ActiveRecord: 536.7ms)
+
+
+Started GET "/planifications" for 127.0.0.1 at 2017-05-14 21:42:47 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.8ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 142ms (Views: 137.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/planifications/22" for 127.0.0.1 at 2017-05-14 21:42:53 -0400
+Processing by PlanificationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tRBJaZk8S7ksEVs6gdo8TyV9Q2GkFpzyCBXJGrN0t4R3p8MNdnGzZMjQ7EgrmAkUGcX+vKjss9s8eKAiiEeO8A==", "id"=>"22"}
+  [1m[36mPlanification Load (0.5ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "planifications" WHERE "planifications"."id" = ?[0m  [["id", 22]]
+  [1m[35m (384.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications
+Completed 302 Found in 398ms (ActiveRecord: 385.9ms)
+
+
+Started GET "/planifications" for 127.0.0.1 at 2017-05-14 21:42:53 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.7ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 166ms (Views: 159.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-14 21:42:59 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (1288.6ms) [cache miss]
+  Rendered lectures/_form.html.erb (674.6ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (2004.0ms)
+Completed 200 OK in 2182ms (Views: 2172.0ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-14 21:43:24 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SJ86pY5LIs8Zz0yWdSrBqtZbTPw2+Fn3ccf4TU9d6hTL4uiDGEOuMYuDNRyEpiP1jAYGHnKWYy11NXteRPaS1A==", "planification"=>{"name"=>"Plan X", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"0"=>{"objectives"=>"PPP", "starting"=>"PPP", "developing"=>"PP", "finalizing"=>"PP", "content"=>"PP", "resources"=>"PP", "duration"=>"PP", "evaluation"=>"PP"}}}, "commit"=>"Create Planification"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "planifications" ("name", "date", "rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Plan X"], ["date", "2017-05-15"], ["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 01:43:24.356378"], ["updated_at", "2017-05-15 01:43:24.356378"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "PPP"], ["starting", "PPP"], ["developing", "PP"], ["finalizing", "PP"], ["content", "PP"], ["resources", "PP"], ["duration", "PP"], ["evaluation", "PP"], ["planification_id", 24], ["created_at", "2017-05-15 01:43:24.363892"], ["updated_at", "2017-05-15 01:43:24.363892"]]
+  [1m[35m (435.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/24/edit
+Completed 302 Found in 470ms (ActiveRecord: 438.0ms)
+
+
+Started GET "/planifications/24/edit" for 127.0.0.1 at 2017-05-14 21:43:24 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.7ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 24]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (23.4ms) [cache miss]
+  Rendered lectures/_form.html.erb (32.3ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 291ms (Views: 237.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/planifications/24/" for 127.0.0.1 at 2017-05-14 21:43:41 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 24]]
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-14 21:44:39 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (25.6ms) [cache miss]
+  Rendered lectures/_form.html.erb (3.0ms)
+  Rendered planifications/new.html.erb within layouts/application (34.7ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jorge/Dropbox/A PUC/2017-1/DdSw/Proyecto/planef/app/views/lectures/_form.html.erb:3: syntax error, unexpected keyword_do_block, expecting =>
+...planification.lectures.build do |g| @output_buffer.safe_appe...
+...                               ^
+/home/jorge/Dropbox/A PUC/2017-1/DdSw/Proyecto/planef/app/views/lectures/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/lectures/_form.html.erb:3: syntax error, unexpected keyword_do_block, expecting =>
+app/views/lectures/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/planifications/new.html.erb:10:in `_app_views_planifications_new_html_erb__2476824440629467317_70059188437920'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-14 22:02:25 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (72.6ms) [cache miss]
+  Rendered lectures/_form.html.erb (2.5ms)
+  Rendered planifications/new.html.erb within layouts/application (143.3ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jorge/Dropbox/A PUC/2017-1/DdSw/Proyecto/planef/app/views/lectures/_form.html.erb:3: syntax error, unexpected keyword_do_block
+... child_index: Time.now.to_i, do |g| @output_buffer.safe_appe...
+...                               ^
+/home/jorge/Dropbox/A PUC/2017-1/DdSw/Proyecto/planef/app/views/lectures/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/lectures/_form.html.erb:3: syntax error, unexpected keyword_do_block
+app/views/lectures/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/planifications/new.html.erb:10:in `_app_views_planifications_new_html_erb__2476824440629467317_70059073529800'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-14 22:02:47 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (24.8ms) [cache miss]
+  Rendered lectures/_form.html.erb (34.7ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (82.3ms)
+Completed 200 OK in 846ms (Views: 841.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-14 22:03:19 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"khPtnglk0fXfWFONB2+3hRBmUt+VzwpDdo4EcOcZZVJQpGf65ikpKDuZ5P+tLYLeLN7vApk1JWpC421I3CpcJg==", "planification"=>{"name"=>"Plan Test", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494813768"=>{"objectives"=>"B", "starting"=>"B", "developing"=>"B", "finalizing"=>"B", "content"=>"B", "resources"=>"B", "duration"=>"B", "evaluation"=>"B"}}}, "commit"=>"Create Planification"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (284.2ms)[0m  [1m[32mINSERT INTO "planifications" ("name", "date", "rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Plan Test"], ["date", "2017-05-15"], ["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 02:03:19.827133"], ["updated_at", "2017-05-15 02:03:19.827133"]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "B"], ["starting", "B"], ["developing", "B"], ["finalizing", "B"], ["content", "B"], ["resources", "B"], ["duration", "B"], ["evaluation", "B"], ["planification_id", 25], ["created_at", "2017-05-15 02:03:20.154817"], ["updated_at", "2017-05-15 02:03:20.154817"]]
+  [1m[35m (506.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/25/edit
+Completed 302 Found in 857ms (ActiveRecord: 792.1ms)
+
+
+Started GET "/planifications/25/edit" for 127.0.0.1 at 2017-05-14 22:03:20 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.5ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 25]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (28.5ms) [cache miss]
+  Rendered lectures/_form.html.erb (31.5ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (70.2ms)
+Completed 200 OK in 290ms (Views: 220.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/planifications" for 127.0.0.1 at 2017-05-15 00:33:08 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (3.5ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (581.4ms)
+Completed 500 Internal Server Error in 4794ms (ActiveRecord: 55.9ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:10:26: missing )):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body>
+  
+(execjs):7545:14
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___192021490072561854_70059073706740'
+Started GET "/planifications" for 127.0.0.1 at 2017-05-15 00:37:45 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.6ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (18.1ms)
+Completed 500 Internal Server Error in 391ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:10:26: missing )):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body>
+  
+(execjs):7545:14
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___192021490072561854_70059171569760'
+Started GET "/planifications" for 127.0.0.1 at 2017-05-15 00:44:52 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.6ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 992ms (Views: 988.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 00:45:05 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered lectures/_form.html.erb (43.0ms) [cache miss]
+  Rendered planifications/_form.html.erb (1199.6ms)
+  Rendered planifications/new.html.erb within layouts/application (1203.2ms)
+Completed 500 Internal Server Error in 1212ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `add_field_planification_path' for #<#<Class:0x007f6fcc681968>:0x007f6fcc8bd718>):
+    37: <!-- Los campos de la clase -->
+    38:   
+    39:   <%= render partial: 'lectures/form', locals: {f: f, child_index: Time.now.to_i} %>
+    40:   <%= link_to "Añadir Campos", add_field_planification_path, id: "add_tree" %>
+    41: 
+    42:   <div id="lecture-form">
+    43: 
+  
+app/views/planifications/_form.html.erb:40:in `block in _app_views_planifications__form_html_erb___4649999735107561_70059074612560'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb___4649999735107561_70059074612560'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__2476824440629467317_70059074908480'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 00:48:21 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered lectures/_form.html.erb (3.0ms) [cache miss]
+  Rendered planifications/_form.html.erb (35.0ms)
+  Rendered planifications/new.html.erb within layouts/application (38.6ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_field", :controller=>"planifications", :id=>"add_tree"}):
+    37: <!-- Los campos de la clase -->
+    38:   
+    39:   <%= render partial: 'lectures/form', locals: {f: f, child_index: Time.now.to_i} %>
+    40:   <%= link_to "Añadir Campos", controller: "planifications", action: "add_field", id: "add_tree" %>
+    41: 
+    42:   <div id="lecture-form">
+    43: 
+  
+app/views/planifications/_form.html.erb:40:in `block in _app_views_planifications__form_html_erb___4649999735107561_52506900'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb___4649999735107561_52506900'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__2476824440629467317_52321780'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 00:49:32 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered lectures/_form.html.erb (10.4ms) [cache miss]
+  Rendered planifications/_form.html.erb (33.2ms) [cache miss]
+  Rendered lectures/_form.html.erb (904.6ms)
+  Rendered planifications/new.html.erb within layouts/application (942.7ms)
+Completed 500 Internal Server Error in 982ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `child_index' for #<#<Class:0x007f6fccded670>:0x007f6fd087b580>):
+    1: <!-- FALTA OBJETIVOS DE APRENDIZAJE -->
+    2: <!-- PONERLOS COMO SEEDS -->
+    3: <%= f.simple_fields_for :lectures, child_index: child_index do |g| %>
+    4: 
+    5:   <%= g.input :objectives, label: "Objetivos" %>
+    6:   <%= g.input :starting, label: "Inicio" %>
+  
+app/views/lectures/_form.html.erb:3:in `_app_views_lectures__form_html_erb__322594101844166033_70059075278440'
+app/views/planifications/new.html.erb:10:in `_app_views_planifications_new_html_erb__2476824440629467317_70059077627780'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 00:51:14 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered lectures/_form.html.erb (2.1ms) [cache miss]
+  Rendered planifications/_form.html.erb (22.9ms) [cache miss]
+  Rendered lectures/_form.html.erb (1.8ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 150ms (Views: 146.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_field?id=add_tree" for 127.0.0.1 at 2017-05-15 00:51:23 -0400
+Processing by PlanificationsController#add_field as HTML
+  Parameters: {"id"=>"add_tree"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (27.2ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (32.2ms)
+Completed 200 OK in 86ms (Views: 36.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/planifications/add_field?id=add_tree" for 127.0.0.1 at 2017-05-15 00:51:23 -0400
+Processing by PlanificationsController#add_field as HTML
+  Parameters: {"id"=>"add_tree"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (19.0ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (23.6ms)
+Completed 200 OK in 32ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 00:52:53 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered lectures/_form.html.erb (2.4ms) [cache miss]
+  Rendered planifications/_form.html.erb (28.4ms) [cache miss]
+  Rendered lectures/_form.html.erb (2.0ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 180ms (Views: 176.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (41.1ms)[0m  [1m[32mINSERT INTO "planifications" ("rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 15:09:45.374773"], ["updated_at", "2017-05-15 15:09:45.374773"]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "lectures" ("planification_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["planification_id", 26], ["created_at", "2017-05-15 15:09:45.421536"], ["updated_at", "2017-05-15 15:09:45.421536"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lectures" ("planification_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["planification_id", 26], ["created_at", "2017-05-15 15:09:45.426042"], ["updated_at", "2017-05-15 15:09:45.426042"]]
+  [1m[35m (197.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:16:55 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (694.0ms)
+  Rendered planifications/new.html.erb within layouts/application (713.5ms)
+Completed 500 Internal Server Error in 816ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_field", :controller=>"planifications"}):
+    36: <% @builder = f %>
+    37: <!-- Los campos de la clase -->
+    38:   <button id="lecture-button" type="button">Agregar Clase</button>
+    39:   <%= link_to "Añadir Campo", :action => "add_field" %>
+    40: 
+    41:   <div id="lecture-form">
+    42: 
+  
+app/views/planifications/_form.html.erb:39:in `block in _app_views_planifications__form_html_erb___1720000762036959265_43340600'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb___1720000762036959265_43340600'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb___55858466708676896_43449440'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:38:16 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (29.7ms)
+  Rendered planifications/new.html.erb within layouts/application (32.8ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_field", :controller=>"planifications", :id=>"add_lecture_link"}):
+    36: <% @builder = f %>
+    37: <!-- Los campos de la clase -->
+    38:   <button id="lecture-button" type="button">Agregar Clase</button>
+    39:   <%= link_to "Añadir Campos Para Nueva Clase", :action => "add_field", id: "add_lecture_link" %>
+    40:   <div id="lecture-form">
+    41: 
+    42: 
+  
+app/views/planifications/_form.html.erb:39:in `block in _app_views_planifications__form_html_erb___1720000762036959265_70034174721840'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb___1720000762036959265_70034174721840'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb___55858466708676896_28103120'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:38:54 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (22.7ms)
+  Rendered planifications/new.html.erb within layouts/application (29.6ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"add_lecture", :controller=>"planifications", :id=>"add_lecture_link"}):
+    36: <% @builder = f %>
+    37: <!-- Los campos de la clase -->
+    38:   <button id="lecture-button" type="button">Agregar Clase</button>
+    39:   <%= link_to "Añadir Campos Para Nueva Clase", :action => "add_lecture", id: "add_lecture_link" %>
+    40:   <div id="lecture-form">
+    41: 
+    42: 
+  
+app/views/planifications/_form.html.erb:39:in `block in _app_views_planifications__form_html_erb___1720000762036959265_42631540'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb___1720000762036959265_42631540'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb___55858466708676896_42681020'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:39:53 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (29.8ms) [cache miss]
+  Rendered lectures/_form.html.erb (95.2ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (159.1ms)
+Completed 200 OK in 4209ms (Views: 4166.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/planifications/add_lecture?id=add_lecture_link" for 127.0.0.1 at 2017-05-15 11:40:01 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Parameters: {"id"=>"add_lecture_link"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (169.6ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (175.5ms)
+Completed 200 OK in 409ms (Views: 240.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/planifications/add_lecture?id=add_lecture_link" for 127.0.0.1 at 2017-05-15 11:40:01 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Parameters: {"id"=>"add_lecture_link"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (30.7ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (58.4ms)
+Completed 200 OK in 71ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:40:39 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (35.6ms) [cache miss]
+  Rendered lectures/_form.html.erb (3.3ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 343ms (Views: 338.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture?id=add_lecture_link" for 127.0.0.1 at 2017-05-15 11:40:44 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Parameters: {"id"=>"add_lecture_link"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (34.8ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (39.7ms)
+Completed 200 OK in 50ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture?id=add_lecture_link" for 127.0.0.1 at 2017-05-15 11:40:44 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Parameters: {"id"=>"add_lecture_link"}
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (34.7ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (41.8ms)
+Completed 200 OK in 51ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:41:10 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (31.0ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (35.9ms)
+Completed 200 OK in 49ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:41:12 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (34.0ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (39.5ms)
+Completed 200 OK in 49ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture" for 127.0.0.1 at 2017-05-15 11:41:18 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (34.6ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (46.0ms)
+Completed 200 OK in 63ms (Views: 56.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture" for 127.0.0.1 at 2017-05-15 11:41:22 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (27.6ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (33.2ms)
+Completed 200 OK in 42ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/" for 127.0.0.1 at 2017-05-15 11:45:40 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.6ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (150.2ms)
+Completed 200 OK in 437ms (Views: 422.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:45:43 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (19.0ms) [cache miss]
+  Rendered lectures/_form.html.erb (2.3ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 134ms (Views: 122.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:45:48 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (17.6ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (21.4ms)
+Completed 200 OK in 28ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:45:52 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (18.1ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (22.0ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-15 11:46:03 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lBOO9Z81Oxks6FeMObrOI97TnVQDf6iygucO6a1fxOIXblzTCT23576kLgbINix8hI7XtkcRkmiGFY36pvS8Ig==", "planification"=>{"name"=>"ASDADSADS", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494863148"=>{"objectives"=>"lkj", "starting"=>"lkj", "developing"=>"lkj", "finalizing"=>"lkj", "content"=>"lkj", "resources"=>"lkj", "duration"=>"lkj", "evaluation"=>"lkj"}, "1494863152"=>{"objectives"=>"lkj", "starting"=>"poi", "developing"=>"poi", "finalizing"=>"poi", "content"=>"po", "resources"=>"ipo", "duration"=>"poi", "evaluation"=>"poi"}}}, "commit"=>"Create Planification"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (152.9ms)[0m  [1m[32mINSERT INTO "planifications" ("name", "date", "rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "ASDADSADS"], ["date", "2017-05-15"], ["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 15:46:03.440304"], ["updated_at", "2017-05-15 15:46:03.440304"]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "lkj"], ["starting", "lkj"], ["developing", "lkj"], ["finalizing", "lkj"], ["content", "lkj"], ["resources", "lkj"], ["duration", "lkj"], ["evaluation", "lkj"], ["planification_id", 27], ["created_at", "2017-05-15 15:46:03.597818"], ["updated_at", "2017-05-15 15:46:03.597818"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "lkj"], ["starting", "poi"], ["developing", "poi"], ["finalizing", "poi"], ["content", "po"], ["resources", "ipo"], ["duration", "poi"], ["evaluation", "poi"], ["planification_id", 27], ["created_at", "2017-05-15 15:46:03.602929"], ["updated_at", "2017-05-15 15:46:03.602929"]]
+  [1m[35m (404.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/27/edit
+Completed 302 Found in 596ms (ActiveRecord: 559.3ms)
+
+
+Started GET "/planifications/27/edit" for 127.0.0.1 at 2017-05-15 11:46:04 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mPlanification Load (0.8ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.7ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 27]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (18.6ms) [cache miss]
+  Rendered lectures/_form.html.erb (717.8ms)
+  Rendered planifications/edit.html.erb within layouts/application (742.2ms)
+Completed 500 Internal Server Error in 847ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `index' for #<#<Class:0x007f643415e038>:0x007f643801b578>):
+    1: <!-- FALTA OBJETIVOS DE APRENDIZAJE -->
+    2: <!-- PONERLOS COMO SEEDS -->
+    3: <%= f.simple_fields_for :lectures, child_index: index do |g| %>
+    4: 
+    5:   <%= g.input :objectives, label: "Objetivos" %>
+    6:   <%= g.input :starting, label: "Inicio" %>
+  
+app/views/lectures/_form.html.erb:3:in `_app_views_lectures__form_html_erb__3339144054089263837_70034145112420'
+app/views/planifications/edit.html.erb:22:in `_app_views_planifications_edit_html_erb___3029080584229057306_70034206547920'
+Started GET "/planifications/" for 127.0.0.1 at 2017-05-15 11:47:05 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.6ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 173ms (Views: 169.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:47:07 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (18.1ms) [cache miss]
+  Rendered lectures/_form.html.erb (2.3ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 147ms (Views: 144.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:47:10 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (20.6ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (25.0ms)
+Completed 200 OK in 32ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:47:11 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (19.0ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (23.3ms)
+Completed 200 OK in 31ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-15 11:47:20 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E2yonThG5Nm8JyE2Dh3J1geLYSXS69++7W4CR5ueVR2QEXq7rk5oJy5rWLz/kSuJXdYrx5aF5WTpnIFUkDUt3Q==", "planification"=>{"name"=>"oij", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494863230"=>{"objectives"=>"oij", "starting"=>"oij", "developing"=>"oij", "finalizing"=>"oij", "content"=>"oij", "resources"=>"oi", "duration"=>"joi", "evaluation"=>"joij"}, "1494863231"=>{"objectives"=>"oiu", "starting"=>"oiu", "developing"=>"oiu", "finalizing"=>"oiu", "content"=>"oiu", "resources"=>"oiu", "duration"=>"oiu", "evaluation"=>"oiu"}}}, "commit"=>"Create Planification"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "planifications" ("name", "date", "rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "oij"], ["date", "2017-05-15"], ["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 15:47:20.523693"], ["updated_at", "2017-05-15 15:47:20.523693"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "oij"], ["starting", "oij"], ["developing", "oij"], ["finalizing", "oij"], ["content", "oij"], ["resources", "oi"], ["duration", "joi"], ["evaluation", "joij"], ["planification_id", 28], ["created_at", "2017-05-15 15:47:20.530788"], ["updated_at", "2017-05-15 15:47:20.530788"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "oiu"], ["starting", "oiu"], ["developing", "oiu"], ["finalizing", "oiu"], ["content", "oiu"], ["resources", "oiu"], ["duration", "oiu"], ["evaluation", "oiu"], ["planification_id", 28], ["created_at", "2017-05-15 15:47:20.535496"], ["updated_at", "2017-05-15 15:47:20.535496"]]
+  [1m[35m (382.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/28/edit
+Completed 302 Found in 413ms (ActiveRecord: 384.5ms)
+
+
+Started GET "/planifications/28/edit" for 127.0.0.1 at 2017-05-15 11:47:20 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 28]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (17.2ms) [cache miss]
+  Rendered lectures/_form.html.erb (182.4ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (208.0ms)
+Completed 200 OK in 307ms (Views: 297.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/planifications" for 127.0.0.1 at 2017-05-15 11:47:24 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.7ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 118ms (Views: 114.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/28" for 127.0.0.1 at 2017-05-15 11:47:26 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 28]]
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/28" for 127.0.0.1 at 2017-05-15 11:47:26 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.3ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 28]]
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planifications/" for 127.0.0.1 at 2017-05-15 11:56:41 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (24.1ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (143.1ms)
+Completed 200 OK in 1326ms (Views: 1197.4ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-15 11:56:45 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (196.5ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (201.4ms)
+Completed 200 OK in 410ms (Views: 406.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:56:50 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (23.3ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (28.3ms)
+Completed 200 OK in 53ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:56:56 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (19.3ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (23.8ms)
+Completed 200 OK in 32ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-15 11:57:02 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yfrxo92DOG8Nx5nR9VcKvddUJqZgS2AIlWzWiwn/t0nihyOFS4u0kZ+L4FsE2+jijQlsRCQlWtKRnlWYAlTPiQ==", "planification"=>{"name"=>"Plan Exitosa", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494863810"=>{"objectives"=>"A", "starting"=>"A", "developing"=>"A", "finalizing"=>"A", "content"=>"A", "resources"=>"A", "duration"=>"A", "evaluation"=>"A"}, "1494863816"=>{"objectives"=>"B", "starting"=>"B", "developing"=>"B", "finalizing"=>"B", "content"=>"B", "resources"=>"B", "duration"=>"B", "evaluation"=>"B"}}}, "commit"=>"Create Planification"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (83.5ms)[0m  [1m[32mINSERT INTO "planifications" ("name", "date", "rating", "downloads", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Plan Exitosa"], ["date", "2017-05-15"], ["rating", 0], ["downloads", 0], ["created_at", "2017-05-15 15:57:02.281168"], ["updated_at", "2017-05-15 15:57:02.281168"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "A"], ["starting", "A"], ["developing", "A"], ["finalizing", "A"], ["content", "A"], ["resources", "A"], ["duration", "A"], ["evaluation", "A"], ["planification_id", 29], ["created_at", "2017-05-15 15:57:02.369555"], ["updated_at", "2017-05-15 15:57:02.369555"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "B"], ["starting", "B"], ["developing", "B"], ["finalizing", "B"], ["content", "B"], ["resources", "B"], ["duration", "B"], ["evaluation", "B"], ["planification_id", 29], ["created_at", "2017-05-15 15:57:02.374558"], ["updated_at", "2017-05-15 15:57:02.374558"]]
+  [1m[35m (168.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/29/edit
+Completed 302 Found in 283ms (ActiveRecord: 252.8ms)
+
+
+Started GET "/planifications/29/edit" for 127.0.0.1 at 2017-05-15 11:57:02 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (22.5ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 162ms (Views: 150.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 11:57:05 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 11:57:05 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/29/edit" for 127.0.0.1 at 2017-05-15 11:57:27 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.5ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.5ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (24.5ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 190ms (Views: 179.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:57:31 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (19.7ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (24.0ms)
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 11:57:37 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (22.9ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (27.6ms)
+Completed 200 OK in 36ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/planifications/29" for 127.0.0.1 at 2017-05-15 11:57:44 -0400
+Processing by PlanificationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vF5HZFYd3Xtf5wmvVp17aa/HyPDJT8ng35y4OI5jjAk/I5VCwBVRhc2rcCWnEZk29ZqCEo0h8zrbbjsrhcj0yQ==", "planification"=>{"name"=>"Plan Exitosa", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494863851"=>{"objectives"=>"C", "starting"=>"C", "developing"=>"C", "finalizing"=>"C", "content"=>"C", "resources"=>"C", "duration"=>"C", "evaluation"=>"C"}, "1494863857"=>{"objectives"=>"D", "starting"=>"D", "developing"=>"D", "finalizing"=>"D", "content"=>"D", "resources"=>"D", "duration"=>"D", "evaluation"=>"D"}}}, "commit"=>"Update Planification", "id"=>"29"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.0) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.0) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+/home/jorge/.rvm/gems/ruby-2.3.0/bundler/gems/devise-931ae3985872/lib/devise/controllers/helpers.rb:253:in `handle_unverified_request'
+actionpack (5.1.0) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.0) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.0) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.0) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.0) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.0) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.0) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.0) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.0) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.0) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.0) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.0) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.0) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.0) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.0) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.0) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.0) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.0) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.0) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.0) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.0) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.0) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.0) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.0) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.0) lib/action_dispatch/routing/route_set.rb:832:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.0) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.0) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.0) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.0) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 12:12:46 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.5ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (1.0ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 521ms (Views: 0.7ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/planifications/" for 127.0.0.1 at 2017-05-15 12:12:51 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.6ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 1750ms (Views: 1699.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planifications/29/edit" for 127.0.0.1 at 2017-05-15 12:12:58 -0400
+Processing by PlanificationsController#edit as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+  Rendering planifications/edit.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (21.8ms) [cache miss]
+  Rendered planifications/edit.html.erb within layouts/application (70.7ms)
+Completed 200 OK in 362ms (Views: 287.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 12:13:00 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (40.4ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (66.8ms)
+Completed 200 OK in 94ms (Views: 87.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planifications/add_lecture.html" for 127.0.0.1 at 2017-05-15 12:13:09 -0400
+Processing by PlanificationsController#add_lecture as HTML
+  Rendering planifications/add_lecture.html.erb
+  Rendered lectures/_form.html.erb (19.0ms) [cache miss]
+  Rendered planifications/add_lecture.html.erb (23.9ms)
+Completed 200 OK in 33ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/planifications/29" for 127.0.0.1 at 2017-05-15 12:13:16 -0400
+Processing by PlanificationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tFS2BgG0rda/C7eYuSymofPrp9Q+5qyRqePJNz4VzuQ3KWQgl7whKC1HzhJIoET+qbbtNnqIlkutEUokNb62JA==", "planification"=>{"name"=>"Plan Exitosa", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"15", "lectures_attributes"=>{"1494864781"=>{"objectives"=>"C", "starting"=>"C", "developing"=>"C", "finalizing"=>"C", "content"=>"C", "resources"=>"C", "duration"=>"C", "evaluation"=>"C"}, "1494864789"=>{"objectives"=>"D", "starting"=>"D", "developing"=>"D", "finalizing"=>"D", "content"=>"D", "resources"=>"D", "duration"=>"D", "evaluation"=>"D"}}}, "commit"=>"Update Planification", "id"=>"29"}
+Can't verify CSRF token authenticity.
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (24.8ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "C"], ["starting", "C"], ["developing", "C"], ["finalizing", "C"], ["content", "C"], ["resources", "C"], ["duration", "C"], ["evaluation", "C"], ["planification_id", 29], ["created_at", "2017-05-15 16:13:16.889953"], ["updated_at", "2017-05-15 16:13:16.889953"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lectures" ("objectives", "starting", "developing", "finalizing", "content", "resources", "duration", "evaluation", "planification_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["objectives", "D"], ["starting", "D"], ["developing", "D"], ["finalizing", "D"], ["content", "D"], ["resources", "D"], ["duration", "D"], ["evaluation", "D"], ["planification_id", 29], ["created_at", "2017-05-15 16:13:16.921782"], ["updated_at", "2017-05-15 16:13:16.921782"]]
+  [1m[35m (251.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/planifications/29
+Completed 302 Found in 316ms (ActiveRecord: 277.6ms)
+
+
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 12:13:17 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.4ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 54ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 15:35:10 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (0.7ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (152.9ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 2206ms (Views: 0.5ms | ActiveRecord: 247.3ms)
+
+
+Started GET "/planifications/29" for 127.0.0.1 at 2017-05-15 15:35:47 -0400
+Processing by PlanificationsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mPlanification Load (78.2ms)[0m  [1m[34mSELECT  "planifications".* FROM "planifications" WHERE "planifications"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mLecture Load (0.6ms)[0m  [1m[34mSELECT "lectures".* FROM "lectures" WHERE "lectures"."planification_id" = ?[0m  [["planification_id", 29]]
+Completed 200 OK in 3111ms (Views: 0.7ms | ActiveRecord: 142.5ms)
+
+
