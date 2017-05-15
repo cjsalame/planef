@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <!-- CAMPOS DE LA PLANIFICACIÓN PER SE -->
+  <!-- Los campos de la planificación -->
   <div class="field">
     <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
   </div>
@@ -21,29 +21,16 @@
     <%= f.input :date, label: "Fecha" %>
   </div>
 
-<!-- No los setea el usuario. Cambian automáticamete -->
-<!-- Dejados ahí para saber que estaban. Se borrarán luego -->
-<!--   <div class="field">
-    <%= f.label :rating %>
-    <%= f.text_field :rating, id: :planification_rating %>
-  </div>
 
-  <div class="field">
-    <%= f.label :downloads %>
-    <%= f.text_field :downloads, id: :planification_downloads %>
-  </div> -->
-
-<% @builder = f %>
-<!-- Los campos de la clase -->
+  <!-- Los campos de la clase -->
   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+
   <div id="lecture-form">
-
-
   </div>
 
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
 
+<% end %>

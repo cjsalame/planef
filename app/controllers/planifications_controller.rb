@@ -1,5 +1,5 @@
 class PlanificationsController < ApplicationController
-  before_action :set_planification, only: [:show, :edit, :update, :destroy, :add_lecture_edit]
+  before_action :set_planification, only: [:show, :edit, :update, :destroy]
 
   def add_lecture
     @planification = Planification.new
