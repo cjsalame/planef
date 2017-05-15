@@ -20,9 +20,12 @@ class PlanificationsController < ApplicationController
     # Luego:
     # + Mostrar además los campos no propios a la planificación (school.{name, address, corporation}, user.{name, lastname}, etc) 
     # + Generar documento "imprimible" (.doc?, .pdf?) a partir de este documento JSON
-    render json: JSON.pretty_generate(JSON.parse(
-      @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id] ) 
-    ))
+    render json: JSON.pretty_generate(
+      JSON.parse(
+        JSON.parse( @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id]) )
+            .merge(school_name: "Liceo_420", sostenedor: "Snoop Dogg").to_json
+      )
+    )
   end
 
   # GET /planifications/new
@@ -87,7 +90,7 @@ class PlanificationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def planification_params
       params.require(:planification).permit(:name, :date, :rating, :downloads, 
-        lectures_attributes: [ :lectures, :objectives, :starting, :developing,
+        lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
       :finalizing, :content, :resources, :duration, :evaluation ])
     end
 end

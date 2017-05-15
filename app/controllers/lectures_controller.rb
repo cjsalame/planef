@@ -6,7 +6,15 @@ class LecturesController < ApplicationController
     redirect_to planification_path(@planification)
   end
 
-  # TODO: edit, destroy
+  def destroy
+  	@planification = Planification.find(params[:planification_id])
+  	@lecture = @planification.lectures.find(params[:id])
+  	@lecture.destroy
+  	redirect_to edit_planification_path(@planification)
+  end
+
+  # TODO: edit
+  # Not even necessary LUL. Borrar este comment.
  
   private
 

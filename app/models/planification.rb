@@ -1,5 +1,5 @@
 class Planification < ApplicationRecord
-	has_many :lectures
+	has_many :lectures, dependent: :destroy
 	accepts_nested_attributes_for :lectures
 	after_initialize :set_defaults, unless: :persisted?
 
