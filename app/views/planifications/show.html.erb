@@ -1,52 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <h2>
-  <strong>Título:</strong>
-  <%= @planification.name %>
+  <strong><%= @planification.name %></strong>
 </h2>
 
 <p>
-  <strong>Fecha:</strong>
   <%= @planification.date %>
 </p>
 
+<table border="1">
+	<tr>
+		<th><strong>Objetivos</strong></th>
+		<th><strong>Inicio</strong></th>
+		<th><strong>Desarrollo</strong></th>
+		<th><strong>Cierre</strong></th>
+		<th><strong>Contenidos</strong></th>
+		<th><strong>Recursos</strong></th>
+		<th><strong>Tiempo</strong></th>
+		<th><strong>Indicador de Evaluación</strong></th>
+
+	</tr>
+
+
+
 <% @planification.lectures.each do |lecture| %>
-	<p>	
-		<strong>Objetivos:</strong>
-		<%= lecture.objectives %>
-	</p>
-	<p>	
-		<strong>Inicio:</strong>
-		<%= lecture.starting %>
-	</p>
-	<p>	
-		<strong>Desarrollo:</strong>
-		<%= lecture.developing %>
-	</p>
-	<p>	
-		<strong>Cierre:</strong>
-		<%= lecture.finalizing %>
-	</p>
-	<p>	
-		<strong>Contenidos:</strong>
-		<%= lecture.content %>
-	</p>
-	<p>	
-		<strong>Recursos:</strong>
-		<%= lecture.resources %>
-	</p>
-	<p>	
-		<strong>Tiempo:</strong>
-		<%= lecture.duration %>
-	</p>
-	<p>	
-		<strong>Indicador de Evaluación:</strong>
-		<%= lecture.evaluation %>
-	</p>
+	<tr>	
+		<td><%= lecture.objectives %></td>
+		<td><%= lecture.starting %></td>
+		<td><%= lecture.developing %>	</td>
+		<td><%= lecture.finalizing %></td>
+		<td><%= lecture.content %></td>
+		<td><%= lecture.resources %></td>
+		<td><%= lecture.duration %></td>
+		<td><%= lecture.evaluation %></td>
+	</tr>
+
 <% end %>
 
-<p>
-</p>
+
+</table>
+
 
 <%= link_to 'Edit', edit_planification_path(@planification) %> |
 <%= link_to 'Back', planifications_path %>

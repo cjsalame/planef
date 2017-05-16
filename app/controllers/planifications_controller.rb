@@ -20,12 +20,20 @@ class PlanificationsController < ApplicationController
     # Luego:
     # + Mostrar además los campos no propios a la planificación (school.{name, address, corporation}, user.{name, lastname}, etc) 
     # + Generar documento "imprimible" (.doc?, .pdf?) a partir de este documento JSON
-    render json: JSON.pretty_generate(
-      JSON.parse(
-        JSON.parse( @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id]) )
-            .merge(school_name: "Liceo_420", sostenedor: "Snoop Dogg").to_json
-      )
-    )
+
+    respond_to do |format| 
+      format.json {
+        render json: JSON.pretty_generate(
+              JSON.parse(
+                JSON.parse( @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id]) )
+                    .merge(school_name: "Liceo_420", sostenedor: "Snoop Dogg").to_json
+                        )
+        )
+      }
+
+      format.html { render :show }
+    end
+
   end
 
   # GET /planifications/new
