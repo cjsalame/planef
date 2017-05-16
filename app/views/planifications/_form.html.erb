@@ -21,6 +21,8 @@
     <%= f.input :date, label: "Fecha" %>
   </div>
 
+  <%= f.hidden_field :grades_subjects_teacher_id %>
+  <%= f.hidden_field :grades_subjects_teacher_id, value: grades_subjects_teacher.id %>
 
   <!-- Los campos de la clase -->
   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>

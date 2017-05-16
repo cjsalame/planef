@@ -20,7 +20,9 @@
           <ul>
             <p> Cursos </p>
             <% @user.subjects_teachers.find_by(subject_id: subject.id).grades.each do |grade| %>
-              <li> <%= grade.name %></li>
+              <li>
+                <%= link_to grade.name, grades_subjects_teacher_path(GradesSubjectsTeacher.find_by(subjects_teacher_id: SubjectsTeacher.find_by(subject_id: subject.id, user_id: user.id).id, grade_id: grade.id)) %>
+              </li>
             <% end %>
             <%= render partial: '/grades_subjects_teachers/form', locals: {user: @user, subject: subject} %>
           </ul>

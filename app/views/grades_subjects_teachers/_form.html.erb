@@ -1,13 +1,11 @@
 <%= form_for @grades_subjects_teacher = GradesSubjectsTeacher.new do |form| %>
 
   <div class="field">
-    <%= form.label :grade_id, 'Agregar Nuevo Curso' %>
-    <%= form.select :grade_id, ["Selecciona un Curso..."] | Grade.all.map { |g| [g.name, "#{g.id}"] } %>
+    <%= form.hidden_field :grade_id %>
+    <%= form.select :grade_id, ["Agrega Nuevo Curso..."] | Grade.all.map { |g| [g.name, "#{g.id}"] } %>
     <%= form.hidden_field :subjects_teacher_id %>
     <%= form.hidden_field :subjects_teacher_id, value: SubjectsTeacher.find_by(subject_id: subject.id, user_id: user.id).id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit%>
+    <%= form.submit 'Agregar'%>
   </div>
 <% end %>

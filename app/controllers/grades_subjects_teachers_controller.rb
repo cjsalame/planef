@@ -1,5 +1,10 @@
 class GradesSubjectsTeachersController < ApplicationController
-  def show; end
+  def show
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:id])
+    @grade = @grades_subjects_teacher.grade
+    @user = @grades_subjects_teacher.subjects_teacher.user
+    @subject = @grades_subjects_teacher.subjects_teacher.subject
+  end
 
   def new
     @grades_subjects_teacher = GradesSubjectsTeacher.new

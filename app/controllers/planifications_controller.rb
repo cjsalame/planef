@@ -1,10 +1,11 @@
+# PlanificationsController
 class PlanificationsController < ApplicationController
   before_action :set_planification, only: [:show, :edit, :update, :destroy]
 
   def add_lecture
     @planification = Planification.new
     @planification.lectures.build
-    render "add_lecture", layout: false
+    render 'add_lecture', layout: false
   end
 
   # GET /planifications
@@ -18,18 +19,19 @@ class PlanificationsController < ApplicationController
   def show
     # En vez de renderizar HTML para las vistas del show, renderiza pretty JSON.
     # Luego:
-    # + Mostrar además los campos no propios a la planificación (school.{name, address, corporation}, user.{name, lastname}, etc) 
-    # + Generar documento "imprimible" (.doc?, .pdf?) a partir de este documento JSON
-
-    respond_to do |format| 
-      format.json {
+    # + Mostrar además los campos no propios a la planificación (school.{name,
+    # address, corporation}, user.{name, lastname}, etc)
+    # + Generar documento 'imprimible' (.doc?, .pdf?) a partir de este
+    # documento JSON
+    respond_to do |format|
+      format.json do
         render json: JSON.pretty_generate(
               JSON.parse(
-                JSON.parse( @planification.to_json(include: {lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id]) )
-                    .merge(school_name: "Liceo_420", sostenedor: "Snoop Dogg").to_json
-                        )
+                JSON.parse(@planification.to_json(include: { lectures: {except: [:expected_learning_id, :created_at, :updated_at]} }, except: [:lecture_id]) )
+                    .merge(school_name: 'Liceo_420', sostenedor: 'Snoop Dogg').to_json
+                    )
         )
-      }
+      end
 
       format.html { render :show }
     end
@@ -52,7 +54,8 @@ class PlanificationsController < ApplicationController
   # POST /planifications
   # POST /planifications.json
   def create
-    @planification = Planification.new(planification_params)
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+    @planification = @grades_subjects_teacher.planifications.build(planification_params)
 
     respond_to do |format|
       if @planification.save
@@ -97,8 +100,8 @@ class PlanificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planification_params
-      params.require(:planification).permit(:name, :date, :rating, :downloads, 
-        lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
+      params.require(:planification).permit(:name, :date, :rating, :downloads,
+      lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
       :finalizing, :content, :resources, :duration, :evaluation ])
     end
 end

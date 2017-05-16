@@ -1,0 +1,6 @@
+<h1> <%= @grade.name %> </h1>
+<h2> <%= @subject.name %> </h2>
+
+<% @grades_subjects_teacher.planifications.each do |p| %>
+  <p> <%= p.name %> </p>
+<% end %>
