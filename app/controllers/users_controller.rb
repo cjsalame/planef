@@ -30,14 +30,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def subscribe_subject
-    @user = User.find(params[:id])
-    subjectid = params[:subjectid]
-    if @user.subjects.exists?(subjectid)
-      redirect_to @user, notice: 'Usted ya agregó este curso en este colegio'
-    else
-      Subjects_User.create(subject_id: subjectid, user_id: @user.id)
-    end
-  end
+  # def subscribe_subject
+  #  @user = User.find(params[:id])
+  #  subjectid = params[:subjectid]
+  #  if @user.subjects.exists?(subjectid)
+  #    redirect_to @user, notice: 'Usted ya agregó este curso en este colegio'
+  #  else
+  #    Subjects_User.create(subject_id: subjectid, user_id: @user.id)
+  #  end
+  # end
 
 end

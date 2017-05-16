@@ -6,23 +6,28 @@
 
 <ul>
   <% @user.schools.each do |school| %>
-    <li> <%= school.name %> </li>
+    <li>
+      <%= school.name %>
+      <%= form_tag({controller: "users", action: "unsubschool"}, method: "delete") do |f| %>
+        <%= hidden_field_tag "schoolid", school.id %>
+        <%= submit_tag("Eliminar") %>
+      <% end %>
+    </li>
       <ul>
         <p>Asignaturas:</p>
         <% @user.subjects.where(school_id: school.id).find_each do |subject| %>
           <li> <%= subject.name %> </li>
           <ul>
-            <li>Cursos</li>
+            <p> Cursos </p>
+            <% @user.subjects_teachers.find_by(subject_id: subject.id).grades.each do |grade| %>
+              <li> <%= grade.name %></li>
+            <% end %>
+            <%= render partial: '/grades_subjects_teachers/form', locals: {user: @user, subject: subject} %>
           </ul>
         <% end %>
-        <li>
-          <%= render partial: '/subjects_teachers/form', locals: {school: school} %>
-        </li>
+        <%= render partial: '/subjects_teachers/form', locals: {school: school} %>
       </ul>
-      <%= form_tag({controller: "users", action: "unsubschool"}, method: "delete") do |f| %>
-        <%= hidden_field_tag "schoolid", school.id %>
-        <%= submit_tag("Eliminar") %>
-      <% end %>
+
   <% end %>
 </ul>
 
