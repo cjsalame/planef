@@ -1,4 +1,4 @@
-<h1> Hola <%= @user.name %> </h1>
+<h3> Hola <%= @user.name %> </h3>
 
   <% if @user.role == "Profesor" %>
     <%= render 'teacher_profile', user: @user %>
