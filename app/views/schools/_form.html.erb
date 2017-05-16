@@ -1,37 +1,41 @@
-<%= form_with(model: school, local: true) do |form| %>
-  <% if school.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+<div class="form">
+  <%= form_with(model: school, local: true) do |form| %>
+    <% if school.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
 
-      <ul>
-      <% school.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% school.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <label><%= form.label :name %></label>
+      <%= form.text_field :name, id: :school_name %>
+    </div>
+
+    <div class="field">
+      <label><%= form.label :RBD %></label>
+      <%= form.text_field :RBD, id: :school_RBD %>
+    </div>
+
+    <div class="field">
+      <label><%= form.label :address %></label>
+      <%= form.text_field :address, id: :school_address %>
+    </div>
+
+    <div class="field">
+      <label><%= form.label :phone %></label>
+      <%= form.text_field :phone, id: :school_phone %>
+    </div>
+
+    <div class="actions">
+      <div class="button">
+        <%= form.submit %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :school_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :RBD %>
-    <%= form.text_field :RBD, id: :school_RBD %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :school_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :school_phone %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
