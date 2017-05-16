@@ -11,7 +11,9 @@ class SchoolsController < ApplicationController
 
   # GET /schools/1
   # GET /schools/1.json
-  def show; end
+  def show
+    authorize! :read, School
+  end
 
   # GET /schools/new
   def new
@@ -34,7 +36,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         format.html do
-          redirect_to @user, notice: 'Colegio creada con éxito.'
+          redirect_to @user, notice: 'Colegio creado con éxito.'
         end
         format.json { render :show, status: :created, location: @school }
       else
@@ -53,7 +55,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.update(school_params)
         format.html do
-          redirect_to @school, notice: 'Colegio editada con éxito'
+          redirect_to @school, notice: 'Colegio editado con éxito'
         end
         format.json { render :show, status: :ok, location: @school }
       else
@@ -68,6 +70,7 @@ class SchoolsController < ApplicationController
   # DELETE /schools/1
   # DELETE /schools/1.json
   def destroy
+    authorize! :destroy, @school
     @school.destroy
     respond_to do |format|
       format.html do

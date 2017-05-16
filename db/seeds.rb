@@ -34,7 +34,8 @@ j0.schools << School.new(
   name:                  'Teresiano Enrique de Ossó',
   RBD:                   '789789',
   address:               'Av. Ossa 4545',
-  phone:                 '987987'
+  phone:                 '987987',
+  user_id:               1
 )
 
 j0.schools << School.new(
@@ -50,3 +51,52 @@ j0.schools << School.new(
   address:               'Av. Antupiren 6969',
   phone:                 '444444444'
 )
+
+g00 = Grade.new(
+  name: '1° Basico'
+)
+g00.save!
+g01 = Grade.new(
+  name: '2° Basico'
+)
+g01.save!
+g02 = Grade.new(
+  name: '3° Basico'
+)
+g02.save!
+g03 = Grade.new(
+  name: '4° Basico'
+)
+g03.save!
+g04 = Grade.new(
+  name: '5° Basico'
+)
+g04.save!
+g05 = Grade.new(
+  name: '6° Basico'
+)
+g05.save!
+g06 = Grade.new(
+  name: '7° Basico'
+)
+g06.save!
+g07 = Grade.new(
+  name: '8° Basico'
+)
+g07.save!
+g08 = Grade.new(
+  name: 'I Medio'
+)
+g08.save!
+g09 = Grade.new(
+  name: 'II Medio'
+)
+g09.save!
+g10 = Grade.new(
+  name: 'III Medio'
+)
+g10.save!
+g11 = Grade.new(
+  name: 'IV Medio'
+)
+g11.save!
