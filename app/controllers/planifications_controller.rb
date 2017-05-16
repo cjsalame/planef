@@ -41,6 +41,7 @@ class PlanificationsController < ApplicationController
   # GET /planifications/new
   def new
     @planification = Planification.new
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(:grades_subjects_teacher_id)
     # Está en el fields_for del form partial lectures/form
     # Lo dejo para borrarlo después
     # @planification.lectures.build
@@ -56,7 +57,7 @@ class PlanificationsController < ApplicationController
   def create
     @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
     @planification = @grades_subjects_teacher.planifications.build(planification_params)
-
+    #@planification = Planification.new(planification_params)
     respond_to do |format|
       if @planification.save
         format.html { redirect_to edit_planification_path(@planification) , notice: 'Planification was successfully created.' }
@@ -102,6 +103,7 @@ class PlanificationsController < ApplicationController
     def planification_params
       params.require(:planification).permit(:name, :date, :rating, :downloads,
       lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
+      :grades_subjects_teacher_id,
       :finalizing, :content, :resources, :duration, :evaluation ])
     end
 end

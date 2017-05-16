@@ -32780,3 +32780,907 @@ Processing by GradesSubjectsTeachersController#show as HTML
 Completed 200 OK in 62ms (Views: 51.9ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/grades_subjects_teachers/1" for 127.0.0.1 at 2017-05-16 18:02:01 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.5ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.2ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 1]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (17.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 295ms (Views: 182.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:02:03 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (481.8ms)
+  Rendered planifications/new.html.erb within layouts/application (484.6ms)
+Completed 500 Internal Server Error in 500ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `grades_subjects_teacher' for #<#<Class:0x0055f2903ee3a0>:0x0055f2903cb760>
+Did you mean?  grades_subjects_teacher_url
+               grades_subjects_teachers_url
+               grades_subjects_teacher_path
+               grades_subjects_teachers_path):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: grades_subjects_teacher.id %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__4363748022751860686_47250144816340'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__4363748022751860686_47250144816340'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__732794488513477497_47250145278840'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grades_subjects_teachers_on_subjects_teacher_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grades_subjects_teachers_on_subjects_teacher_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_grades_subjects_teachers_on_grade_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_grades_subjects_teachers_on_grade_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_lectures_on_expected_learning_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_lectures_on_expected_learning_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_lectures_on_planification_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_lectures_on_planification_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_planifications_on_lecture_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_planifications_on_lecture_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_schools_users_on_user_id_and_school_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_schools_users_on_user_id_and_school_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_schools_users_on_school_id_and_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_schools_users_on_school_id_and_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_subjects_teachers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_subjects_teachers_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_subjects_teachers_on_subject_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_subjects_teachers_on_subject_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:09:57 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (334.5ms)
+  Rendered planifications/new.html.erb within layouts/application (336.7ms)
+Completed 500 Internal Server Error in 365ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `grades_subjects_teacher' for #<#<Class:0x005637562ecaa0>:0x005637562ebb50>
+Did you mean?  grades_subjects_teacher_url
+               grades_subjects_teachers_url
+               grades_subjects_teacher_path
+               grades_subjects_teachers_path):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: grades_subjects_teacher.id %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__3139737310733724709_69922539017180'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__3139737310733724709_69922539017180'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__4276538140518081949_47397834551600'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:10:00 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (354.7ms)
+  Rendered planifications/new.html.erb within layouts/application (357.3ms)
+Completed 500 Internal Server Error in 361ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `grades_subjects_teacher' for #<#<Class:0x005637562ecaa0>:0x005637551d7580>
+Did you mean?  grades_subjects_teacher_url
+               grades_subjects_teachers_url
+               grades_subjects_teacher_path
+               grades_subjects_teachers_path):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: grades_subjects_teacher.id %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__3139737310733724709_47397825089600'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__3139737310733724709_47397825089600'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__4276538140518081949_47397825620120'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:11:10 -0400
+Processing by PlanificationsController#new as HTML
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (335.0ms)
+  Rendered planifications/new.html.erb within layouts/application (336.2ms)
+Completed 500 Internal Server Error in 340ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `grades_subjects_teacher_id' for #<#<Class:0x005637562ecaa0>:0x007f3038ec0e40>
+Did you mean?  grades_subjects_teacher_url
+               grades_subjects_teachers_url
+               grades_subjects_teacher_path
+               grades_subjects_teachers_path):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: grades_subjects_teacher_id %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__3139737310733724709_69922544574600'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__3139737310733724709_69922544574600'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__4276538140518081949_69922545077260'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:12:53 -0400
+Processing by PlanificationsController#new as HTML
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 34ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'={:params=>:grades_subjects_teacher_id}):
+  
+app/controllers/planifications_controller.rb:44:in `new'
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:16:34 -0400
+Processing by PlanificationsController#new as HTML
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'={:params=>:grades_subjects_teacher_id}):
+  
+app/controllers/planifications_controller.rb:44:in `new'
+Started GET "/users/1" for 127.0.0.1 at 2017-05-16 18:16:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."user_id" = ? AND "subjects"."school_id" = ? ORDER BY "subjects"."id" ASC LIMIT ?[0m  [["user_id", 1], ["school_id", 1], ["LIMIT", 1000]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 1]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.5ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 1], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (3.4ms) [cache miss]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 2], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 2]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Grade Load (0.0ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (4.2ms) [cache miss]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."school_id" = ?[0m  [["school_id", 1]]
+  Rendered subjects_teachers/_form.html.erb (4.1ms) [cache miss]
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_teacher_profile.html.erb (104.9ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (105.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 386ms (Views: 338.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:16:55 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.2ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"planification", :grades_subjects_teacher_id=>4, :id=>"4"}):
+    5:   <p> <%= p.name %> </p>
+    6: <% end %>
+    7: 
+    8: <%= link_to 'Crear Planificación', {:controller => "planification", :action => "create", grades_subjects_teacher_id: @grades_subjects_teacher.id} %>
+  
+app/views/grades_subjects_teachers/show.html.erb:8:in `_app_views_grades_subjects_teachers_show_html_erb__3646603062622791633_69922503916460'
+Started GET "/users/1" for 127.0.0.1 at 2017-05-16 18:17:59 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."user_id" = ? AND "subjects"."school_id" = ? ORDER BY "subjects"."id" ASC LIMIT ?[0m  [["user_id", 1], ["school_id", 1], ["LIMIT", 1000]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 1]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 1], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.5ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (6.2ms) [cache miss]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 2], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 2]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Grade Load (0.0ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.6ms) [cache miss]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."school_id" = ?[0m  [["school_id", 1]]
+  Rendered subjects_teachers/_form.html.erb (4.1ms) [cache miss]
+  [1m[36mSchool Load (0.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_teacher_profile.html.erb (31.8ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (32.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 62.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-05-16 18:18:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."user_id" = ? AND "subjects"."school_id" = ? ORDER BY "subjects"."id" ASC LIMIT ?[0m  [["user_id", 1], ["school_id", 1], ["LIMIT", 1000]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 1]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 1], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.4ms) [cache miss]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 2], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 2]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Grade Load (0.0ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.4ms) [cache miss]
+  [1m[36mSubject Load (0.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."school_id" = ?[0m  [["school_id", 1]]
+  Rendered subjects_teachers/_form.html.erb (5.2ms) [cache miss]
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_teacher_profile.html.erb (28.4ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (29.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 71ms (Views: 62.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:18:03 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.3ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.2ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 51.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/planifications/new?grades_subjects_teacher=4" for 127.0.0.1 at 2017-05-16 18:18:05 -0400
+Processing by PlanificationsController#new as HTML
+  Parameters: {"grades_subjects_teacher"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'={:params=>:grades_subjects_teacher_id}):
+  
+app/controllers/planifications_controller.rb:44:in `new'
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:18:36 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.1ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.1ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 42.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/planifications/new?grades_subjects_teacher_id=4" for 127.0.0.1 at 2017-05-16 18:18:38 -0400
+Processing by PlanificationsController#new as HTML
+  Parameters: {"grades_subjects_teacher_id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'={:params=>:grades_subjects_teacher_id}):
+  
+app/controllers/planifications_controller.rb:44:in `new'
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:19:33 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.3ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.1ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (12.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 137ms (Views: 48.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/planifications/new?grades_subjects_teacher_id=4" for 127.0.0.1 at 2017-05-16 18:19:34 -0400
+Processing by PlanificationsController#new as HTML
+  Parameters: {"grades_subjects_teacher_id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (8.3ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 41.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:19:47 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WAek4nwSM/i2L3tzM1RVAEHbA/ejxEOe8icM9b5WR0oxDM/rWPDtLOICIQOO2MIYpem0tJOJGWGS0PaI7nU9yA==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.5ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:25:08 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:26:30 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:27:39 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:28:35 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Completed 500 Internal Server Error in 2ms
+
+
+  
+NoMethodError (undefined method `planifications' for nil:NilClass):
+  
+app/controllers/planifications_controller.rb:59:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:28:59 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=grades_subjects_teacher_id):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:29:36 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:31:29 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 10ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:31:53 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Completed 500 Internal Server Error in 3ms
+
+
+  
+NoMethodError (undefined method `planifications' for nil:NilClass):
+  
+app/controllers/planifications_controller.rb:59:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:33:24 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (6.0ms)
+  Rendered planifications/new.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: @grades_subjects_teacher.id %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__3139737310733724709_69922505509880'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__3139737310733724709_69922505509880'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__4276538140518081949_69922505631760'
+app/controllers/planifications_controller.rb:67:in `block (2 levels) in create'
+app/controllers/planifications_controller.rb:62:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:34:08 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYww2VVpsQdwdaGMN7CkTMV5EUqQdX+1gmbLd5r0R3anXVn53EfsRYAV51HoZbA7wDe4kuEiDWZNZm/breAhdQ==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (6.4ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 169ms (Views: 160.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:34:13 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wwmUpsf7Xb714YiBaeP0XMn77rImN6E4LTIa6EgE/knJ2P2GTtUA/AWBzly2NuArzLVHaldg0+viMr5EfxCYSg==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>""}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (14.1ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (16.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 53.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:34:43 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h4oA7BgtTHMzc+/3zMgRoYZhsx6LVoPnPMDzp+led9iNW2nMkQMRMcMTqSoTHQXWgy8axvoB8TTzwFcL3koR2w==", "planification"=>{"name"=>"primer plan", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>""}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (6.7ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 47.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planifications" for 127.0.0.1 at 2017-05-16 18:34:46 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/planifications/new" for 127.0.0.1 at 2017-05-16 18:34:49 -0400
+Processing by PlanificationsController#new as HTML
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:44:in `new'
+Started GET "/" for 127.0.0.1 at 2017-05-16 18:35:01 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-05-16 18:35:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."user_id" = ? AND "subjects"."school_id" = ? ORDER BY "subjects"."id" ASC LIMIT ?[0m  [["user_id", 1], ["school_id", 1], ["LIMIT", 1000]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.5ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 1]]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 1], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.9ms) [cache miss]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 2], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 2]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.3ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Grade Load (0.0ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (1.6ms) [cache miss]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."school_id" = ?[0m  [["school_id", 1]]
+  Rendered subjects_teachers/_form.html.erb (4.1ms) [cache miss]
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_teacher_profile.html.erb (80.8ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (81.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 136ms (Views: 116.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-16 18:35:01 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-05-16 18:35:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSchool Load (0.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" INNER JOIN "schools_users" ON "schools"."id" = "schools_users"."school_id" WHERE "schools_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."user_id" = ? AND "subjects"."school_id" = ? ORDER BY "subjects"."id" ASC LIMIT ?[0m  [["user_id", 1], ["school_id", 1], ["LIMIT", 1000]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 1], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 1]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 1], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.8ms) [cache miss]
+  [1m[36mSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."user_id" = ? AND "subjects_teachers"."subject_id" = ? LIMIT ?[0m  [["user_id", 1], ["subject_id", 2], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.1ms)[0m  [1m[34mSELECT "grades".* FROM "grades" INNER JOIN "grades_subjects_teachers" ON "grades"."id" = "grades_subjects_teachers"."grade_id" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ?[0m  [["subjects_teacher_id", 2]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."subjects_teacher_id" = ? AND "grades_subjects_teachers"."grade_id" = ? LIMIT ?[0m  [["subjects_teacher_id", 2], ["grade_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Grade Load (0.0ms)[0m  [1m[34mSELECT "grades".* FROM "grades"[0m
+  [1m[36mCACHE SubjectsTeacher Load (0.0ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."subject_id" = ? AND "subjects_teachers"."user_id" = ? LIMIT ?[0m  [["subject_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  Rendered grades_subjects_teachers/_form.html.erb (2.6ms) [cache miss]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."school_id" = ?[0m  [["school_id", 1]]
+  Rendered subjects_teachers/_form.html.erb (4.2ms) [cache miss]
+  [1m[36mSchool Load (0.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_teacher_profile.html.erb (28.1ms) [cache miss]
+  Rendered users/show.html.erb within layouts/application (29.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 58.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:35:03 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.3ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.3ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 67ms (Views: 42.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/planifications/new?grades_subjects_teacher_id=4" for 127.0.0.1 at 2017-05-16 18:35:05 -0400
+Processing by PlanificationsController#new as HTML
+  Parameters: {"grades_subjects_teacher_id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (8.1ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (9.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:35:09 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uuvQnrooZNCvh6DKNcc2rAzObkH6Q+qK9AeZvgQsGN/T4LuXnsq6BPuq+rqIS6G06PzZAsoOsHWU8GPDVA9iXQ==", "planification"=>{"name"=>"kjhkj", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16"}, "commit"=>"Create Planification"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (9.3ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:37:32 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B6FY9vZtXhApCi6XmOqcDKhwdom0ZBEVppLFMOMOuDoNcDHWf0MDUtlqaEpHP4h7rT7fUcUzY8ZpkmGc1BreOQ==", "planification"=>{"name"=>"kjhkj", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 18ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started GET "/planifications" for 127.0.0.1 at 2017-05-16 18:37:58 -0400
+Processing by PlanificationsController#index as HTML
+  Rendering planifications/index.html.erb within layouts/application
+  [1m[36mPlanification Load (0.4ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications"[0m
+  Rendered planifications/index.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 131.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/grades_subjects_teachers/4" for 127.0.0.1 at 2017-05-16 18:38:01 -0400
+Processing by GradesSubjectsTeachersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGrade Load (0.2ms)[0m  [1m[34mSELECT  "grades".* FROM "grades" WHERE "grades"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "subjects_teachers".* FROM "subjects_teachers" WHERE "subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.1ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering grades_subjects_teachers/show.html.erb within layouts/application
+  [1m[36mPlanification Load (0.2ms)[0m  [1m[34mSELECT "planifications".* FROM "planifications" WHERE "planifications"."grades_subjects_teacher_id" = ?[0m  [["grades_subjects_teacher_id", 4]]
+  Rendered grades_subjects_teachers/show.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 112ms (Views: 43.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/planifications/new?grades_subjects_teacher_id=4" for 127.0.0.1 at 2017-05-16 18:38:02 -0400
+Processing by PlanificationsController#new as HTML
+  Parameters: {"grades_subjects_teacher_id"=>"4"}
+  [1m[36mGradesSubjectsTeacher Load (0.2ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (11.2ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (13.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 64.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:38:05 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rczjElLZaYHBzXVrpdHfZ2dj4RDw49JfVarr6vJc5KDEx4gbdju3VZXgLxsYXUh/g1FWU8CuiKA1XRGXon+eIg==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:41:24 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:42:00 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:42:28 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:43:36 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[36mGradesSubjectsTeacher Load (0.6ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:43:55 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.1ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 9ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:44:43 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (7.5ms)
+  Rendered planifications/new.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    22:   </div>
+    23: 
+    24:   <%= f.hidden_field :grades_subjects_teacher_id %>
+    25:   <%= f.hidden_field :grades_subjects_teacher_id, value: params[@grades_subjects_teacher.id] %>
+    26: 
+    27:   <!-- Los campos de la clase -->
+    28:   <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  
+app/views/planifications/_form.html.erb:25:in `block in _app_views_planifications__form_html_erb__3139737310733724709_69922404579960'
+app/views/planifications/_form.html.erb:1:in `_app_views_planifications__form_html_erb__3139737310733724709_69922404579960'
+app/views/planifications/new.html.erb:3:in `_app_views_planifications_new_html_erb__4276538140518081949_69922404595400'
+app/controllers/planifications_controller.rb:66:in `block (2 levels) in create'
+app/controllers/planifications_controller.rb:61:in `create'
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:47:13 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIx75xusjXcx0TNqdCRZVu61pGDjyjXRWhfEG/tc3KgaXRLHkoLQNcGxdber8U0h6/sNuJKdRwKVF2C3zEi6qw==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>"4"}, "commit"=>"Create Planification"}
+Unpermitted parameter: :grades_subjects_teacher_id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering planifications/new.html.erb within layouts/application
+  Rendered planifications/_form.html.erb (5.5ms) [cache miss]
+  Rendered planifications/new.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 68.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/planifications" for 127.0.0.1 at 2017-05-16 18:51:00 -0400
+Processing by PlanificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8S8TF+oYlMuJlR+5AcBbD41i2tyWm7dw+BtqfCSelrX7/no3YzbJiXn1WWTeFU94iCxzBOfMxaM3G87QE4rwtg==", "planification"=>{"name"=>"sdfsd", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"16", "grades_subjects_teacher_id"=>""}, "commit"=>"Create Planification"}
+  [1m[36mGradesSubjectsTeacher Load (0.3ms)[0m  [1m[34mSELECT  "grades_subjects_teachers".* FROM "grades_subjects_teachers" WHERE "grades_subjects_teachers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 11ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GradesSubjectsTeacher with 'id'=):
+  
+app/controllers/planifications_controller.rb:58:in `create'
