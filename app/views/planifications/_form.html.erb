@@ -1,0 +1,36 @@
+<%= simple_form_for @planification do |f| %>
+
+  <% if @planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% @planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Los campos de la planificación -->
+  <div class="field">
+    <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
+  </div>
+
+  <div class="field">
+    <%= f.input :date, label: "Fecha" %>
+  </div>
+
+
+  <!-- Los campos de la clase -->
+  <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+
+  <div id="lecture-form">
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

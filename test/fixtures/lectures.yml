@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  objectives: MyText
+  starting: MyText
+  developing: MyText
+  finalizing: MyText
+  content: MyText
+  resources: MyText
+  duration: MyText
+  evaluation: MyText
+  planification: one
+
+two:
+  objectives: MyText
+  starting: MyText
+  developing: MyText
+  finalizing: MyText
+  content: MyText
+  resources: MyText
+  duration: MyText
+  evaluation: MyText
+  planification: two

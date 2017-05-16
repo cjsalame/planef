@@ -1,0 +1,14 @@
+<!-- FALTA OBJETIVOS DE APRENDIZAJE -->
+<!-- PONERLOS COMO SEEDS -->
+<%= f.simple_fields_for :lectures, child_index: Time.now.to_i do |g| %>
+
+  <%= g.input :objectives, label: "Objetivos" %>
+  <%= g.input :starting, label: "Inicio" %>
+  <%= g.input :developing, label: "Desarrollo" %>
+  <%= g.input :finalizing, label: "Cierre" %>
+  <%= g.input :content, label: "Contenidos" %>
+  <%= g.input :resources, label: "Recursos" %>
+  <%= g.input :duration, label: "Tiempo" %>
+  <%= g.input :evaluation, label: "Indicador de Evaluación" %>
+
+<% end %>

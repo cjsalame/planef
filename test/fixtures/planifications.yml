@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2017-05-08
+  rating: 
+  downloads: 
+
+two:
+  name: MyString
+  date: 2017-05-08
+  rating: 
+  downloads: 

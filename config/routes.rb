@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   post '/users/:id' => 'users#subscribeschool', as: 'sub_school'
   delete '/users/:id' => 'users#unsubschool', as: 'unsub_school'
 
-
   resources :users do
     resources :schools
   end
 
   resources :schools do
     resources :users
+  end
+
+  resources :planifications do
+    resources :lectures
+    get :add_lecture, on: :collection
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

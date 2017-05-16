@@ -1,0 +1,62 @@
+<h1>Editando Planificación</h1>
+
+
+<h2>
+Tienes 
+<% if @n_lectures == 1 %>
+	<%= @n_lectures %> clase creada
+<% else %>
+	<%= @n_lectures %> clases creadas
+<% end %> 
+</h2>
+
+
+<%= simple_form_for @planification do |f| %>
+
+  <% if @planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% @planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Los campos de la planificación -->
+  <div class="field">
+    <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
+  </div>
+
+  <div class="field">
+    <%= f.input :date, label: "Fecha" %>
+  </div>
+
+	<div id="lecture-form">
+  <% @planification.lectures.each do |lecture| %>
+		<%= f.simple_fields_for :lectures, lecture do |g| %>
+		  <%= g.input :objectives, label: "Objetivos" %>
+		  <%= g.input :starting, label: "Inicio" %>
+		  <%= g.input :developing, label: "Desarrollo" %>
+		  <%= g.input :finalizing, label: "Cierre" %>
+		  <%= g.input :content, label: "Contenidos" %>
+		  <%= g.input :resources, label: "Recursos" %>
+		  <%= g.input :duration, label: "Tiempo" %>
+		  <%= g.input :evaluation, label: "Indicador de Evaluación" %>
+
+		  <%= link_to "Eliminar Clase", [@planification, lecture], method: :delete, data: { confirm: "¿Estás Seguro?" } %>
+		<% end %>
+	<% end %>
+	</div>
+
+	<button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+
+  <div class="actions">
+    <%= f.submit 'Enviar Cambios' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @planification %> |
+<%= link_to 'Back', planifications_path %>
