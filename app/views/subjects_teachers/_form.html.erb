@@ -1,0 +1,11 @@
+<%= form_for @subjects_teacher do |form| %>
+
+  <div class="field">
+    <%= form.label :subject_id, 'Agregar Nueva Asignatura' %>
+    <%= form.select :subject_id, ["Selecciona una Asignatura..."] | school.subjects.all.map { |s| [s.name, "#{s.id}"] } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Agregar' %>
+  </div>
+<% end %>
