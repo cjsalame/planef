@@ -41,7 +41,7 @@ class PlanificationsController < ApplicationController
   # GET /planifications/new
   def new
     @planification = Planification.new
-    @grades_subjects_teacher = GradesSubjectsTeacher.find(:grades_subjects_teacher_id)
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
     # Está en el fields_for del form partial lectures/form
     # Lo dejo para borrarlo después
     # @planification.lectures.build
@@ -55,7 +55,7 @@ class PlanificationsController < ApplicationController
   # POST /planifications
   # POST /planifications.json
   def create
-    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:gst])
     @planification = @grades_subjects_teacher.planifications.build(planification_params)
     #@planification = Planification.new(planification_params)
     respond_to do |format|
