@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20170516145649) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grades_subjects_teachers", force: :cascade do |t|
+    t.integer "grade_id"
+    t.integer "subjects_teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["grade_id"], name: "index_grades_subjects_teachers_on_grade_id"
+    t.index ["subjects_teacher_id"], name: "index_grades_subjects_teachers_on_subjects_teacher_id"
+  end
+
   create_table "lectures", force: :cascade do |t|
     t.text "objectives"
     t.text "starting"
@@ -46,20 +61,6 @@ ActiveRecord::Schema.define(version: 20170516145649) do
     t.datetime "updated_at", null: false
     t.integer "lecture_id"
     t.index ["lecture_id"], name: "index_planifications_on_lecture_id"
-
-  create_table "grades", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "grades_subjects_teachers", force: :cascade do |t|
-    t.integer "grade_id"
-    t.integer "subjects_teacher_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["grade_id"], name: "index_grades_subjects_teachers_on_grade_id"
-    t.index ["subjects_teacher_id"], name: "index_grades_subjects_teachers_on_subjects_teacher_id"
   end
 
   create_table "schools", force: :cascade do |t|

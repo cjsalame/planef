@@ -52,6 +52,16 @@ j0.schools << School.new(
   phone:                 '444444444'
 )
 
+j0.schools.first.subjects << Subject.new(
+  name: 'Matemáticas'
+)
+j0.schools.first.subjects << Subject.new(
+  name: 'Lenguaje'
+)
+j0.schools.first.subjects << Subject.new(
+  name: 'Ciencias Naturales'
+)
+
 g00 = Grade.new(
   name: '1° Basico'
 )
