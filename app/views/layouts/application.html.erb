@@ -9,15 +9,17 @@
   </head>
 
   <body>
-
+    <div>
     <% if user_signed_in? %>
       <p> Hola <%= current_user.name %> </p>
       <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
       <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
       <br>
 
+
     <% end %>
 
     <%= yield %>
+  </div>
   </body>
 </html>

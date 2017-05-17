@@ -1,10 +1,14 @@
-<h3> (Profesor) </h3>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-<h2> Colegios en los que trabajas </h2>
-<p id="notice"><%= notice %></p>
+<div class="w3-container">
+  <h3> Colegios en los que trabajas </h3>
+  <p id="notice"><%= notice %></p>
+<ul class="w3-ul">
 
-
-<ul>
   <% @user.schools.each do |school| %>
     <li>
       <%= school.name %>
@@ -13,32 +17,34 @@
         <%= submit_tag("Eliminar") %>
       <% end %>
     </li>
-      <ul>
-        <p>Asignaturas:</p>
-        <% @user.subjects.where(school_id: school.id).find_each do |subject| %>
-          <li> <%= subject.name %> </li>
-          <ul>
-            <p> Cursos </p>
-            <% @user.subjects_teachers.find_by(subject_id: subject.id).grades.each do |grade| %>
-              <li>
-                <%= link_to grade.name, grades_subjects_teacher_path(GradesSubjectsTeacher.find_by(subjects_teacher_id: SubjectsTeacher.find_by(subject_id: subject.id, user_id: user.id).id, grade_id: grade.id)) %>
-              </li>
-            <% end %>
-            <%= render partial: '/grades_subjects_teachers/form', locals: {user: @user, subject: subject} %>
-          </ul>
-        <% end %>
-        <%= render partial: '/subjects_teachers/form', locals: {school: school} %>
-      </ul>
-
+    <ul>
+      <p>Asignaturas:</p>
+      <% @user.subjects.where(school_id: school.id).find_each do |subject| %>
+        <li> <%= subject.name %> </li>
+        <ul>
+          <p> Cursos </p>
+          <% @user.subjects_teachers.find_by(subject_id: subject.id).grades.each do |grade| %>
+            <li>
+              <%= link_to grade.name, grades_subjects_teacher_path(GradesSubjectsTeacher.find_by(subjects_teacher_id: SubjectsTeacher.find_by(subject_id: subject.id, user_id: @user.id).id, grade_id: grade.id)) %>
+            </li>
+          <% end %>
+          <%= render partial: '/grades_subjects_teachers/form', locals: {user: @user, subject: subject} %>
+        </ul>
+      <% end %>
+      <%= render partial: '/subjects_teachers/form', locals: {school: school} %>
+    </ul>
   <% end %>
-</ul>
+  <h3> Agregar Nuevo Colegio </h3>
 
+  <%= form_tag(:action => "subscribe_school") do |f| %>
 
-<h3> Agregar Nuevo Colegio </h3>
-
-<%= form_tag(:action => "subscribe_school") do |f| %>
-
-  <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
+    <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
 
   <%= submit_tag("Agregar") %>
 <% end %>
+
+</ul>
+</div>
+
+</body>
+</html>
