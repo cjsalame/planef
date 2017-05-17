@@ -1,12 +1,13 @@
-<h1>Editando Planificación</h1>
+<div class="form-style-5">
+<legend><h1>Editando Planificación</h1></legend>
 
 
 <h2>
 Tienes 
 <% if @n_lectures == 1 %>
-	<%= @n_lectures %> clase creada
+  <%= @n_lectures %> clase creada
 <% else %>
-	<%= @n_lectures %> clases creadas
+  <%= @n_lectures %> clases creadas
 <% end %> 
 </h2>
 
@@ -27,36 +28,43 @@ Tienes
 
   <!-- Los campos de la planificación -->
   <div class="field">
-    <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
+    <%= f.input :name, label: false, placeholder: 'Título *', input_html: { class: "new-planification-title" } %>
   </div>
 
   <div class="field">
     <%= f.input :date, label: "Fecha" %>
   </div>
 
-	<div id="lecture-form">
+  <div id="lecture-form">
+  <br>
+  <div class="lecture-fields-wrapper">
   <% @planification.lectures.each do |lecture| %>
-		<%= f.simple_fields_for :lectures, lecture do |g| %>
-		  <%= g.input :objectives, label: "Objetivos" %>
-		  <%= g.input :starting, label: "Inicio" %>
-		  <%= g.input :developing, label: "Desarrollo" %>
-		  <%= g.input :finalizing, label: "Cierre" %>
-		  <%= g.input :content, label: "Contenidos" %>
-		  <%= g.input :resources, label: "Recursos" %>
-		  <%= g.input :duration, label: "Tiempo" %>
-		  <%= g.input :evaluation, label: "Indicador de Evaluación" %>
+    <hr>
+    <%= f.simple_fields_for :lectures, lecture do |g| %>
+      <div class="lecture-field"><%= g.input :objectives, label: "Objetivos:" %></div>
+      <div class="lecture-field"><%= g.input :starting, label: "Inicio:" %></div>
+      <div class="lecture-field"><%= g.input :developing, label: "Desarrollo:" %></div>
+      <div class="lecture-field"><%= g.input :finalizing, label: "Cierre:" %></div>
+      <div class="lecture-field"><%= g.input :content, label: "Contenidos:" %></div>
+      <div class="lecture-field"><%= g.input :resources, label: "Recursos:" %></div>
+      <div class="lecture-field"><%= g.input :duration, label: "Tiempo:" %></div>
+      <div class="lecture-field"><%= g.input :evaluation, label: "Indicador de Evaluación:" %></div>
 
-		  <%= link_to "Eliminar Clase", [@planification, lecture], method: :delete, data: { confirm: "¿Estás Seguro?" } %>
-		<% end %>
-	<% end %>
-	</div>
+      <%= link_to "Eliminar Clase", [@planification, lecture], method: :delete, data: { confirm: "¿Estás Seguro?" } %>
+    <% end %>
+  <% end %>
 
-	<button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+  </div>
+  </div>
+
+  <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
 
   <div class="actions">
     <%= f.submit 'Enviar Cambios' %>
   </div>
 <% end %>
 
-<%= link_to 'Show', @planification %> |
-<%= link_to 'Back', planifications_path %>
+<%= link_to 'Mostrar', controlller: "grades_subjects_teachers", action: "show", @planification %> |
+<%= link_to 'Atrás', planifications_path %>
+
+</div>
