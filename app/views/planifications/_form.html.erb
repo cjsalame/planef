@@ -14,7 +14,7 @@
 
   <!-- Los campos de la planificación -->
   <div class="field">
-    <%= f.input :name, label: 'Título', placeholder: 'Planificación X' %>
+    <%= f.input :name, label: false, placeholder: 'Título *', input_html: { class: "new-planification-title" } %>
   </div>
 
   <div class="field">
@@ -26,14 +26,17 @@
   <%= hidden_field_tag 'gst', @grades_subjects_teacher.id %>
 
   <!-- Los campos de la clase -->
-  <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
 
   <div id="lecture-form">
+
   </div>
 
+  <button id="add-lecture-link" type="button">Añadir Campos Para Nueva Clase</button>
+  <br>
 
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear Planificación" %>
   </div>
 
 <% end %>

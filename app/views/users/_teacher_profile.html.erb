@@ -5,7 +5,9 @@
 <body>
 
 <div class="w3-container">
-  <h3> Colegios en los que trabajas </h3>
+  <% if @user.schools.any? %>
+    <h3> Colegios en los que trabajas </h3>
+  <% end %>
   <p id="notice"><%= notice %></p>
 <ul class="w3-ul">
 

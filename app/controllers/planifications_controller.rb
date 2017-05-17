@@ -60,7 +60,7 @@ class PlanificationsController < ApplicationController
     #@planification = Planification.new(planification_params)
     respond_to do |format|
       if @planification.save
-        format.html { redirect_to edit_planification_path(@planification) , notice: 'Planification was successfully created.' }
+        format.html { redirect_to @grades_subjects_teacher , notice: 'Planification was successfully created.' }
         format.json { render :show, status: :created, location: @planification }
       else
         format.html { render :new }
@@ -74,7 +74,7 @@ class PlanificationsController < ApplicationController
   def update
     respond_to do |format|
       if @planification.update(planification_params)
-        format.html { redirect_to @planification, notice: 'Planification was successfully updated.' }
+        format.html { redirect_to @planification.grades_subjects_teacher, notice: 'Planification was successfully updated.' }
         format.json { render :show, status: :ok, location: @planification }
       else
         format.html { render :edit }
