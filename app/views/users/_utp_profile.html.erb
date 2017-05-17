@@ -4,6 +4,7 @@
   <p> <%= link_to school.name, school_path(school.id) %> </p>
 <% end %>
 
+
 <% if can? :create, School %>
   <p> <%= link_to "Ingresar Nuevo Colegio", new_school_path %> </p>
 <% end %>
