@@ -88,7 +88,7 @@ class PlanificationsController < ApplicationController
   def destroy
     @planification.destroy
     respond_to do |format|
-      format.html { redirect_to planifications_url, notice: 'Planification was successfully destroyed.' }
+      format.html { redirect_to @planification.grades_subjects_teacher, notice: '¡Planification fue exitosamente eliminada!' }
       format.json { head :no_content }
     end
   end
