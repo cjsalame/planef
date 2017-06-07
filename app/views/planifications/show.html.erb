@@ -5,7 +5,26 @@
 </h2>
 
 <p>
-  <%= @planification.date %>
+	<strong>Colegio:</strong>
+	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.school.name %>
+</p>
+<p>
+	<strong>Asignatura:</strong> 
+	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %>
+</p>
+<p>
+	<strong>Nivel:</strong> 
+	<%= @planification.grades_subjects_teacher.grade.name %>
+</p>
+<p>
+	<strong>Profesor:</strong> 
+	<%= @planification.grades_subjects_teacher.subjects_teacher.user.name %>
+	<%= @planification.grades_subjects_teacher.subjects_teacher.user.lastname %>
+</p>
+
+
+<p>
+  <strong>Fecha de creación:</strong> <%= @planification.date %>
 </p>
 
 <table border="1">
