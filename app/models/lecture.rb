@@ -1,4 +1,4 @@
 class Lecture < ApplicationRecord
   belongs_to :planification
-  has_one :expected_learning
+  composed_of :expected_learning, mapping: %w(description objectives)
 end

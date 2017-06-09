@@ -1,10 +1,12 @@
 # PlanificationsController
 class PlanificationsController < ApplicationController
   before_action :set_planification, only: [:show, :edit, :update, :destroy]
+  before_action :set_expected_learnings, only: [:add_lecture, :edit]
 
   def add_lecture
     @planification = Planification.new
     @planification.lectures.build
+
     render 'add_lecture', layout: false
   end
 
@@ -35,16 +37,12 @@ class PlanificationsController < ApplicationController
 
       format.html { render :show }
     end
-
   end
 
   # GET /planifications/new
   def new
     @planification = Planification.new
     @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
-    # Está en el fields_for del form partial lectures/form
-    # Lo dejo para borrarlo después
-    # @planification.lectures.build
   end
 
   # GET /planifications/1/edit
@@ -94,16 +92,33 @@ class PlanificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_planification
-      @planification = Planification.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_planification
+    @planification = Planification.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def planification_params
-      params.require(:planification).permit(:name, :date, :rating, :downloads,
-      lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
-      :grades_subjects_teacher_id,
-      :finalizing, :content, :resources, :duration, :evaluation ])
-    end
+  def set_expected_learnings
+    # TODO: filtrar OAs según grade y subject de la planificación
+    @expected_learnings = ExpectedLearning.all
+
+    # @gst = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+
+    # @expected_learnings = @expected_learnings.select do |ea|
+    #   ea.grade == @gst.grade.name
+    #   ea.subject == @gst.subjects_teacher.subject.name
+    # end
+
+    @descriptions = []
+    @expected_learnings.each { |e| @descriptions.append(e.description) }
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def planification_params
+    params.require(:planification).permit(:name, :date, :rating, :downloads,
+    lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
+    :grades_subjects_teacher_id,
+    :finalizing, :content, :resources, :duration, :evaluation ])
+  end
+
+
 end
