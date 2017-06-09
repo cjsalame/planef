@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def schools
+    @user = User.find(params[:id])
+    @subjects_teacher = @user.subjects_teachers.new
+  end
+
   # def subscribe_subject
   #  @user = User.find(params[:id])
   #  subjectid = params[:subjectid]

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # post 'users/:id' => 'users#subscribe_subject', as: 'sub_subject'
   post '/users/:id' => 'users#subscribe_school', as: 'sub_school'
   delete '/users/:id' => 'users#unsubschool', as: 'unsub_school'
+  get '/users/:id/schools' => 'users#schools', as: :users_schools
   resources :users do
     resources :schools
     resources :subjects_teachers

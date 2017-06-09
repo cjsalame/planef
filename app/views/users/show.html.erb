@@ -1,7 +1,0 @@
-<h1> <%= @user.name %> <%= @user.lastname%> </h1>
-<h4> (<%= @user.role %>) </h4>
-  <% if @user.role == "Profesor" %>
-    <%= render 'teacher_profile', user: @user %>
-  <% elsif @user.role == "Jefe UTP" %>
-    <%= render 'utp_profile', user: @user %>
-  <% end %>

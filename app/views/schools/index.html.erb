@@ -1,37 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schools</h1>
+<% if @user.role == "Profesor" %>
+  <%= render 'teacher_schools', user: @user %>
+<% elsif @user.role == "Jefe UTP" %>
+  <%= render 'utp_schools', user: @user %>
+<% else %>
+  <h1>Schools</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Rbd</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @schools.each do |school| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= school.name %></td>
-        <td><%= school.RBD %></td>
-        <td><%= school.address %></td>
-        <td><%= school.phone %></td>
-        <td><%= link_to 'Show', scooff 8rhool %></td>
-        <% if can? :update, school %>
-          <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <% end %>
-        <% if can? :destroy, school %>
-          <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th>Name</th>
+        <th>Rbd</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @schools.each do |school| %>
+        <tr>
+          <td><%= school.name %></td>
+          <td><%= school.RBD %></td>
+          <td><%= school.address %></td>
+          <td><%= school.phone %></td>
+          <td><%= link_to 'Show', school %></td>
+          <% if can? :update, school %>
+            <td><%= link_to 'Edit', edit_school_path(school) %></td>
+          <% end %>
+          <% if can? :destroy, school %>
+            <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New School', new_school_path %>
+  <br>
+
+  <%= link_to 'New School', new_school_path %>
+<% end %>

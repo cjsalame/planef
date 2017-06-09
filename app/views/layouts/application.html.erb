@@ -9,17 +9,24 @@
   </head>
 
   <body>
-    <div>
+
     <% if user_signed_in? %>
-      <p> Hola <%= current_user.name %> </p>
-      <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
-      <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
-      <br>
-
-
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div>
+            <p> Hola <%= current_user.name %> </p>
+            <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
+            <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
+            <p> <%= link_to "Colegios", users_schools_path %> </p>
+        </div>
+      </div>
     <% end %>
+  <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()">open</span>
 
-    <%= yield %>
-  </div>
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
+      <%= yield %>
+    </div>
   </body>
 </html>
