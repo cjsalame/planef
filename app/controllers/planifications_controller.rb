@@ -1,11 +1,12 @@
-# PlanificationsController
 class PlanificationsController < ApplicationController
   before_action :set_planification, only: [:show, :edit, :update, :destroy]
-  before_action :set_expected_learnings, only: [:add_lecture, :edit]
+  before_action :set_expected_learnings, only: [:add_lecture, :new, :edit]
 
   def add_lecture
     @planification = Planification.new
     @planification.lectures.build
+    @grade = session[:gst_grade]
+    @subject = session[:gst_subject]
 
     render 'add_lecture', layout: false
   end
@@ -43,11 +44,14 @@ class PlanificationsController < ApplicationController
   def new
     @planification = Planification.new
     @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+    session[:gst_grade] = @grades_subjects_teacher.grade.name
+    session[:gst_subject] = @grades_subjects_teacher.subjects_teacher.subject.name
   end
 
   # GET /planifications/1/edit
   def edit
     @n_lectures = @planification.lectures.length
+    @grades_subjects_teacher = @planification.grades_subjects_teacher
   end
 
   # POST /planifications
@@ -98,26 +102,23 @@ class PlanificationsController < ApplicationController
   end
 
   def set_expected_learnings
-    # TODO: filtrar OAs según grade y subject de la planificación
     @expected_learnings = ExpectedLearning.all
 
-    # @gst = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
-
+    # @gst = @planification.grades_subjects_teacher    
     # @expected_learnings = @expected_learnings.select do |ea|
     #   ea.grade == @gst.grade.name
     #   ea.subject == @gst.subjects_teacher.subject.name
     # end
 
-    @descriptions = []
-    @expected_learnings.each { |e| @descriptions.append(e.description) }
+    # @descriptions = []
+    # @expected_learnings.each { |e| @descriptions.append(e.description) }
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def planification_params
     params.require(:planification).permit(:name, :date, :rating, :downloads,
     lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
-    :grades_subjects_teacher_id,
-    :finalizing, :content, :resources, :duration, :evaluation ])
+    :grades_subjects_teacher_id, :finalizing, :content, :resources, :duration, :evaluation ])
   end
 
 

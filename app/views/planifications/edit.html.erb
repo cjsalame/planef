@@ -42,6 +42,7 @@ Tienes
     <hr>
     <%= f.simple_fields_for :lectures, lecture do |g| %>
 
+
       <div class="lecture-field"><%= g.input :objectives, collection: @descriptions, label: "Objetivos:" %></div>
       <div class="lecture-field"><%= g.input :starting, label: "Inicio:" %></div>
       <div class="lecture-field"><%= g.input :developing, label: "Desarrollo:" %></div>
