@@ -103,15 +103,6 @@ class PlanificationsController < ApplicationController
 
   def set_expected_learnings
     @expected_learnings = ExpectedLearning.all
-
-    # @gst = @planification.grades_subjects_teacher    
-    # @expected_learnings = @expected_learnings.select do |ea|
-    #   ea.grade == @gst.grade.name
-    #   ea.subject == @gst.subjects_teacher.subject.name
-    # end
-
-    # @descriptions = []
-    # @expected_learnings.each { |e| @descriptions.append(e.description) }
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
