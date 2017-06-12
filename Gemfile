@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
-  "https://github.com/#{repo_name}.git"
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
+  'https://github.com/#{repo_name}.git'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,6 +24,12 @@ gem 'erubis'
 
 # User authorization
 gem 'cancan'
+
+# Image Uploading
+gem 'carrierwave'
+gem 'figaro'
+gem 'fog', '~> 1.27', require: 'fog/rackspace/storage'
+gem 'mini_magick'
 
 # Frontend
 gem 'bootstrap', '~> 4.0.0.alpha6'
