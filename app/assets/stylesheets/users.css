@@ -38,3 +38,17 @@
     background-position:right;
     padding-right: 15px;
 }
+.round-image-70 {
+  background-color: black;
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  height: 140px;
+  width: 140px;
+  margin-left: 50px;
+  overflow: hidden;
+  text-align: center;
+  horiz-align: center;
+  img { height: 100% }
+}

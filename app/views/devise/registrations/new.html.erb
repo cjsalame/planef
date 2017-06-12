@@ -49,6 +49,11 @@
       <%= f.select :role, [["Jefe UTP", "Jefe UTP"],["Profesor", "Profesor"]], id: :user_role %>
     </div>
 
+    <div class="field">
+      <%= f.label :avatar_file, 'Foto de Perfil:' %><br />
+      <%= f.file_field :avatar_file %>
+    </div>
+
     <div class="actions">
       <div class="button">
         <%= f.submit "Registrarme" %>
