@@ -38,21 +38,23 @@ j0.schools << School.new(
   RBD:                   '789789',
   address:               'Av. Ossa 4545',
   phone:                 '987987',
-  user_id:               1
+  user_id:               j0.id
 )
 
 j0.schools << School.new(
   name:                  'Pumahue',
   RBD:                   '8437592',
   address:               'Av. Quilin 8200',
-  phone:                 '2222222'
+  phone:                 '2222222',
+  user_id:               j0.id
 )
 
 j0.schools << School.new(
   name:                  'Antupiren',
   RBD:                   '809809',
   address:               'Av. Antupiren 6969',
-  phone:                 '444444444'
+  phone:                 '444444444',
+  user_id:               j0.id
 )
 
 j0.schools.first.subjects << Subject.new(
