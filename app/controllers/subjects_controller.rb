@@ -9,9 +9,13 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @school = School.find(params[:school_id])
-    @subject = @school.subjects.find(params[:id]).destroy
-    redirect_to @school
+    @subject.destroy
+    respond_to do |format|
+      format.html do
+        redirect_to subjects_url, notice: 'Subject was successfully destroyed.'
+      end
+      format.json { head :no_content }
+    end
   end
 
   private

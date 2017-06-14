@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :schools
     resources :subjects_teachers
+    resources :subjects
     resources :grades_subjects_teachers
   end
-  resources :subjects_teachers
+  resources :subjects_teachers do
+    resources :users
+  end
   resources :grades_subjects_teachers
 
   resources :schools do
@@ -20,7 +23,10 @@ Rails.application.routes.draw do
     resources :subjects
   end
 
-  resources :subjects
+  resources :subjects do
+    resources :subjects_teachers
+    resources :users
+  end
   resources :grades
 
   resources :planifications do

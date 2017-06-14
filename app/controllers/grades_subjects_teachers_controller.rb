@@ -18,13 +18,15 @@ class GradesSubjectsTeachersController < ApplicationController
     respond_to do |format|
       if @grades_subjects_teacher.save
         format.html do
-          redirect_to @user, notice: 'Curso agregado con éxito.'
+          redirect_to users_schools_path(@user), notice: 'Curso agregado con éxito.'
         end
         format.json do
           render :show, status: :created, location: @grades_subjects_teacher
         end
       else
-        format.html { render :new }
+        format.html do
+          redirect_to users_schools_path(@user), notice: 'Curso inválido.'
+        end
         format.json do
           render json: @grades_subjects_teacher.errors, status: :unprocessable_entity
         end

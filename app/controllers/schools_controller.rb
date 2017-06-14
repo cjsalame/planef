@@ -36,7 +36,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         format.html do
-          redirect_to @user, notice: 'Colegio creado con éxito.'
+          redirect_to users_schools_path, notice: 'Colegio creado con éxito.'
         end
         format.json { render :show, status: :created, location: @school }
       else

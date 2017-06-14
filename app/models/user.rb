@@ -10,15 +10,14 @@ class User < ApplicationRecord
   has_many :subjects_teachers
   has_many :subjects, through: :subjects_teachers
   has_many :planifications, through: :grades_subjects_teachers
-  accepts_nested_attributes_for :subjects_teachers,
-                                allow_destroy: true,
-                                reject_if: proc { |att| att['id'].blank? }
-  validates_associated :subjects_teachers
+  # accepts_nested_attributes_for :subjects_teachers,
+  #                               allow_destroy: true,
+  #                               reject_if: proc { |att| att['id'].blank? }
+  # validates_associated :subjects_teachers
 
   def save_avatar
     filename = avatar_file.original_filename
     folder = "app/assets/images/users/#{id}/avatar"
-    puts '-----------------------------------------------------------------------------------------------------'
     FileUtils.mkdir_p folder
     f = File.open File.join(folder, filename), 'wb'
     f.write avatar_file.read

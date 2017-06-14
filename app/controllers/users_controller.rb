@@ -11,7 +11,13 @@ class UsersController < ApplicationController
   def unsubschool
     @user = User.find(params[:id])
     schoolid = params[:schoolid]
-    @user.schools.delete(School.find(schoolid))
+    @school = School.find(schoolid)
+    ss = []
+    @user.subjects.each do |s|
+      ss.append(s) if s.school_id == @school.id
+    end
+    @user.subjects.delete(ss)
+    @user.schools.delete(@school)
     redirect_to users_schools_path, notice: 'Colegio eliminado.'
   end
   def subscribe_school

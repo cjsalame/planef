@@ -46,7 +46,8 @@
   -webkit-border-radius: 100px;
   height: 140px;
   width: 140px;
-  margin-left: 50px;
+  display: block;
+  margin: 0 auto;
   overflow: hidden;
   text-align: center;
   horiz-align: center;
