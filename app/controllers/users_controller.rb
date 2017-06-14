@@ -12,19 +12,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     schoolid = params[:schoolid]
     @user.schools.delete(School.find(schoolid))
-    redirect_to @user, notice: 'Colegio eliminado.'
+    redirect_to users_schools_path, notice: 'Colegio eliminado.'
   end
   def subscribe_school
     @user = User.find(params[:id])
     schoolid = params[:schoolid]
     if schoolid == "Selecciona un colegio..."
-      redirect_to @user, notice: 'Seleccione una opción válida.'
+      redirect_to users_schools_path, notice: 'Seleccione una opción válida.'
     elsif @user.schools.exists?(schoolid)
-      redirect_to @user, notice: 'Usted ya está inscrito en este colegio.'
+      redirect_to users_schools_path, notice: 'Usted ya está inscrito en este colegio.'
     elsif true # true = school secret code match
       @school = School.find(params[:schoolid])
       @user.schools << @school
-      redirect_to @user, notice: 'Nuevo colegio agregado con éxito.'
+      redirect_to users_schools_path, notice: 'Nuevo colegio agregado con éxito.'
     #else
       #@user.schools.delete(School.find(schoolid))
     end
