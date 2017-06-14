@@ -47,4 +47,10 @@
   </div>
 <% end %>
 
+<br>
+<button id="code-generator">Generar Código</button><p>Código: </p><p id="code-paragraph"></p>
+<br>
+
+<div id="school-id" data-school-id="<%= @school.id %>" ></div>
+
 <%= link_to 'Back', user_path(current_user.id) %>
