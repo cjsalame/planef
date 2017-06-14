@@ -37,6 +37,12 @@ class PlanificationsController < ApplicationController
       end
 
       format.html { render :show }
+
+      format.pdf do
+        render pdf: "planificacion", 
+               encoding: "utf-8",
+               page_size: "Letter"
+      end
     end
   end
 

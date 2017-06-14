@@ -72,3 +72,9 @@ gem 'simple_form'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+
+# PDF generation plugin
+gem 'wicked_pdf'
+
+# wicked_pdf is a wrapper of wkhtmltopdf, so it needs to be added..
+gem 'wkhtmltopdf-binary'
