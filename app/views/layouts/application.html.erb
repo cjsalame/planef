@@ -15,7 +15,11 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div>
           <div class="round-image-70">
-            <%= image_tag "users/#{current_user.id}/avatar/#{current_user.avatar}" if current_user.avatar? %>
+            <% if current_user.avatar? %>
+              <%= image_tag "users/#{current_user.id}/avatar/#{current_user.avatar}" %>
+            <% else %>
+              <%= image_tag "140_default_teacher_avatar.png" %>
+            <% end %>
           </div>
           <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
           <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
