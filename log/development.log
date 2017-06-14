@@ -45830,3 +45830,60 @@ Processing by UsersController#schools as HTML
 Completed 200 OK in 96ms (Views: 89.3ms | ActiveRecord: 4.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-06-14 12:12:24 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-14 12:12:25 -0400
+Processing by Devise::SessionsController#new as HTML
+Started GET "/" for 127.0.0.1 at 2017-06-14 12:12:25 -0400
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-14 12:12:25 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.9ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (199.6ms)
+  Rendered devise/shared/_links.html.erb (0.3ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (221.7ms)
+Completed 200 OK in 9716ms (Views: 9667.4ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 9667ms (Views: 9666.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-14 12:12:37 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WEaq/DjdpAywCG0iY8asX/BzpJSz8GKg6/fqJ2FB0Iis+ysFbqR3qm7Ok0Tl24emtoFQh4MCoL7FVT5V3dg2ow==", "user"=>{"email"=>"cjsalame@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "cjsalame@uc.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (12.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-14 16:12:37.854751"], ["last_sign_in_at", "2017-06-14 05:24:25.153023"], ["sign_in_count", 19], ["updated_at", "2017-06-14 16:12:37.857562"], ["id", 1]]
+  [1m[35m (102.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 498ms (ActiveRecord: 115.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-14 12:12:38 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-06-14 12:12:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 144ms (Views: 46.7ms | ActiveRecord: 1.7ms)
+
+
