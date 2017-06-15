@@ -24,7 +24,7 @@
           <h3 style = "text-align: center"> (<%= current_user.role %>) </h3>
           <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
           <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
-          <p> <%= link_to "Colegios", users_schools_path %> </p>
+          <p> <%= link_to "Colegios", users_schools_path(current_user) %> </p>
         </div>
       </div>
     <% end %>
