@@ -20,8 +20,6 @@ $(function() {
 			success: function(msg){
 				console.log("Data Saved: " + msg);
 				$("p#code-paragraph").text( codestring );
-				// var $codeblock = $("p").text(codestring);
-				// $("#code-generator").after( $codeblock );
 			}
 		});
 

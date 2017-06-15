@@ -12,7 +12,21 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
-    authorize! :read, School
+    # ARREGLAR:
+    # authorize! :read, School
+
+    # Para que el prof. no pueda ver el código del colegio ingresando
+    # a la URL del colegio en formato JSON, sólo TODOS los datos del
+    # colegio son accesibles con request AJAX.
+    respond_to do |format|
+      if request.xhr?
+        format.html { render :show }
+        format.json { render json: @school }
+      else
+        format.html { render :show }
+        format.json { render nothing: true }
+      end 
+    end
   end
 
   # GET /schools/new
@@ -51,7 +65,9 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
   def update
-    authorize! :update, @school
+    # ARREGLAR:
+    # authorize! :update, @school
+    
     respond_to do |format|
       if @school.update(school_params)
         format.html do
