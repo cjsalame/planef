@@ -42,7 +42,11 @@
 
       <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
 
-    <%= submit_tag("Agregar") %>
+      <h4>Ingresa el código del colegio</h4>
+      <%= text_field_tag "schoolCode", nil, placeholder: 'Código..' %>
+
+      <br>
+      <%= submit_tag "Agregar", id: "school-form-submit" %>
   <% end %>
 
   </ul>

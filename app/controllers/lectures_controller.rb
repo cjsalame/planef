@@ -12,9 +12,6 @@ class LecturesController < ApplicationController
   	@lecture.destroy
   	redirect_to edit_planification_path(@planification)
   end
-
-  # TODO: edit
-  # Not even necessary LUL. Borrar este comment.
  
   private
 

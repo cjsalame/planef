@@ -1,10 +1,8 @@
-<!-- FALTA OBJETIVOS DE APRENDIZAJE -->
-<!-- PONERLOS COMO SEEDS -->
 <hr><br>
 <div class="lecture-fields-wrapper">
   <%= f.simple_fields_for :lectures, child_index: Time.now.to_i do |g| %>
 
-    <div class="lecture-field"><%= g.input :objectives, label: "Objetivos:" %></div>
+    <div class="lecture-field"><%= g.input :objectives, collection: descriptions, label: "Objetivos:" %></div>
     <div class="lecture-field"><%= g.input :starting, label: "Inicio:" %></div>
     <div class="lecture-field"><%= g.input :developing, label: "Desarrollo:" %></div>
     <div class="lecture-field"><%= g.input :finalizing, label: "Cierre:" %></div>
