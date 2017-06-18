@@ -6,6 +6,6 @@
     <%= form.hidden_field :subjects_teacher_id %>
     <%= form.hidden_field :subjects_teacher_id, value: SubjectsTeacher.find_by(subject_id: subject.id, user_id: user.id).id %>
 
-    <%= form.submit 'Agregar'%>
+    <div class="add_button"><%= form.submit 'Agregar'%><div>
   </div>
 <% end %>
