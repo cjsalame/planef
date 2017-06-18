@@ -20,9 +20,9 @@
 
 <%= button_to 'Editar información del colegio', edit_school_path(@school), :class=>"links", :method => :get %></br>
 
-
-<% if @school.subjects.any? %>
 <div class="info_form">
+<% if @school.subjects.any? %>
+
   <h3> Asignaturas dictadas en Colegio <%= @school.name %>: </h3>
   <div class="info_label">
   <% @school.subjects.each do |s| %>
