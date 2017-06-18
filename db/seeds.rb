@@ -21,6 +21,18 @@ p0 = User.new(
 )
 p0.save!
 
+p1 = User.new(
+  name:                  'Jorge',
+  lastname:              'Schellman',
+  dob:                   '1993-01-20',
+  phone:                 '56979571136',
+  email:                 'jorge@uc.cl',
+  password:              '123123',
+  password_confirmation: '123123',
+  role:                  'Profesor'
+)
+p1.save!
+
 j0 = User.new(
   name:                  'Tulio',
   lastname:              'Triviño',
@@ -32,6 +44,18 @@ j0 = User.new(
   role:                  'Jefe UTP'
 )
 j0.save!
+
+j1 = User.new(
+  name:                  'Emily',
+  lastname:              'White',
+  dob:                   '1993-01-20',
+  phone:                 '56979571136',
+  email:                 'emily@uc.cl',
+  password:              '123123',
+  password_confirmation: '123123',
+  role:                  'Jefe UTP'
+)
+j1.save!
 
 j0.schools << School.new(
   name:                  'Teresiano Enrique de Ossó',
@@ -157,7 +181,7 @@ ea4 = ExpectedLearning.new(
                          ' medio-ambiente (por ejemplo: alimentación,'\
                          ' aire para respirar, productos derivados,'\
                          ' ornamentación, uso medicinal) proponiendo'\
-                         ' y comunicando medidas de cuidado.' 
+                         ' y comunicando medidas de cuidado.'
 )
 ea4.save!
 
@@ -169,7 +193,7 @@ ea5 = ExpectedLearning.new(
                          ' acciones y construyendo instrumentos'\
                          ' tecnológicos para reutilizarlos,'\
                          ' reducirlos y reciclarlos en la casa y en'\
-                         'la escuela.'  
+                         'la escuela.'
 )
 ea5.save!
 
@@ -178,7 +202,7 @@ ea6 = ExpectedLearning.new(
   grade:               '3° Basico',
   description:           'OA_6: Clasificar los alimentos, distinguiendo'\
                          ' sus efectos sobre la salud y proponer'\
-                         ' hábitos alimenticios saludables.'  
+                         ' hábitos alimenticios saludables.'
 )
 ea6.save!
 
@@ -187,7 +211,7 @@ ea7 = ExpectedLearning.new(
   grade:               '3° Basico',
   description:           'OA_7: Proponer, comunicar y ejercitar buenas'\
                          ' prácticas de higiene en la manipulación'\
-                         ' de alimentos para prevenir enfermedades.'  
+                         ' de alimentos para prevenir enfermedades.'
 )
 ea7.save!
 

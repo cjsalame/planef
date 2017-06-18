@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.name %> <%= @user.lastname %>
+</p>
+
+<p>
+  <strong>Fecha de Nacimiento:</strong>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <strong>Teléfono de Contacto:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Dirección de Correo Electrónico:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @user.role %>
+</p>
+
+<%= link_to 'Editar información de usuario', edit_registration_path(@user) %>

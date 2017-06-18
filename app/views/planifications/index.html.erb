@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Planifications</h1>
+<h1>Descargar Planificaciones</h1>
+
+<%= form_tag planifications_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Buscar' %>
+<% end %>
 
 <table>
   <thead>
@@ -29,5 +34,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Planification', new_planification_path %>

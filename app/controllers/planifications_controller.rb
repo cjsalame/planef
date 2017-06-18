@@ -14,7 +14,8 @@ class PlanificationsController < ApplicationController
   # GET /planifications
   # GET /planifications.json
   def index
-    @planifications = Planification.all
+    @planifications =
+      Planification.where(['name LIKE ?', "%#{params[:search]}%"])
   end
 
   # GET /planifications/1
@@ -39,7 +40,7 @@ class PlanificationsController < ApplicationController
       format.html { render :show }
 
       format.pdf do
-        render pdf: "planificacion", 
+        render pdf: "planificacion",
                encoding: "utf-8",
                page_size: "Letter"
       end
