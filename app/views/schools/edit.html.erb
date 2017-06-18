@@ -2,5 +2,5 @@
 
 <%= render 'form', school: @school %>
 
-<%= link_to 'Show', @school %> |
-<%= link_to 'Back', schools_path %>
+<%= button_to 'Show', @school, :class=>"links", :method => :get %> |
+<%= button_to 'Back', schools_path, :class=>"links", :method => :get %>

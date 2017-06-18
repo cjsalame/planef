@@ -2,4 +2,4 @@
 
 <%= render 'form', school: @school %>
 
-<%= link_to 'Back', user_path(current_user.id) %>
+<%= button_to 'Back', user_path(current_user.id), :class=>"links", :method => :get %>

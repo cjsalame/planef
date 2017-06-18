@@ -44,40 +44,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
-      <div class="field">
-        <%= f.label :last_name, 'Apellido:' %><br />
-        <%= f.text_field :lastname, id: :user_lastname %>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :dob, 'Fecha de Nacimiento:' %><br />
-      <%= f.date_field :dob, :value => Time.now.strftime('%Y-%m-%d') %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone, 'Teléfono:' %><br />
-      <%= f.text_field :phone, id: :user_phone %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email, 'E-mail:' %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password, 'Contraseña:' %><br>
-      <% if @minimum_password_length %>
-      <smalltext><em>(<%= @minimum_password_length %> characters minimum)</em></smalltext>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, 'Confirma Contraseña:' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
     <div class="field">
       <%= f.label :role, 'Rol de Usuario:' %><br />
       <%= f.select :role, [["Jefe UTP", "Jefe UTP"],["Profesor", "Profesor"]], id: :user_role %>

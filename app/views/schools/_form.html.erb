@@ -10,28 +10,31 @@
       </ul>
     </div>
   <% end %>
-
+<div class="form">
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name %></br>
     <%= form.text_field :name, id: :school_name %>
   </div>
 
   <div class="field">
-    <%= form.label :RBD %>
+    <%= form.label :RBD %></br>
     <%= form.text_field :RBD, id: :school_RBD %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address %></br>
     <%= form.text_field :address, id: :school_address %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
+    <%= form.label :phone %></br>
     <%= form.text_field :phone, id: :school_phone %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="button button-block">
+      <%= form.submit %>
+    </div>
   </div>
+</div>
 <% end %>

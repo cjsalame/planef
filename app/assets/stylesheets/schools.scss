@@ -1,3 +1,82 @@
 // Place all the styles related to the Schools controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$form-bg: #13232f;
+$white: #ffffff;
+
+$main: #1ab188;
+$main-light: lighten($main,5%);
+$main-dark: darken($main,5%);
+$main-darkest: darken($main-dark,5%);
+
+$gray-light: #a0b3b0;
+$gray: #ddd;
+
+$thin: 300;
+$normal: 400;
+$bold: 600;
+$br: 4px;
+
+h1 {
+  text-align:center;
+  color:$form-bg;
+  font-size:35px;
+  font-weight:$bold;
+}
+h4 {
+  text-align:left;
+  color:$form-bg;
+  font-size:20px;
+  font-weight:$bold;
+}
+.info_form {
+  margin-top:20px;
+  margin-bottom:20px;
+  background:rgba($form-bg,.9);
+  padding: 20px;
+  border-radius:$br;
+  box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+}
+
+h3 {
+    text-align:center;
+    font-size:25px;
+    color:rgba($white,.9);
+    font-weight:$bold;
+    margin:0 0 40px;
+}
+
+.info_label {
+  text-align:left;
+  color:rgba($white,.8);
+  font-weight:$thin;
+  margin:0 0 20px;
+  font-size:25px;
+}
+
+.generate_button {
+  width:200px;
+  border:2px;
+  outline:none;
+  border-radius:2px;
+  padding:2px;
+  font-size:1rem;
+  text-align:center;
+  font-weight:$bold;
+  letter-spacing:.1em;
+  background:$main-dark;
+  color:rgba($white,.8);
+  transition:all.5s ease;
+  -webkit-appearance: none;
+  &:hover, &:focus {
+    background:$main-darkest;
+  }
+}
+
+.text_area{
+  width:auto;
+  position: relative;
+  height: auto;
+  padding: 10px;
+}
