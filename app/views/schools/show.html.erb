@@ -1,56 +1,70 @@
 <p id="notice"><%= notice %></p>
+<div class="info_form">
+  <div class="info_label">
+    <strong>Name:</strong>
+    <%= @school.name %>
+  </div>
+  <div class="info_label">
+    <strong>Rbd:</strong>
+    <%= @school.RBD %>
+  </div>
+  <div class="info_label">
+    <strong>Address:</strong>
+    <%= @school.address %>
+  </div>
+  <div class="info_label">
+    <strong>Phone:</strong>
+    <%= @school.phone %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
+<%= button_to 'Editar información del colegio', edit_school_path(@school), :class=>"links", :method => :get %></br>
 
-<p>
-  <strong>Rbd:</strong>
-  <%= @school.RBD %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @school.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @school.phone %>
-</p>
-
-<%= link_to 'Editar información del colegio', edit_school_path(@school) %>
-
+<div class="info_form">
 <% if @school.subjects.any? %>
-  <h2> Asignaturas dictadas en Colegio <%= @school.name %>: </h2>
+
+  <h3> Asignaturas dictadas en Colegio <%= @school.name %>: </h3>
+  <div class="info_label">
   <% @school.subjects.each do |s| %>
-    <p><%= s.name %>
+    <strong><%= s.name %></strong>
       <% if(current_user.role == 'Jefe UTP') %>
-        <%= link_to 'Eliminar', school_subject_path(s.school, s) ,method: :delete %> </p>
+        <%= button_to 'Eliminar', school_subject_path(s.school, s) ,:class=>"links", :method => :delete %> </p>
       <% end %>
+      <br>
   <% end %>
-<% end %>
+  </div>
+  <% end %>
 
-<h3> Agregar nueva asignatura </h3>
-<%= form_for([@school, @school.subjects.build]) do |f| %>
-  <div class = "field">
-    <%= f.label :name, 'Nombre de la Asignatura' %>
-    <%= f.text_field :name %>
+  <div class="info_form">
+  <h3> Agregar nueva asignatura </h3>
+    <%= form_for([@school, @school.subjects.build]) do |f| %>
+      <div class = "field">
+        <%= f.label :name, 'Nombre de la Asignatura' %></br>
+        <%= f.text_field :name %>
+      </div>
+      <div class = "field">
+        <%= f.label :description, 'Descripción de la Asignatura (opcional)' %></br>
+        <div class="text_area"><%= f.text_area :description %></div>
+      </div>
+      <div class="actions">
+        <div class="button button-block">
+          <%= f.submit %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class = "field">
-    <%= f.label :description, 'Descripción de la Asignatura (opcional)' %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<br>
 
-<br>
-<button id="code-generator">Generar Código</button><p>Código: </p><p id="code-paragraph"></p>
-<br>
+<div class="info_form">
+  <div class="generate_button button-block" id="code-generator">
+    Generar Código
+  </div></br>
+  <div class="info_label">Código:
+  <p id="code-paragraph"></p>
+  </div>
+</div>
 
 <div id="school-id" data-school-id="<%= @school.id %>" ></div>
 
-<%= link_to 'Back', user_path(current_user.id) %>
+<%= button_to 'Back', user_path(current_user.id), :class=>"links", :method => :get %>

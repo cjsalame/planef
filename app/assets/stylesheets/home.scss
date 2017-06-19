@@ -54,7 +54,7 @@ body {
 
 	.field {
 	  position: relative;
-    color:rgba($white,.5);
+    color:rgba($white,.6);
 	  font-size: 20px;
 	  height: auto;
 	  padding: 10px;
@@ -133,3 +133,18 @@ body {
     margin-top:-20px;
     text-align:right;
   }
+
+.links {
+  align:left;
+  display:inline-block;
+  width:100%;
+  background:$form-bg;
+  text-align:center;
+  color:rgba($main-dark,.9);
+  font-weight:$bold;
+  font-size:15px;
+  margin-top:10px;
+  &:hover, &:focus {
+    background:darken($form-bg,5%);
+  }
+}

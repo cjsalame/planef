@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170618221413) do
     t.integer "planification_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "expected_learning_id"
+    t.index ["expected_learning_id"], name: "index_lectures_on_expected_learning_id"
     t.index ["planification_id"], name: "index_lectures_on_planification_id"
   end
 
