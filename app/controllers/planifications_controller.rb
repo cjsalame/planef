@@ -14,7 +14,6 @@ class PlanificationsController < ApplicationController
   # GET /planifications
   # GET /planifications.json
   def index
-    @search = Search.new
     @subjects = Subject.all.uniq.pluck(:name)
     @schools = School.all.uniq.pluck(:name)
     @grades = Grade.all.uniq.pluck(:name)
