@@ -1,0 +1,34 @@
+<h2> Resultados de la Búsqueda </h2>
+
+<% if @search.search_plans.empty? %>
+  <p>No se encontraron resultados para la búsqueda </p>
+<% else %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Downloads</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @search.search_plans.each do |planification| %>
+        <tr>
+          <td><%= planification.name %></td>
+          <td><%= planification.date %></td>
+          <td><%= planification.rating %></td>
+          <td><%= planification.downloads %></td>
+          <td><%= link_to 'Show', planification %></td>
+          <td><%= link_to 'Edit', edit_planification_path(planification) %></td>
+          <td><%= link_to 'Destroy', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>

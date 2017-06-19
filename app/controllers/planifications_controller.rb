@@ -14,8 +14,7 @@ class PlanificationsController < ApplicationController
   # GET /planifications
   # GET /planifications.json
   def index
-    @planifications =
-      Planification.where(['name LIKE ?', "%#{params[:search]}%"])
+    @planifications = Planification.search(params[:search])
   end
 
   # GET /planifications/1

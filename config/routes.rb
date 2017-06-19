@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :grades_subjects_teachers
-
+  resources :searches
   resources :schools do
     resources :users
     resources :subjects

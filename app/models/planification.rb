@@ -9,4 +9,12 @@ class Planification < ApplicationRecord
     self.rating ||= 0
     self.downloads ||= 0
   end
+
+  def self.search(search)
+    if search
+      where(['name LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end
