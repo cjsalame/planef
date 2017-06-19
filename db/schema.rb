@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618221413) do
+ActiveRecord::Schema.define(version: 20170619035829) do
 
   create_table "expected_learnings", force: :cascade do |t|
     t.string "grade"
@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 20170618221413) do
     t.integer "planification_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "expected_learning_id"
-    t.index ["expected_learning_id"], name: "index_lectures_on_expected_learning_id"
     t.index ["planification_id"], name: "index_lectures_on_planification_id"
   end
 
@@ -61,6 +59,9 @@ ActiveRecord::Schema.define(version: 20170618221413) do
     t.datetime "updated_at", null: false
     t.integer "lecture_id"
     t.integer "grades_subjects_teacher_id"
+    t.string "subject"
+    t.string "school"
+    t.string "grade"
     t.index ["lecture_id"], name: "index_planifications_on_lecture_id"
   end
 
@@ -80,15 +81,6 @@ ActiveRecord::Schema.define(version: 20170618221413) do
     t.integer "user_id", null: false
     t.index ["school_id", "user_id"], name: "index_schools_users_on_school_id_and_user_id"
     t.index ["user_id", "school_id"], name: "index_schools_users_on_user_id_and_school_id"
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string "keywords"
-    t.string "subject"
-    t.string "school"
-    t.string "grade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "subjects", force: :cascade do |t|

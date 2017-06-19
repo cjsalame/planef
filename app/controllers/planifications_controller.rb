@@ -14,7 +14,11 @@ class PlanificationsController < ApplicationController
   # GET /planifications
   # GET /planifications.json
   def index
-    @planifications = Planification.search(params[:search])
+    @search = Search.new
+    @subjects = Subject.all.uniq.pluck(:name)
+    @schools = School.all.uniq.pluck(:name)
+    @grades = Grade.all.uniq.pluck(:name)
+    @planifications = Planification.search(params)
   end
 
   # GET /planifications/1
@@ -63,12 +67,14 @@ class PlanificationsController < ApplicationController
   # POST /planifications
   # POST /planifications.json
   def create
-    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:gst])
-    @planification = @grades_subjects_teacher.planifications.build(planification_params)
-    #@planification = Planification.new(planification_params)
+    @gst = GradesSubjectsTeacher.find(params[:gst])
+    @planification = @gst.planifications.build(planification_params)
+    @planification.subject = @gst.subjects_teacher.subject.name
+    @planification.school = @gst.subjects_teacher.subject.school.name
+    @planification.grade = @gst.grade.name
     respond_to do |format|
       if @planification.save
-        format.html { redirect_to @grades_subjects_teacher , notice: 'Planification was successfully created.' }
+        format.html { redirect_to @gst , notice: 'Planification was successfully created.' }
         format.json { render :show, status: :created, location: @planification }
       else
         format.html { render :new }

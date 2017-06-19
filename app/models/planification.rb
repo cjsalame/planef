@@ -11,10 +11,16 @@ class Planification < ApplicationRecord
   end
 
   def self.search(search)
-    if search
-      where(['name LIKE ?', "%#{search}%"])
-    else
-      all
-    end
+    # if search
+    #   where(['name LIKE ?', "%#{search}%"])
+    # else
+    #   all
+    # end
+    plans = Planification.all
+    plans = plans.where(['name LIKE ?', "%#{search[:keywords]}%"]) if search[:keywords]
+    plans = plans.where(['subject LIKE ?', "%#{search[:subject]}%"]) if search[:subject]
+    plans = plans.where(['school LIKE ?', "%#{search[:school]}%"]) if search[:school]
+    plans = plans.where(['grade LIKE ?', "%#{search[:grade]}%"]) if search[:grade]
+    plans
   end
 end

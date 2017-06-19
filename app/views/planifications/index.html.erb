@@ -1,16 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Descargar Planificaciones</h1>
+<!-- <div class="form">
+  <%= form_tag planifications_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <div class="generate_button"><%= submit_tag 'Buscar' %></div>
+  <% end %>
+</div> -->
+<div class="form">
+  <%= form_tag planifications_path, method: 'get' do %>
 
-<%= form_tag planifications_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Buscar' %>
-<% end %>
+    <% if params[:keywords] && params[:keywords] != '' %>
+      <%= text_field_tag :keywords, params[:keywords], value: params[:keywords] %>
+    <% else %>
+      <%= text_field_tag :keywords, params[:keywords], placeholder: 'Buscar...' %>
+    <% end %>
 
-<%= link_to "Búsqueda Avanzada", new_search_path %>
+    <% if params[:subject] && params[:subject] != '' %>
+      <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true %>
+    <% else %>
+      <%= select_tag :subject, options_for_select(@subjects), prompt: 'Asignatura...' %>
+    <% end %>
 
+    <% if params[:school] && params[:school] != '' %>
+      <%= select_tag :school, options_for_select(@schools, selected: params[:school]), include_blank: true %>
+    <% else %>
+      <%= select_tag :school, options_for_select(@schools), prompt: 'Colegio...' %>
+    <% end %>
 
-<!--
+    <% if params[:grade] && params[:grade] != '' %>
+      <%= select_tag :grade, options_for_select(@grades, selected: params[:grade]), include_blank: true %>
+    <% else %>
+      <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...' %>
+    <% end %>
+    <div class="generate_button"><%= submit_tag 'Buscar' %></div>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -37,4 +63,4 @@
   </tbody>
 </table>
 
-<br> -->
+<br>
