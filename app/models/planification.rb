@@ -4,6 +4,15 @@ class Planification < ApplicationRecord
   belongs_to :grades_subjects_teacher
   accepts_nested_attributes_for :lectures
   after_initialize :set_defaults, unless: :persisted?
+  after_update :send_email, if: :state_changed?
+
+  def send_email
+    if self.state_was
+      CheckMailer.prof_to_utp_email(self).deliver_later
+    else
+      CheckMailer.utp_to_prof_email(self).deliver_later
+    end
+  end
 
   def set_defaults
     self.rating ||= 0

@@ -18,36 +18,42 @@ var lecture_addition = $(function() {
   });
 });
 
-function state_shift(button_el, boolean_attr, state_msg) {
+function state_shift(button_el, boolean_attr, state_msg, counterpart, disabling) {
 
   return function() {
     $(button_el).on("click", function(e) {
       console.log("CLICK!");
+      $that = $(this);
 
-      $.ajax({
-        type: "PUT",
-        url: "/planifications/" + $(this).data("planificationId") + ".json",
-        data: { "planification[state]": boolean_attr },
-        dataType: "JSON",
-        success: function(data, ts, jq){
-          console.log("Planification " + $(this).data("planificationId") + " State Changed to " + boolean_attr);
-          $("#plan-state-show").text( state_msg );
-        }
-      });
+      if ( confirm('¿Enviar e-mail a ' + counterpart + '?') ) {
+        $.ajax({
+          type: "PUT",
+          url: "/planifications/" + $that.data("planificationId") + ".json",
+          data: { "planification[state]": boolean_attr },
+          dataType: "JSON",
+          success: function(data, ts, jq){
+            console.log("Planification " + $that.data("planificationId") + " State Changed to " + boolean_attr);
+            // Cambia el mensaje en columna "Estado"
+            $("#plan-state-show").text( state_msg );
+            // Hace al botón unclickable
+            $that.attr("disabled", true);
+          }
+        });
+      }
     });
   }
 
 }
 
-var prof_shift = $( state_shift("#plan-state-change-prof", false, "Revisión por UTP") );
-var utp_shift = $( state_shift("#plan-state-change-utp", true, "Edición por Profesor") );
+var prof_shift = $( state_shift("#plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP') );
+var utp_shift = $( state_shift("#plan-state-change-utp", true, "Edición por Profesor", 'profesor') );
 
 
 $(document).ready(lecture_addition);
-$(document).on('page:load', lecture_addition);
+$(document).on('turbolinks:load', lecture_addition);
 
 $(document).ready(prof_shift);
-$(document).on('page:load', prof_shift);
+$(document).on('turbolinks:load', prof_shift);
 
 $(document).ready(utp_shift);
-$(document).on('page:load', utp_shift);
+$(document).on('turbolinks:load', utp_shift);
