@@ -12,8 +12,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
-    # ARREGLAR:
-    # authorize! :read, School
+    authorize! :read, School
 
     # Para que el prof. no pueda ver el código del colegio ingresando
     # a la URL del colegio en formato JSON, sólo TODOS los datos del
@@ -65,8 +64,7 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
   def update
-    # ARREGLAR:
-    # authorize! :update, @school
+    authorize! :update, @school
     
     respond_to do |format|
       if @school.update(school_params)

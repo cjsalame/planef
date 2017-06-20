@@ -38,7 +38,7 @@ j0 = User.new(
   lastname:              'Triviño',
   dob:                   '2000-04-20',
   phone:                 '56931313131',
-  email:                 'tulio@31minutos.cl',
+  email:                 'jlschellman@uc.cl',
   password:              '123123',
   password_confirmation: '123123',
   role:                  'Jefe UTP'

@@ -1,18 +1,4 @@
-// var main = (function () {
-
-// 	$('#lecture-button').click(function (){
-// 	  $("#lecture-form").append("<%= j render partial: 'lectures/form', locals: {f: @builder, planification: @planification} %>");
-
-// 	  $("#lecture-form").append($partial_form);
-// 	  // $("div.actions").before($partial_form);
-
-// 	  return false;
-// 	});
-// });
-
-// // $(document).ready(main);
-// $(document).on('turbolinks:load', main);
-$(function() {
+var lecture_addition = $(function() {
   return $(document).on("click", "#add-lecture-link", function(e) {
     e.preventDefault();
     $.ajax({
@@ -30,4 +16,44 @@ $(function() {
 
     });
   });
-}) ();
+});
+
+function state_shift(button_el, boolean_attr, state_msg, counterpart, disabling) {
+
+  return function() {
+    $(button_el).on("click", function(e) {
+      console.log("CLICK!");
+      $that = $(this);
+
+      if ( confirm('¿Enviar e-mail a ' + counterpart + '?') ) {
+        $.ajax({
+          type: "PUT",
+          url: "/planifications/" + $that.data("planificationId") + ".json",
+          data: { "planification[state]": boolean_attr },
+          dataType: "JSON",
+          success: function(data, ts, jq){
+            console.log("Planification " + $that.data("planificationId") + " State Changed to " + boolean_attr);
+            // Cambia el mensaje en columna "Estado"
+            $("#plan-state-show").text( state_msg );
+            // Hace al botón unclickable
+            $that.attr("disabled", true);
+          }
+        });
+      }
+    });
+  }
+
+}
+
+var prof_shift = $( state_shift("#plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP') );
+var utp_shift = $( state_shift("#plan-state-change-utp", true, "Edición por Profesor", 'profesor') );
+
+
+$(document).ready(lecture_addition);
+$(document).on('turbolinks:load', lecture_addition);
+
+$(document).ready(prof_shift);
+$(document).on('turbolinks:load', prof_shift);
+
+$(document).ready(utp_shift);
+$(document).on('turbolinks:load', utp_shift);
