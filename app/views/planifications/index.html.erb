@@ -44,7 +44,8 @@
       <th>Date</th>
       <th>Rating</th>
       <th>Downloads</th>
-      <th colspan="3"></th>
+      <th>Estado</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -55,10 +56,22 @@
         <td><%= planification.date %></td>
         <td><%= planification.rating %></td>
         <td><%= planification.downloads %></td>
-        <td><%= link_to 'Show', planification %></td>
-        <td><%= link_to 'Edit', edit_planification_path(planification) %></td>
-        <td><%= link_to 'Destroy', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td id="plan-state-show"> <%= planification.state ? "Edición por Profesor" : "Revisión por UTP" %></td>
+        <td><%= link_to 'Ver', planification %></td>
+        <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
+        <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        <% if current_user.role == "Profesor" %>
+          <td><button id="plan-state-change-prof" data-planification-id="<%= planification.id %>">Notificar a UTP</button></td>
+        <% elsif current_user.role == "Jefe UTP" %>
+          <td><button id="plan-state-change-utp" data-planification-id="<%= planification.id %>">Notificar a Profesor</button></td>
+        <% end %>        
+
+
+
       </tr>
+      <br>
     <% end %>
   </tbody>
 </table>
