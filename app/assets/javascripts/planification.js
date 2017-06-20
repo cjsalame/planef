@@ -1,5 +1,5 @@
-var lecture_addition = $(function() {
-  return $(document).on("click", "#add-lecture-link", function(e) {
+var lecture_addition = function() {
+  $("#add-lecture-link").on("click", function(e) {
     e.preventDefault();
     $.ajax({
       url: '/planifications/add_lecture.html',
@@ -16,7 +16,7 @@ var lecture_addition = $(function() {
 
     });
   });
-});
+}
 
 function state_shift(button_el, boolean_attr, state_msg, counterpart, disabling) {
 
@@ -45,15 +45,12 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart, disabling)
 
 }
 
-var prof_shift = $( state_shift("#plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP') );
-var utp_shift = $( state_shift("#plan-state-change-utp", true, "Edición por Profesor", 'profesor') );
+var prof_shift = state_shift("#plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP');
+var utp_shift = state_shift("#plan-state-change-utp", true, "Edición por Profesor", 'profesor');
 
 
-$(document).ready(lecture_addition);
 $(document).on('turbolinks:load', lecture_addition);
 
-$(document).ready(prof_shift);
 $(document).on('turbolinks:load', prof_shift);
 
-$(document).ready(utp_shift);
 $(document).on('turbolinks:load', utp_shift);

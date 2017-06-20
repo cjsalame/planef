@@ -2,14 +2,17 @@ function makeid() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for( var i=0; i < 8; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    for( var i=0; i < 8; i++ ) {
+    	text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
 
     return text;
 }
 
-var code_generation = $(function() {
-	return $(document).on("click", "#code-generator", function(e){
+var code_generation = function() {
+
+	$("#code-generator").on("click", function(e){
+		console.log("CLICK!");
 		var codestring = makeid(); 
 
 		$.ajax({
@@ -17,16 +20,16 @@ var code_generation = $(function() {
 			url: "/schools/" + $("#school-id").data("schoolId") + ".json",
 			data: { "school[code]": codestring },
 			dataType: "JSON",
-			success: function(msg){
-				console.log("Data Saved: " + msg);
+			success: function(data){
+				console.log("Data Saved: " + data.name + " " + data.code);
 				$("p#code-paragraph").text( codestring );
+			},
+			error: function(msg){
+				console.log("Error generating the code!");
 			}
 		});
 
 	});
-});
+}
 
-
-
-$(document).ready(code_generation);
-$(document).on('page:load', code_generation);
+$(document).on('turbolinks:load', code_generation);
