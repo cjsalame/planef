@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="form">
+  <div class="info_label">
+    <strong>Nombre:</strong>
+    <h5><%= @user.name %> <%= @user.lastname %></h5>
+  </div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.name %> <%= @user.lastname %>
-</p>
+  <div class="info_label">
+    <strong>Fecha de Nacimiento:</strong>
+    <h5><%= @user.dob %></h5>
+  </div>
 
-<p>
-  <strong>Fecha de Nacimiento:</strong>
-  <%= @user.dob %>
-</p>
+  <div class="info_label">
+    <strong>Teléfono de Contacto:</strong>
+    <h5><%= @user.phone %></h5>
+  </div>
 
-<p>
-  <strong>Teléfono de Contacto:</strong>
-  <%= @user.phone %>
-</p>
+  <div class="info_label">
+    <strong>Dirección de Correo Electrónico:</strong>
+    <h5><%= @user.email %></h5>
+  </div>
 
-<p>
-  <strong>Dirección de Correo Electrónico:</strong>
-  <%= @user.email %>
-</p>
+  <div class="info_label">
+    <strong>Rol:</strong>
+    <h5><%= @user.role %></h5>
+  </div>
 
-<p>
-  <strong>Rol:</strong>
-  <%= @user.role %>
-</p>
-
-<%= link_to 'Editar información de usuario', edit_registration_path(@user) %>
+  <%= button_to 'Editar información de usuario', edit_registration_path(@user), :class=>"links", :method => :get %>
+</div>

@@ -24,12 +24,29 @@ h1 {
   font-size:35px;
   font-weight:$bold;
 }
+h3 {
+    text-align:center;
+    font-size:25px;
+    color:rgba($white,.9);
+    font-weight:$bold;
+    margin:0 0 40px;
+}
+
 h4 {
   text-align:left;
   color:$form-bg;
   font-size:20px;
   font-weight:$bold;
 }
+
+h5 {
+  text-align:center;
+  font-size:25px;
+  color:rgba($white,.9);
+  margin:20px 0 40px;
+  font-weight:$thin;
+}
+
 .info_form {
   margin-top:20px;
   margin-bottom:20px;
@@ -63,13 +80,6 @@ h4 {
   font-weight:$thin;
   margin:0 0 10px;
   font-size:20px;
-}
-h3 {
-    text-align:center;
-    font-size:25px;
-    color:rgba($white,.9);
-    font-weight:$bold;
-    margin:0 0 40px;
 }
 
 .info_label {
