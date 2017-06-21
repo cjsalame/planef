@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p> 
 <div class="info_form">
-  <h3> Colegios Registrados </h3>
+  <h3> Escuelas Registradas </h3>
   <% @user.schools.each do |school| %>
-    <p> <%= button_to school.name, school_path(school.id), :class=>"links", :method => :get %> </p>
+    <p> <%= button_to school.name, school_path(school.id), :class=>"links", :method => :get %> </p> 
+
+		<% if can? :destroy, school %>
+    	<%= link_to 'Eliminar', school, method: :delete, data: { confirm: '¿Estás seguro(a) que deseas eliminar esta escuela?' } %></td>
+    <% end %>
+    
   <% end %>
 
 

@@ -34,5 +34,7 @@ Rails.application.routes.draw do
     get :add_lecture, on: :collection
   end
 
+  get :send_code_email, to: 'schools#send_code_email', as: :send_code_email
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

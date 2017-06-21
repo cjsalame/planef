@@ -48,7 +48,7 @@
       </div>
       <div class="actions">
         <div class="button button-block">
-          <%= f.submit %>
+          <%= f.submit "Crear Asignatura" %>
         </div>
       </div>
     <% end %>
@@ -56,14 +56,20 @@
 </div>
 <br>
 
-<div class="info_form">
-  <div style="cursor:pointer;" class="generate_button button-block" id="code-generator">
+<div class="info_form code">
+  <div style="cursor:pointer;" class="generate_button button-block" id="show-school-code-generator">
     Generar Código
   </div></br>
-  <div class="info_label">Código: <p id="code-paragraph"></p>
+  <div class="info_label" id="school-id" data-school-id="<%= @school.id %>">Código: <p style="display:inline;" class="code-paragraph"><%= @school.code %></p>
   </div>
 </div>
 
-<div id="school-id" data-school-id="<%= @school.id %>" ></div>
+<div class="info_form">
+  <div class="code-mailer info_label">Enviar código a profesor: 
+    <input placeholder="profesor" class="prof-mail username"></input>@<input placeholder="dominio.com" class="prof-mail domain"></input>
+  </div>
 
-<%= button_to 'Back', user_path(current_user.id), :class=>"links", :method => :get %>
+  <button id="send-email-code" style="color:white;">Enviar</button> 
+
+</div>
+<%= button_to 'Atrás', users_schools_path(current_user.id), :class=>"links", :method => :get %>

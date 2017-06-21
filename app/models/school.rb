@@ -4,6 +4,6 @@ class School < ApplicationRecord
   has_many                :subjects, dependent: :destroy
   has_many                :grades
   
-  # No es necesario ingresar código para creación de colegio
-  validates :code, presence: false
+  # ES necesario ingresar código para creación de colegio
+  validates :code, presence: true
 end
