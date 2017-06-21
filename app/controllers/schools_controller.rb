@@ -24,7 +24,7 @@ class SchoolsController < ApplicationController
       else
         format.html { render :show }
         format.json { render nothing: true }
-      end 
+      end
     end
   end
 
@@ -45,11 +45,12 @@ class SchoolsController < ApplicationController
     authorize! :create, School
     @user = current_user
     @school = @user.schools.build(school_params)
+    @school.user_id = @user.id
     @user.schools << @school
     respond_to do |format|
       if @school.save
         format.html do
-          redirect_to users_schools_path, notice: 'Colegio creado con éxito.'
+          redirect_to users_schools_path(@user), notice: 'Colegio creado con éxito.'
         end
         format.json { render :show, status: :created, location: @school }
       else
@@ -65,7 +66,7 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1.json
   def update
     authorize! :update, @school
-    
+
     respond_to do |format|
       if @school.update(school_params)
         format.html do
