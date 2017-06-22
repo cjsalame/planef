@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619184416) do
+ActiveRecord::Schema.define(version: 20170622060645) do
 
   create_table "expected_learnings", force: :cascade do |t|
     t.string "grade"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20170619184416) do
     t.string "grade"
     t.boolean "state", default: true
     t.index ["lecture_id"], name: "index_planifications_on_lecture_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "planification_id"
+    t.index ["planification_id"], name: "index_reviews_on_planification_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "schools", force: :cascade do |t|

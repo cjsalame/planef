@@ -47,6 +47,7 @@
       <th>Rating</th>
       <th>Downloads</th>
       <th>Estado</th>
+      <th>Rating</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -59,6 +60,7 @@
         <td><%= planification.rating %></td>
         <td><%= planification.downloads %></td>
         <td id="plan-state-show"> <%= planification.state ? "Edición por Profesor" : "Revisión por UTP" %></td>
+        <td><%= render partial: '/reviews/form', locals: {planification: planification} %></td>
         <td><%= link_to 'Ver', planification %></td>
         <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
         <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>

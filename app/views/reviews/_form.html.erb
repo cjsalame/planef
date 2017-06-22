@@ -1,0 +1,29 @@
+<% if @user.reviews.find_by(planification_id: planification.id) %>
+  <div class='star-rating' data-score= <%= planification.avg_rating %> ></div>
+
+  <script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+  </script>
+<% else %>
+  <%= form_for @review do |form| %>
+    <div class="field">
+      <div id='star-rating'></div>
+      <%= form.hidden_field :planification_id %>
+      <%= form.hidden_field :planification_id, value: planification.id %>
+      <div class="add_button"><%= form.submit 'Agregar' %></div>
+    </div>
+  <% end %>
+
+  <script>
+    $('#star-rating').raty({
+      path: '/assets/',
+      scoreName: 'review[rating]'
+    });
+  </script>
+<% end %>
