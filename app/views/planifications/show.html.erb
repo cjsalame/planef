@@ -3,7 +3,9 @@
 <h2>
   <strong><%= @planification.name %></strong>
 </h2>
+<div class='star-rating' data-score= <%= @planification.avg_rating %> ></div>
 
+<em> <%= "#{@planification.reviews.length} calificaciones" %> </em>
 <p>
 	<strong>Colegio:</strong>
 	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.school.name %>
@@ -62,3 +64,13 @@
 <%= link_to 'Editar', edit_planification_path(@planification) %> |
 <%= link_to 'Atrás', @planification.grades_subjects_teacher %> |
 <%= link_to 'Transformar a PDF', controller: "planifications", action: "show", format: :pdf %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
