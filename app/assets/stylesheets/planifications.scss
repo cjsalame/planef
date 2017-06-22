@@ -1,3 +1,22 @@
 // Place all the styles related to the Planifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal {
+  z-index:    1000;
+  display:    none;
+  background-color:rgba(66,66,66,0.5);
+}
+.modal div {
+  text-align: center;
+  // background-color: #333; //#100E19;
+  width:   300px;
+}
+.modal .close {
+  font-size: 8;
+  display: inline-block;
+}
+.modal .X {
+  text-decoration: underline;
+  cursor: pointer;
+}

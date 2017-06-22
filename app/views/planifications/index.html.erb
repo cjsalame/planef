@@ -40,12 +40,12 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Date</th>
+      <th>Título</th>
+      <th>Fecha</th>
       <th>Rating</th>
-      <th>Downloads</th>
+      <th>Descargas</th>
       <th>Estado</th>
-      <th colspan="2"></th>
+      <th colspan=<%= current_user.role=="Profesor" ? "5" : "3" %> ></th>
     </tr>
   </thead>
 
@@ -58,24 +58,27 @@
         <td><%= planification.downloads %></td>
         <td id="plan-state-show"> <%= planification.state ? "Edición por Profesor" : "Revisión por UTP" %></td>
         <td><%= link_to 'Ver', planification %></td>
-        <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
-        <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.role == "Profesor" %>
+          <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
+          <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 
 
         <% if current_user.role == "Profesor" %>
           <td><button id="plan-state-change-prof" data-planification-id="<%= planification.id %>" 
           <%= planification.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
         <% elsif current_user.role == "Jefe UTP" %>
-          <td><button id="plan-state-change-utp" data-planification-id="<%= planification.id %>" 
+          <td><button class="modalInput" id="plan-state-change-utp" data-planification-id="<%= planification.id %>" 
           <%= planification.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
-        <% end %>        
-
-
-
-      </tr>
+          <aside>
+            <%= render 'modal_box' %>
+          </aside>
+        <% end %>
+      </tr>      
       <br>
     <% end %>
   </tbody>
 </table>
+
 
 <br>

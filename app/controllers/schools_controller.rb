@@ -12,7 +12,6 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
-    authorize! :read, School
 
     # Para que el prof. no pueda ver el código del colegio ingresando
     # a la URL del colegio en formato JSON, sólo TODOS los datos del
@@ -22,6 +21,7 @@ class SchoolsController < ApplicationController
         format.html { render :show }
         format.json { render json: @school }
       else
+        authorize! :read, School
         format.html { render :show }
         format.json { render nothing: true }
       end
