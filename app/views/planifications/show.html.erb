@@ -1,76 +1,79 @@
 <p id="notice"><%= notice %></p>
 
-<h2>
-  <strong><%= @planification.name %></strong>
-</h2>
-<div class='star-rating' data-score= <%= @planification.avg_rating %> ></div>
+<div class="planification_html">
+  <h1>
+    <strong><%= @planification.name %></strong>
+  </h1>
+  <div class='star-rating' data-score= <%= @planification.avg_rating %> ></div>
 
-<em> <%= "#{@planification.reviews.length} calificaciones" %> </em>
-<p>
-	<strong>Colegio:</strong>
-	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.school.name %>
-</p>
-<p>
-	<strong>Asignatura:</strong>
-	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %>
-</p>
-<p>
-	<strong>Nivel:</strong>
-	<%= @planification.grades_subjects_teacher.grade.name %>
-</p>
-<p>
-	<strong>Profesor:</strong>
-	<%= @planification.grades_subjects_teacher.subjects_teacher.user.name %>
-	<%= @planification.grades_subjects_teacher.subjects_teacher.user.lastname %>
-</p>
-
-
-<p>
-  <strong>Fecha de creación:</strong> <%= @planification.date %>
-</p>
-
-<table border="1">
-	<tr>
-		<th><strong>Objetivos</strong></th>
-		<th><strong>Inicio</strong></th>
-		<th><strong>Desarrollo</strong></th>
-		<th><strong>Cierre</strong></th>
-		<th><strong>Contenidos</strong></th>
-		<th><strong>Recursos</strong></th>
-		<th><strong>Tiempo</strong></th>
-		<th><strong>Indicador de Evaluación</strong></th>
-	</tr>
+  <em> <%= "#{@planification.reviews.length} calificaciones" %> </em>
+  <br>
+  <div class="plan_info_label">
+  	<strong>Colegio:</strong>
+  	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.school.name %>
+  </div>
+  <div class="plan_info_label">
+  	<strong>Asignatura:</strong>
+  	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %>
+  </div>
+  <div class="plan_info_label">
+  	<strong>Nivel:</strong>
+  	<%= @planification.grades_subjects_teacher.grade.name %>
+  </div>
+  <div class="plan_info_label">
+  	<strong>Profesor:</strong>
+  	<%= @planification.grades_subjects_teacher.subjects_teacher.user.name %>
+  	<%= @planification.grades_subjects_teacher.subjects_teacher.user.lastname %>
+  </div>
 
 
+  <div class="plan_info_label">
+    <strong>Fecha de creación:</strong> <%= @planification.date %>
+  </div>
 
-<% @planification.lectures.each do |lecture| %>
-	<tr>
-		<td><%= lecture.objectives %></td>
-		<td><%= lecture.starting %></td>
-		<td><%= lecture.developing %>	</td>
-		<td><%= lecture.finalizing %></td>
-		<td><%= lecture.content %></td>
-		<td><%= lecture.resources %></td>
-		<td><%= lecture.duration %></td>
-		<td><%= lecture.evaluation %></td>
-	</tr>
-
-<% end %>
-
-
-</table>
+  <table border="1" class="planification_table">
+  	<tr class="table_elements">
+  		<th class="table_headings"><strong>Objetivos</strong></th>
+  		<th class="table_headings"><strong>Inicio</strong></th>
+  		<th class="table_headings"><strong>Desarrollo</strong></th>
+  		<th class="table_headings"><strong>Cierre</strong></th>
+  		<th class="table_headings"><strong>Contenidos</strong></th>
+  		<th class="table_headings"><strong>Recursos</strong></th>
+  		<th class="table_headings"><strong>Tiempo</strong></th>
+  		<th class="table_headings"><strong>Indicador de Evaluación</strong></th>
+  	</tr>
 
 
-<%= link_to 'Editar', edit_planification_path(@planification) %> |
-<%= link_to 'Atrás', @planification.grades_subjects_teacher %> |
-<%= link_to 'Transformar a PDF', controller: "planifications", action: "show", format: :pdf %>
 
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-</script>
+  <% @planification.lectures.each do |lecture| %>
+  	<tr>
+  		<td class="table_content"><%= lecture.objectives %></td>
+  		<td class="table_content"><%= lecture.starting %></td>
+  		<td class="table_content"><%= lecture.developing %>	</td>
+  		<td class="table_content"><%= lecture.finalizing %></td>
+  		<td class="table_content"><%= lecture.content %></td>
+  		<td class="table_content"><%= lecture.resources %></td>
+  		<td class="table_content"><%= lecture.duration %></td>
+  		<td class="table_content"><%= lecture.evaluation %></td>
+  	</tr>
+
+  <% end %>
+
+
+  </table>
+
+
+  <%= button_to 'Editar', edit_planification_path(@planification), :class=> "links", :method=> :get %>
+  <%= button_to 'Atrás', @planification.grades_subjects_teacher, :class=> "links", :method=> :get %><br>
+  <%= button_to 'Transformar a PDF', controller: "planifications", action: "show", format: :pdf, :class=> "links", :method=> :get %>
+
+  <script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+  </script>
+</div>
