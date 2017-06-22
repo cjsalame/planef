@@ -18,24 +18,24 @@
     <br>
     <div class="field">
     <% if params[:subject] && params[:subject] != '' %>
-      <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true %>
+      <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true, :class=>"select_box" %>
     <% else %>
-      <%= select_tag :subject, options_for_select(@subjects), prompt: 'Asignatura...' %>
+      <%= select_tag :subject, options_for_select(@subjects), prompt: 'Asignatura...', :class=>"select_box" %>
     <% end %>
 
     <% if params[:school] && params[:school] != '' %>
-      <%= select_tag :school, options_for_select(@schools, selected: params[:school]), include_blank: true %>
+      <%= select_tag :school, options_for_select(@schools, selected: params[:school]), include_blank: true, :class=>"select_box" %>
     <% else %>
-      <%= select_tag :school, options_for_select(@schools), prompt: 'Colegio...' %>
+      <%= select_tag :school, options_for_select(@schools), prompt: 'Colegio...', :class=>"select_box" %>
     <% end %>
 
     <% if params[:grade] && params[:grade] != '' %>
-      <%= select_tag :grade, options_for_select(@grades, selected: params[:grade]), include_blank: true %>
+      <%= select_tag :grade, options_for_select(@grades, selected: params[:grade]), include_blank: true, :class=>"select_box" %>
     <% else %>
-      <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...' %>
+      <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...', :class=>"select_box" %>
     <% end %>
   </div>
-    <div class="generate_button"><%= submit_tag 'Buscar' %></div>
+    <div class="button button_block"><%= submit_tag 'Buscar' %></div>
   <% end %>
 </div>
 

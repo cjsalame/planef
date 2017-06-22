@@ -148,3 +148,11 @@ body {
     background:darken($form-bg,5%);
   }
 }
+
+.select_box {
+  position:relative;
+  width:350px;
+  margin: 10px;
+  background: $form-bg;
+
+}

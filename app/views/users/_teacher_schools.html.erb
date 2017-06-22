@@ -44,7 +44,7 @@
     <h3> Agregar Nuevo Colegio </h3><br>
     <%= form_tag(:action => "subscribe_school") do |f| %>
         <div class="field">
-      <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
+      <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }), :class=> "select_box" %>
     </div>
       <div class="courses">Ingresa el código del colegio</div>
       <%= text_field_tag "schoolCode", nil, placeholder: 'Código..' %>

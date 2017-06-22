@@ -2,7 +2,7 @@
 
   <div class="field">
     <%= form.hidden_field :grade_id %>
-    <%= form.select :grade_id, ["Agrega Nuevo Curso..."] | Grade.all.map { |g| [g.name, "#{g.id}"] } %>
+    <%= form.select :grade_id, ["Agrega Nuevo Curso..."] | Grade.all.map { |g| [g.name, "#{g.id}"] }, {}, :class=>"select_box" %>
     <%= form.hidden_field :subjects_teacher_id %>
     <%= form.hidden_field :subjects_teacher_id, value: SubjectsTeacher.find_by(subject_id: subject.id, user_id: user.id).id %>
 
