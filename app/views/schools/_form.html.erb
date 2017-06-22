@@ -12,7 +12,7 @@
   <% end %>
 <div class="form">
   <div class="field">
-    <%= form.label :name %></br>
+    <%= form.label :nombre %></br>
     <%= form.text_field :name, id: :school_name %>
   </div>
 
@@ -22,19 +22,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :address %></br>
+    <%= form.label :dirección %></br>
     <%= form.text_field :address, id: :school_address %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %></br>
+    <%= form.label :teléfono %></br>
     <%= form.text_field :phone, id: :school_phone %>
   </div>
 
-  <div class="actions">
-    <div class="button button-block">
-      <%= form.submit %>
+  <div class="info_form">
+    <div style="cursor:pointer;" class="generate_button button-block" id="new-school-code-generator">
+      Generar Código
+    </div></br>
+    <div class="info_label">Código: <p style="display:inline;" class="code-paragraph"></p>
     </div>
   </div>
+
+  <%= form.hidden_field :code, id: :school_code, class: "code-paragraph", value: "" %>
+
+  <div class="actions">
+    <div class="button button-block">
+      <%= form.submit "Crear Escuela" %>
+    </div>
+  </div>
+
+
 </div>
 <% end %>

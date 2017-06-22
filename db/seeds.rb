@@ -62,6 +62,7 @@ j0.schools << School.new(
   RBD:                   '789789',
   address:               'Av. Ossa 4545',
   phone:                 '987987',
+  code:                  'D99bWCed',
   user_id:               j0.id
 )
 
@@ -70,6 +71,7 @@ j0.schools << School.new(
   RBD:                   '8437592',
   address:               'Av. Quilin 8200',
   phone:                 '2222222',
+  code:                  'uPw3A7Qh',
   user_id:               j0.id
 )
 
@@ -78,6 +80,7 @@ j0.schools << School.new(
   RBD:                   '809809',
   address:               'Av. Antupiren 6969',
   phone:                 '444444444',
+  code:                  'qksewsR2',
   user_id:               j0.id
 )
 

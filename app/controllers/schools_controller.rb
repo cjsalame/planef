@@ -89,10 +89,19 @@ class SchoolsController < ApplicationController
     @school.destroy
     respond_to do |format|
       format.html do
-        redirect_to schools_url, notice: 'School was successfully destroyed.'
+        redirect_to schools_url, notice: 'Escuela eliminada con éxito.'
       end
       format.json { head :no_content }
     end
+  end
+
+  def send_code_email
+    # En la Web Console del browser tirará un "no element found"..
+    # esto porque no sabe qué renderizar al llegar a esta ruta,
+    # pero el email se envía igual.
+    @prof = User.find_by_id(params[:prof_id])
+    @school = School.find_by_id(params[:school_id])
+    CodeMailer.school_code_email(@prof, @school).deliver_later
   end
 
   private

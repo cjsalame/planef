@@ -1,4 +1,4 @@
-var school_validation = $(function(){
+var school_validation = function(){
 
 	var school_code = ""
 
@@ -34,8 +34,6 @@ var school_validation = $(function(){
 
 	});
 
-});
+}
 
-
-$(document).ready(school_validation);
-$(document).on('page:load', school_validation);
+$(document).on('turbolinks:load', school_validation);

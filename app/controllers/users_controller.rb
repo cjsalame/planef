@@ -1,5 +1,12 @@
 # UsersController
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    if request.xhr?
+      render json: @users
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     @subjects_teacher = @user.subjects_teachers.new
