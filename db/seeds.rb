@@ -57,7 +57,7 @@ j1 = User.new(
 )
 j1.save!
 
-j0.schools << School.new(
+school0 = School.new(
   name:                  'Teresiano Enrique de Ossó',
   RBD:                   '789789',
   address:               'Av. Ossa 4545',
@@ -65,8 +65,10 @@ j0.schools << School.new(
   code:                  'D99bWCed',
   user_id:               j0.id
 )
+j0.schools << school0
+p0.schools << school0
 
-j0.schools << School.new(
+school1 = School.new(
   name:                  'Pumahue',
   RBD:                   '8437592',
   address:               'Av. Quilin 8200',
@@ -74,8 +76,9 @@ j0.schools << School.new(
   code:                  'uPw3A7Qh',
   user_id:               j0.id
 )
+j0.schools << school1
 
-j0.schools << School.new(
+school2 = School.new(
   name:                  'Antupiren',
   RBD:                   '809809',
   address:               'Av. Antupiren 6969',
@@ -83,16 +86,33 @@ j0.schools << School.new(
   code:                  'qksewsR2',
   user_id:               j0.id
 )
+j0.schools << school2
 
-j0.schools.first.subjects << Subject.new(
+s0 = Subject.new(
   name: 'Matemáticas'
 )
-j0.schools.first.subjects << Subject.new(
+j0.schools.first.subjects << s0
+
+s1 = Subject.new(
   name: 'Lenguaje'
 )
-j0.schools.first.subjects << Subject.new(
+j0.schools.first.subjects << s1
+s2 = Subject.new(
   name: 'Ciencias Naturales'
 )
+j0.schools.first.subjects << s2
+s3 = Subject.new(
+  name: 'Matemáticas'
+)
+j0.schools.second.subjects << s3
+s4 = Subject.new(
+  name: 'Lenguaje'
+)
+j0.schools.second.subjects << s4
+s5 = Subject.new(
+  name: 'Ciencias Naturales'
+)
+j0.schools.second.subjects << s5
 
 g00 = Grade.new(
   name: '1° Basico'
@@ -143,6 +163,31 @@ g11 = Grade.new(
 )
 g11.save!
 
+st0 = SubjectsTeacher.new(
+  subject_id: s0.id,
+  user_id: p0.id
+)
+st0.save!
+p0.subjects_teachers << st0
+
+gst0 = GradesSubjectsTeacher.new(
+  grade_id: g00.id,
+  subjects_teacher_id: st0.id
+)
+st0.grades_subjects_teachers << gst0
+
+plan0 = Planification.new(
+  name: 'matplan1'
+)
+gst0.planifications << plan0
+plan1 = Planification.new(
+  name: 'matplan2'
+)
+gst0.planifications << plan1
+plan2 = Planification.new(
+  name: 'matplan3'
+)
+gst0.planifications << plan2
 
 ea1 = ExpectedLearning.new(
   subject:                 'Ciencias Naturales',
