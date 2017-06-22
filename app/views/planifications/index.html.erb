@@ -15,7 +15,8 @@
     <% else %>
       <%= text_field_tag :keywords, params[:keywords], placeholder: 'Buscar...' %>
     <% end %>
-
+    <br>
+    <div class="field">
     <% if params[:subject] && params[:subject] != '' %>
       <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true %>
     <% else %>
@@ -33,6 +34,7 @@
     <% else %>
       <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...' %>
     <% end %>
+  </div>
     <div class="generate_button"><%= submit_tag 'Buscar' %></div>
   <% end %>
 </div>
@@ -63,12 +65,12 @@
 
 
         <% if current_user.role == "Profesor" %>
-          <td><button id="plan-state-change-prof" data-planification-id="<%= planification.id %>" 
+          <td><button id="plan-state-change-prof" data-planification-id="<%= planification.id %>"
           <%= planification.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
         <% elsif current_user.role == "Jefe UTP" %>
-          <td><button id="plan-state-change-utp" data-planification-id="<%= planification.id %>" 
+          <td><button id="plan-state-change-utp" data-planification-id="<%= planification.id %>"
           <%= planification.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
-        <% end %>        
+        <% end %>
 
 
 
