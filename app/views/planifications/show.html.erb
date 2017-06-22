@@ -65,7 +65,7 @@
 
   <%= button_to 'Editar', edit_planification_path(@planification), :class=> "links", :method=> :get %>
   <%= button_to 'Atrás', @planification.grades_subjects_teacher, :class=> "links", :method=> :get %><br>
-  <%= button_to 'Transformar a PDF', controller: "planifications", action: "show", format: :pdf, :class=> "links", :method=> :get %>
+  <%= button_to 'Transformar a PDF', {controller: "planifications", action: "show", format: :pdf}, {:class=> "pdf_button"}%>
 
   <script>
     $('.star-rating').raty({

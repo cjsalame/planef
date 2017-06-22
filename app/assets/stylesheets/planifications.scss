@@ -29,7 +29,7 @@ $br: 4px;
 
 .plan_info_label {
   text-align:left;
-  color:$main-darkest;
+  color:rgba($form-bg,.9);
   font-weight:$thin;
   margin:0 0 15px;
   font-size:20px;
@@ -52,4 +52,23 @@ $br: 4px;
 
 .table_content {
   padding:10px;
+}
+
+.pdf_button {
+    align:left;
+    border:0;
+    outline:none;
+
+    display:inline-block;
+    width:100%;
+    background:$main-dark;
+    text-align:center;
+    color:$white;
+    font-weight:$bold;
+    font-size:15px;
+    margin-top:10px;
+    transition:all.5s ease;
+    &:hover, &:focus {
+      background:darken($main-dark,5%);
+    }
 }
