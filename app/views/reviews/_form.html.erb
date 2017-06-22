@@ -1,5 +1,5 @@
-<% if @user.reviews.find_by(planification_id: planification.id) %>
-  <div class='star-rating' data-score= <%= planification.avg_rating %> ></div>
+<% if @user.reviews.find_by(planification_id: plan.id) %>
+  <div class='star-rating' data-score= <%= plan.avg_rating %> ></div>
 
   <script>
     $('.star-rating').raty({
@@ -14,8 +14,8 @@
   <%= form_for @review do |form| %>
     <div class="field">
       <div id='star-rating'></div>
-      <%= form.hidden_field :planification_id %>
-      <%= form.hidden_field :planification_id, value: planification.id %>
+        <%= form.hidden_field :planification_id %>
+        <%= form.hidden_field :planification_id, value: plan.id %>
       <div class="add_button"><%= form.submit 'Agregar' %></div>
     </div>
   <% end %>

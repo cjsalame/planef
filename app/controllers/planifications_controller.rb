@@ -20,6 +20,7 @@ class PlanificationsController < ApplicationController
     @schools = School.all.uniq.pluck(:name)
     @grades = Grade.all.uniq.pluck(:name)
     @planifications = Planification.search(params)
+    @planification = Planification.new
   end
 
   # GET /planifications/1
@@ -69,11 +70,20 @@ class PlanificationsController < ApplicationController
   # POST /planifications
   # POST /planifications.json
   def create
+    @user = current_user
+    @planification = Planification.new(planification_params)
     @gst = GradesSubjectsTeacher.find(params[:gst])
-    @planification = @gst.planifications.build(planification_params)
     @planification.subject = @gst.subjects_teacher.subject.name
-    @planification.school = @gst.subjects_teacher.subject.school.name
     @planification.grade = @gst.grade.name
+    if params[:original]
+      @planification.school = @gst.subjects_teacher.subject.school.name
+    else
+      subject = @user.subjects.where(name: @planification.subject)
+      st = @user.subjects_teacher.where(subject_id: subject.id)
+      gst = @user.grades_subjects_teachers.where(subjects_teacher_id: st.id)
+      @planification.grades_subjects_teacher_id = gst.id
+    end
+
     respond_to do |format|
       if @planification.save
         format.html { redirect_to @gst , notice: 'Planification was successfully created.' }
@@ -119,11 +129,14 @@ class PlanificationsController < ApplicationController
     @expected_learnings = ExpectedLearning.all
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def planification_params
-    params.require(:planification).permit(:name, :date, :rating, :downloads, :state,
+    params.require(:planification).permit(:name, :date,
+    :grades_subjects_teacher_id, :school, :author_id, :original,
     lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
-    :grades_subjects_teacher_id, :finalizing, :content, :resources, :duration, :evaluation ])
+    :grades_subjects_teacher_id, :finalizing, :content, :resources, :duration,
+    :evaluation ])
   end
 
 

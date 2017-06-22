@@ -1,0 +1,56 @@
+<tr>
+  <td><%= plan.name %></td>
+  <td><%= plan.date %></td>
+  <td><%= plan.rating %></td>
+  <td><%= plan.downloads %></td>
+  <td id="plan-state-show">
+    <%=
+      plan.state ? "Edición por Profesor" : "Revisión por UTP"
+    %>
+  </td>
+  <td> <%= render partial: '/reviews/form', locals: {plan: plan} %> </td>
+  <td><%= link_to 'Ver', plan %></td>
+
+  <td>
+    <button type='button' class='btn btn-danger' data-toggle='modal'
+        data-target='#SelectSchool' >
+          Descargar
+    </button>
+  </td>
+  <div id='SelectSchool' class='modal fade' role='dialog'>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type="button" class='close' data-dismiss='modal'>
+            &times;
+          </button>
+          <h2 class="modal-title"> Colegios </h2>
+        </div>
+        <div class='modal-body'>
+          <%= render partial: 'download_form', locals: {plan: plan} %>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-default'
+            data-dismiss='modal'>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <% if current_user.role == "Profesor" %>
+    <td><button id="plan-state-change-prof" data-planification-id="<%= plan.id %>"
+    <%= plan.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
+  <% elsif current_user.role == "Jefe UTP" %>
+    <td><button id="plan-state-change-utp" data-planification-id="<%= plan.id %>"
+    <%= plan.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
+  <% end %>
+
+
+
+</tr>
+<br>
