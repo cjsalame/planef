@@ -118,7 +118,7 @@ class PlanificationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def planification_params
-    params.require(:planification).permit(:name, :date, :rating, :downloads, :state,
+    params.require(:planification).permit(:name, :date, :rating, :downloads, :state, :utpcomment,
     lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
     :grades_subjects_teacher_id, :finalizing, :content, :resources, :duration, :evaluation ])
   end

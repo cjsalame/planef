@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619184416) do
+ActiveRecord::Schema.define(version: 20170622200437) do
 
   create_table "expected_learnings", force: :cascade do |t|
     t.string "grade"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170619184416) do
     t.string "school"
     t.string "grade"
     t.boolean "state", default: true
+    t.text "utpcomment"
     t.index ["lecture_id"], name: "index_planifications_on_lecture_id"
   end
 
