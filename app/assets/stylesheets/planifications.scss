@@ -72,3 +72,22 @@ $br: 4px;
       background:darken($main-dark,5%);
     }
 }
+
+.modal {
+  z-index:    1000;
+  display:    none;
+  background-color:rgba(66,66,66,0.5);
+}
+.modal div {
+  text-align: center;
+  // background-color: #333; //#100E19;
+  width:   300px;
+}
+.modal .close {
+  font-size: 8;
+  display: inline-block;
+}
+.modal .X {
+  text-decoration: underline;
+  cursor: pointer;
+}
