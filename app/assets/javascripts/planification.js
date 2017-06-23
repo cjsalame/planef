@@ -54,3 +54,5 @@ $(document).on('turbolinks:load', lecture_addition);
 $(document).on('turbolinks:load', prof_shift);
 
 $(document).on('turbolinks:load', utp_shift);
+
+/////////////////////////////////////////////////////////////////////////
