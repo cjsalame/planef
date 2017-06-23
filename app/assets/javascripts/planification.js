@@ -33,15 +33,13 @@ var lecture_addition = function() {
 //   });
 // }
 
-function state_shift(button_el, boolean_attr, state_msg, counterpart, utp_msg) {
+function state_shift(button_el, boolean_attr, state_msg, counterpart) {
 
   return function() {
     $(button_el).on("click", function(e) {
       console.log("CLICK!");
       $that = $(this);
       planification_id = $that.data("planificationId");
-
-
 
 
       if(counterpart === 'profesor') {
@@ -51,15 +49,16 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart, utp_msg) {
               type: "PUT",
               url: "/planifications/" + planification_id + ".json",
               data: { "planification[state]": boolean_attr, 
-                      "planification[utpcomment]" : utp_msg },
+                      "planification[utpcomment]" : $("#plan_comment").val() },
               dataType: "JSON",
               success: function(data, ts, jq){
                 console.log("Planification " + planification_id + " State Changed to " + boolean_attr);
                 // Cambia el mensaje en columna "Estado"
                 $("#plan-state-show").text( state_msg );
-                // Hace al botón unclickable
+                // Hace al botón unclickable luego de mandar correo
                 $that.attr("disabled", true);
-
+                
+                console.log("Comentario: " + $("#plan_comment").val() );
                 alert("¡Correo enviado!");
               }
             });
@@ -141,7 +140,7 @@ var modal = function() {
 
 
 var prof_shift = state_shift("#plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP');
-var utp_shift = state_shift(".modalInput.plan_id", true, "Edición por Profesor", 'profesor', $(".modal textarea").val());
+var utp_shift = state_shift(".modalInput.plan_id", true, "Edición por Profesor", 'profesor' );
 
 $(document).on('turbolinks:load', lecture_addition);
 $(document).on('turbolinks:load', prof_shift);

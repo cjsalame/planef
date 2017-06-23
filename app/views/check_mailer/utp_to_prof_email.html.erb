@@ -16,9 +16,10 @@
 	  	<p><strong>Curso:</strong> <%= @planification.grades_subjects_teacher.grade.name %></p>
   	</section>
 
-  	<p><strong>Comentarios:</strong> <%= @planification.utpcomment %>
-  	</p>
-
+		<section>
+  		Le desea hacer los siguientes comentarios con respecto a esta planificación:
+  	 <p><em>"<%= @planification.utpcomment %>"</em></p>
+		</section>
   </article>
 
 </body>
