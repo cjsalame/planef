@@ -77,6 +77,7 @@ school1 = School.new(
   user_id:               j0.id
 )
 j0.schools << school1
+p1.schools << school1
 
 school2 = School.new(
   name:                  'Antupiren',
@@ -175,6 +176,18 @@ gst0 = GradesSubjectsTeacher.new(
   subjects_teacher_id: st0.id
 )
 st0.grades_subjects_teachers << gst0
+
+st1 = SubjectsTeacher.new(
+  subject_id: s3.id,
+  user_id: p1.id
+)
+p1.subjects_teachers << st1
+
+gst1 = GradesSubjectsTeacher.new(
+  grade_id: g00.id,
+  subjects_teacher_id: st1.id
+)
+st1.grades_subjects_teachers << gst1
 
 plan0 = Planification.new(
   name: 'matplan1'

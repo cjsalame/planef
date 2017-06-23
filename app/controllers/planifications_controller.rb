@@ -78,10 +78,11 @@ class PlanificationsController < ApplicationController
     if params[:original]
       @planification.school = @gst.subjects_teacher.subject.school.name
     else
-      subject = @user.subjects.where(name: @planification.subject)
-      st = @user.subjects_teacher.where(subject_id: subject.id)
-      gst = @user.grades_subjects_teachers.where(subjects_teacher_id: st.id)
-      @planification.grades_subjects_teacher_id = gst.id
+      grade = Grade.find_by(name: @planification.grade)
+      subject = @user.subjects.find_by(name: @planification.subject)
+      st = @user.subjects_teachers.find_by(subject_id: subject.id)
+      @gst = GradesSubjectsTeacher.find_by(subjects_teacher_id: st.id, grade_id: grade.id)
+      @planification.grades_subjects_teacher_id = @gst.id
     end
 
     respond_to do |format|
