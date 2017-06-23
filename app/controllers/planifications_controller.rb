@@ -75,6 +75,7 @@ class PlanificationsController < ApplicationController
     @gst = GradesSubjectsTeacher.find(params[:gst])
     @planification.subject = @gst.subjects_teacher.subject.name
     @planification.grade = @gst.grade.name
+    @planification.owner = @user.id
     if params[:original]
       @planification.school = @gst.subjects_teacher.subject.school.name
     else

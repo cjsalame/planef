@@ -190,15 +190,27 @@ gst1 = GradesSubjectsTeacher.new(
 st1.grades_subjects_teachers << gst1
 
 plan0 = Planification.new(
-  name: 'matplan1'
+  name:      'matplan1',
+  subject: 'Matemáticas',
+  grade: '1° Basico',
+  author_id: p0.id,
+  owner:     p0.id
 )
 gst0.planifications << plan0
 plan1 = Planification.new(
-  name: 'matplan2'
+  name: 'matplan2',
+  subject: 'Matemáticas',
+  grade: '1° Basico',
+  author_id: p0.id,
+  owner:     p0.id
 )
 gst0.planifications << plan1
 plan2 = Planification.new(
-  name: 'matplan3'
+  name: 'matplan3',
+  subject: 'Matemáticas',
+  grade: '1° Basico',
+  author_id: p0.id,
+  owner:     p0.id
 )
 gst0.planifications << plan2
 

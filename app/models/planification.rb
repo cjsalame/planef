@@ -8,6 +8,16 @@ class Planification < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
   after_update :send_email, if: :state_changed?
 
+  def author_name
+    @user = User.find(author_id)
+    "#{@user.name} #{@user.lastname}"
+  end
+
+  def owner_name
+    @user = User.find(owner)
+    "#{@user.name} #{@user.lastname}"
+  end
+
   def avg_rating
     if reviews.any?
       reviews.average(:rating).round(2)

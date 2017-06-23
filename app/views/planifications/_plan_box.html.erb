@@ -1,13 +1,11 @@
 <tr>
   <td><%= plan.name %></td>
-  <td><%= plan.date %></td>
-  <td><%= plan.rating %></td>
+  <td><%= plan.subject %></td>
+  <td><%= plan.grade %></td>
   <td><%= plan.downloads %></td>
-  <td id="plan-state-show">
-    <%=
-      plan.state ? "Edición por Profesor" : "Revisión por UTP"
-    %>
-  </td>
+  <td><%= plan.author_name %></td>
+  <td><%= plan.owner_name %></td>
+
   <td> <%= render partial: '/reviews/form', locals: {plan: plan} %> </td>
   <td><%= link_to 'Ver', plan %></td>
 
@@ -42,13 +40,13 @@
 
 
 
-  <% if current_user.role == "Profesor" %>
+  <!-- <% if current_user.role == "Profesor" %>
     <td><button id="plan-state-change-prof" data-planification-id="<%= plan.id %>"
     <%= plan.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
   <% elsif current_user.role == "Jefe UTP" %>
     <td><button id="plan-state-change-utp" data-planification-id="<%= plan.id %>"
     <%= plan.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
-  <% end %>
+  <% end %> -->
 
 
 
