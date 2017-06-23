@@ -1,16 +1,19 @@
 <tr>
-  <td><%= plan.name %></td>
-  <td><%= plan.subject %></td>
-  <td><%= plan.grade %></td>
-  <td><%= plan.downloads %></td>
-  <td><%= plan.author_name %></td>
-  <td><%= plan.owner_name %></td>
-
-  <td> <%= render partial: '/reviews/form', locals: {plan: plan} %> </td>
-  <td><%= link_to 'Ver', plan %></td>
 
   <td>
-    <button type='button' class='btn btn-danger' data-toggle='modal'
+    <p class="plan_header"><%= plan.name %></p>
+    <p class="plan_info"><%= plan.subject %></p>
+    <p class="plan_info"><%= plan.grade %></p>
+  </td>
+  <td><p class="plan_creator">Creado Original: </p>
+  <p class="plan_info"><%= plan.author_name %></p>
+  <p class="plan_creator">Última edición por: </P>
+  <p class="plan_info"><%= plan.owner_name %></p></td>
+  <td class="plan_info"><%= plan.downloads %> Descargas</td>
+  <td> <%= render partial: '/reviews/form', locals: {plan: plan} %> </td>
+  <td><%= button_to 'Ver', plan, :class=> "plan_buttons" %><br>
+
+    <button type='button' class='plan_buttons' data-toggle='modal'
         data-target='#SelectSchool' >
           Descargar
     </button>
