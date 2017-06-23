@@ -26,7 +26,7 @@ gem 'erubis'
 gem 'cancan'
 
 # Frontend
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

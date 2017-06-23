@@ -1,84 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Descargar Planificaciones</h1>
-<!-- <div class="form">
-  <%= form_tag planifications_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <div class="generate_button"><%= submit_tag 'Buscar' %></div>
-  <% end %>
-</div> -->
-<div class="form">
-  <%= form_tag planifications_path, method: 'get' do %>
 
-    <% if params[:keywords] && params[:keywords] != '' %>
-      <%= text_field_tag :keywords, params[:keywords], value: params[:keywords] %>
-    <% else %>
-      <%= text_field_tag :keywords, params[:keywords], placeholder: 'Buscar...' %>
-    <% end %>
+<%= render 'search_form' %>
 
-    <% if params[:subject] && params[:subject] != '' %>
-      <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true %>
-    <% else %>
-      <%= select_tag :subject, options_for_select(@subjects), prompt: 'Asignatura...' %>
-    <% end %>
-
-    <% if params[:school] && params[:school] != '' %>
-      <%= select_tag :school, options_for_select(@schools, selected: params[:school]), include_blank: true %>
-    <% else %>
-      <%= select_tag :school, options_for_select(@schools), prompt: 'Colegio...' %>
-    <% end %>
-
-    <% if params[:grade] && params[:grade] != '' %>
-      <%= select_tag :grade, options_for_select(@grades, selected: params[:grade]), include_blank: true %>
-    <% else %>
-      <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...' %>
-    <% end %>
-    <div class="generate_button"><%= submit_tag 'Buscar' %></div>
-  <% end %>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Fecha</th>
-      <th>Rating</th>
-      <th>Descargas</th>
-      <th>Estado</th>
-      <th colspan=<%= current_user.role=="Profesor" ? "5" : "3" %> ></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @planifications.each do |planification| %>
-      <tr>
-        <td><%= planification.name %></td>
-        <td><%= planification.date %></td>
-        <td><%= planification.rating %></td>
-        <td><%= planification.downloads %></td>
-        <td id="plan-state-show"> <%= planification.state ? "Edición por Profesor" : "Revisión por UTP" %></td>
-        <td><%= link_to 'Ver', planification %></td>
-        <% if current_user.role == "Profesor" %>
-          <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
-          <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-
-        <% if current_user.role == "Profesor" %>
-          <td><button id="plan-state-change-prof" class="plan_id" data-planification-id="<%= planification.id %>" 
-          <%= planification.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
-        <% elsif current_user.role == "Jefe UTP" %>
-          <td><button class="modalInput plan_id" data-planification-id="<%= planification.id %>" 
-          <%= planification.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
-          <aside>
-            <%= render 'modal_box' %>
-          </aside>
-        <% end %>
-      </tr>      
-      <br>
-    <% end %>
-  </tbody>
-</table>
-
-
-<br>
+<% @planifications.each do |plan| %>
+  <table class="plan_list_wrapper">
+    <%= render partial: 'plan_box', locals: {plan: plan} %>
+  </table>
+<% end %>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :grades_subjects_teachers
-  resources :searches
+  resources :reviews
   resources :schools do
     resources :users
     resources :subjects
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :grades
 
   resources :planifications do
+    resources :reviews
     resources :lectures
     get :add_lecture, on: :collection
   end

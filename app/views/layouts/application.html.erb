@@ -21,10 +21,10 @@
               <%= image_tag "default_teacher_avatar.png", :size => "140x140" %>
             <% end %>
           </div>
-          <h2 style = "text-align: center"> Hola <%= current_user.name %>! </h2>
+          <p class="sidenav_header"> Hola <br><br><%= current_user.name %>! </p>
           <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
           <p> <%= link_to "Colegios", users_schools_path(current_user) %> </p>
-          <p> <%= link_to "Buscador de Planifaciones", planifications_path %></p>
+          <p> <%= link_to "Buscador de<br><br>Planifaciones".html_safe, planifications_path %></p>
           <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
         </div>
       </div>

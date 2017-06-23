@@ -1,20 +1,20 @@
 <div class="form-style-5">
 	<h1> <%= @grade.name %> </h1>
 	<h2> <%= @subject.name %> </h2>
-			
+
 	<% @grades_subjects_teacher.planifications.each do |p| %>
 		<article class="planification-item">
 			<section class="planification-info">
-			  <h3 class="planification-name"><%= p.name %> </h3>
-			  <p class="planification-date"><%= p.date %></p>
+			  <div class="subject"><%= p.name %></div>
+			  <div class="courses"><%= p.date %></div>
 			</section>
 			<section class="planification-links">
-			  <%= link_to 'Ver', p, class: "planification-link" %><br>
-			  <%= link_to 'Editar', edit_planification_path(p), class: "planification-link"  %><br>
-			  <%= link_to 'Eliminar', p, method: :delete, data: { confirm: 'Are you sure?' }, class: "planification-link" %>
+			  <%= link_to 'Ver', p, :class => "planification-link", :method => :get  %><br>
+			  <%= link_to 'Editar', edit_planification_path(p), :class => "planification-link", :method => :get   %><br>
+			  <%= link_to 'Eliminar', p, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "planification-link"%>
 		  </section>
 		</article>
 	<% end %>
 
-	<%= link_to 'Crear Planificación', new_planification_path(grades_subjects_teacher_id: @grades_subjects_teacher.id) %>
+	<%= link_to 'Crear Planificación', new_planification_path(grades_subjects_teacher_id: @grades_subjects_teacher.id), :class=>"links", :method => :get  %>
 </div>

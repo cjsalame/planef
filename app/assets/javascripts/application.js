@@ -16,6 +16,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
@@ -28,3 +29,23 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
 }
+
+$(function() {
+  return $(document).on("click", "#add-lecture-link", function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: '/planifications/add_lecture.html',
+
+      success: function(data) {
+        var el_to_add;
+        el_to_add = $(data).html();
+    		$('#lecture-form').append(el_to_add);
+      },
+
+      error: function(data) {
+        return alert("Sorry, There Was An Error!");
+      }
+
+    });
+  });
+}) ();

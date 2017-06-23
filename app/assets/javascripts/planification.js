@@ -48,7 +48,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
             $.ajax({
               type: "PUT",
               url: "/planifications/" + planification_id + ".json",
-              data: { "planification[state]": boolean_attr, 
+              data: { "planification[state]": boolean_attr,
                       "planification[utpcomment]" : $("#plan_comment").val() },
               dataType: "JSON",
               success: function(data, ts, jq){
@@ -57,7 +57,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
                 $("#plan-state-show").text( state_msg );
                 // Hace al botón unclickable luego de mandar correo
                 $that.attr("disabled", true);
-                
+
                 console.log("Comentario: " + $("#plan_comment").val() );
                 alert("¡Correo enviado!");
               }
@@ -82,7 +82,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
               alert("¡Correo enviado!");
             }
           });
-        } 
+        }
       }
     });
   }
