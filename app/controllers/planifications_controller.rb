@@ -26,6 +26,8 @@ class PlanificationsController < ApplicationController
   # GET /planifications/1
   # GET /planifications/1.json
   def show
+    @user = current_user
+    @review = Review.new
     # En vez de renderizar HTML para las vistas del show, renderiza pretty JSON.
     # Luego:
     # + Mostrar además los campos no propios a la planificación (school.{name,

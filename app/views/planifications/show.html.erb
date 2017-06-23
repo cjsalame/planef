@@ -4,7 +4,7 @@
   <h1>
     <strong><%= @planification.name %></strong>
   </h1>
-  <div class='star-rating' data-score= <%= @planification.avg_rating %> ></div>
+  <%= render partial: 'reviews/rating', locals: {plan: @planification} %>
 
   <em> <%= "#{@planification.reviews.length} calificaciones" %> </em>
   <br>
@@ -65,7 +65,7 @@
 
   <%= button_to 'Editar', edit_planification_path(@planification), :class=> "links", :method=> :get %>
   <%= button_to 'Atrás', @planification.grades_subjects_teacher, :class=> "links", :method=> :get %><br>
-  <%= button_to 'Transformar a PDF', {controller: "planifications", action: "show", format: :pdf}, {:class=> "pdf_button"}%>
+  <%= link_to 'Transformar a PDF', {controller: "planifications", action: "show", format: :pdf}, {:class=> "pdf_button"}%>
 
   <script>
     $('.star-rating').raty({
