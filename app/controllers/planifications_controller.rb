@@ -55,6 +55,7 @@ class PlanificationsController < ApplicationController
 
   # GET /planifications/new
   def new
+    @user = current_user
     @planification = Planification.new
     @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
     session[:gst_grade] = @grades_subjects_teacher.grade.name
@@ -76,7 +77,7 @@ class PlanificationsController < ApplicationController
     @planification.subject = @gst.subjects_teacher.subject.name
     @planification.grade = @gst.grade.name
     @planification.owner = @user.id
-    if params[:original]
+    if planification_params[:original]
       @planification.school = @gst.subjects_teacher.subject.school.name
     else
       grade = Grade.find_by(name: @planification.grade)
