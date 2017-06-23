@@ -142,7 +142,7 @@ class PlanificationsController < ApplicationController
   # through.
   def planification_params
     params.require(:planification).permit(
-      :name, :date, :grades_subjects_teacher_id, :school, :author_id, :original,
+      :name, :date, :grades_subjects_teacher_id, :school, :state, :author_id, :original,
       lectures_attributes:
         [:id, :lectures, :objectives, :starting, :developing,
          :grades_subjects_teacher_id, :finalizing, :content, :resources,

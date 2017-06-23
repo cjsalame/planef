@@ -5,7 +5,7 @@
   </td>
   <td>
     <p class="plan_header"><%= plan.name %></p>
-    <p id="plan-state-show"> <%= plan.state ? "Edición por Profesor" : "Revisión por UTP" %></p>
+    <p class="plan-state-show"> <%= plan.state ? "Edición por Profesor" : "Revisión por UTP" %></p>
     <p class="plan_creator">Creador Original: </p>
   <p class="plan_info"><%= plan.author_name %></p>
   <td>
@@ -13,6 +13,12 @@
     <%= link_to 'Editar', edit_planification_path(plan), :class => "planification-link plan-button", :method => :get   %><br>
     <%= link_to 'Eliminar', plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "planification-link plan-button"%><br>
   </td>
+
+  <% if current_user.role == "Profesor" %>
+    <td><button class="plan-state-change-prof <%= plan.id %> plan_id" data-planification-id="<%= plan.id %>" 
+  <%= plan.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
+
+  <% end %>
 
 </tr>
 <br>

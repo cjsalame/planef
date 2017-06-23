@@ -1,24 +1,3 @@
-var lecture_addition = function() {
-  $("#add-lecture-link").on("click", function(e) {
-    e.preventDefault();
-    $.ajax({
-      url: '/planifications/add_lecture.html',
-
-      success: function(data) {
-        var el_to_add;
-        el_to_add = $(data).html();
-    		$('#lecture-form').append(el_to_add);
-      },
-
-      error: function(data) {
-        return alert("Sorry, There Was An Error!");
-      }
-
-    });
-  });
-}
-
-
 function state_shift(button_el, boolean_attr, state_msg, counterpart) {
 
   return function() {
@@ -40,7 +19,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
               success: function(data, ts, jq){
                 console.log("Planification " + planification_id + " State Changed to " + boolean_attr);
                 // Cambia el mensaje en columna "Estado"
-                $("#plan-state-show").text( state_msg );
+                $(".plan-state-show").text( state_msg );
                 // Hace al botón unclickable luego de mandar correo
                 $that.attr("disabled", true);
 
@@ -61,7 +40,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
             success: function(data, ts, jq){
               console.log("Planification " + planification_id + " State Changed to " + boolean_attr);
               // Cambia el mensaje en columna "Estado"
-              $("#plan-state-show").text( state_msg );
+              $(".plan-state-show").text( state_msg );
               // Hace al botón unclickable
               $that.attr("disabled", true);
 
@@ -75,41 +54,6 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
 }
 
 
-var modal_jorge = function() {
+var prof_shift = state_shift(".plan-state-change-prof", false, "Revisión por UTP", 'Jefe UTP');
 
-  var $mb = $('.modal-jorge');
-
-  $(".modal-jorgeInput").on("click", function(e) {
-    console.log("CLICK!");
-    $mb.css('display', 'block');
-    $mb.animate({ opacity: 0 }, 0);
-    $mb.animate({ opacity: 1, top: "10px" }, 'slow');
-  });
-
-  // Cerramos el cuadro modal-jorge al hacer click en cualquier parte
-  $mb.on('click', function(ev) {
-    $mb.animate({ opacity: 1, top: "0px" }, 'slow');
-    $mb.animate({ opacity: 0 }, 0);
-    $mb.css('display', 'none');
-  });
-  // Evitamos bubbling en los elementos que están dentro del mismo cuadro (el <div> dentro de <div class="modal-jorge-box"> )
-  $('.modal-jorge div').on('click', function(ev) {
-    ev.stopPropagation();
-  });
-
-  // Se cierra el cuadro modal-jorge al hacer click en la [X]
-  $('.modal-jorge .X').on('click', function(ev) {
-    $mb.animate({ opacity: 1, top: "0px" }, 'slow');
-    $mb.animate({ opacity: 0 }, 0);
-    $mb.css('display', 'none');
-  });
-
-}
-
-
-
-var utp_shift = state_shift(".modal-jorgeInput.plan_id", true, "Edición por Profesor", 'profesor' );
-
-$(document).on('turbolinks:load', lecture_addition);
-$(document).on('turbolinks:load', utp_shift);
-$(document).on('turbolinks:load', modal_jorge);
+$(document).on('turbolinks:load', prof_shift);
