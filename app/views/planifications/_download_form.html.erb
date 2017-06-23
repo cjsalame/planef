@@ -1,4 +1,4 @@
-<%= simple_form_for @planification do |f| %>
+<%= simple_form_for @planification do |form| %>
 
   <% if @planification.errors.any? %>
     <div id="error_explanation">
@@ -14,28 +14,28 @@
 
   <!-- Los campos de la planificación -->
 
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :name, value: plan.name %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :name, value: plan.name %>
 
-  <%= f.hidden_field :date %>
-  <%= f.hidden_field :date, value: plan.date %>
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :date, value: plan.date %>
 
 
   <div class="field">
-    <%= f.label :school, "Selecciona el colegio en que quieres utilizar esta planificación:" %></br>
-    <%= f.select :school, options_for_select(@user.schools.all.map { |s| [s.name, "#{s.name}"] })%>
+    <%= form.label :school, "Selecciona el colegio en que quieres utilizar esta planificación:" %></br>
+    <%= form.select :school, options_for_select(@user.schools.all.map { |s| [s.name, "#{s.name}"] })%>
   </div>
 
-  <%= f.hidden_field :author_id %>
-  <%= f.hidden_field :author_id, value: plan.author_id %>
+  <%= form.hidden_field :author_id %>
+  <%= form.hidden_field :author_id, value: plan.author_id %>
 
-  <%= f.hidden_field :original %>
-  <%= f.hidden_field :original, value: false %>
+  <%= form.hidden_field :original %>
+  <%= form.hidden_field :original, value: false %>
 
   <%= hidden_field_tag 'gst', plan.grades_subjects_teacher_id %>
 
   <div class="actions">
-    <%= f.submit "Crear Planificación" %>
+    <%= form.submit "Crear Planificación" %>
   </div>
 
 <% end %>

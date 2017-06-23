@@ -59,9 +59,9 @@ class PlanificationsController < ApplicationController
   def new
     @user = current_user
     @planification = Planification.new
-    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
-    session[:gst_grade] = @grades_subjects_teacher.grade.name
-    session[:gst_subject] = @grades_subjects_teacher.subjects_teacher.subject.name
+    grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+    session[:gst_grade] = grades_subjects_teacher.grade.name
+    session[:gst_subject] = grades_subjects_teacher.subjects_teacher.subject.name
   end
 
   # GET /planifications/1/edit
@@ -74,12 +74,14 @@ class PlanificationsController < ApplicationController
   # POST /planifications.json
   def create
     @user = current_user
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:gst])
     @planification = Planification.new(planification_params)
     @gst = GradesSubjectsTeacher.find(params[:gst])
     @planification.subject = @gst.subjects_teacher.subject.name
     @planification.grade = @gst.grade.name
     @planification.owner = @user.id
-    if planification_params[:original]
+    if @user.id == @planification.author_id
+      @planification.grades_subjects_teacher_id = @gst.id
       @planification.school = @gst.subjects_teacher.subject.school.name
     else
       grade = Grade.find_by(name: @planification.grade)

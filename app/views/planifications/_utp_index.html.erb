@@ -29,7 +29,7 @@
           <td><button id="plan-state-change-prof" class="plan_id" data-planification-id="<%= planification.id %>"
           <%= planification.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
         <% elsif current_user.role == "Jefe UTP" %>
-          <td><button class="modalInput plan_id" data-planification-id="<%= planification.id %>"
+          <td><button class="modal-jorgeInput plan_id" data-planification-id="<%= planification.id %>"
           <%= planification.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
           <aside>
             <%= render 'modal_box' %>

@@ -2,21 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.modal {
+.modal-jorge {
   z-index:    1000;
   display:    none;
   background-color:rgba(66,66,66,0.5);
 }
-.modal div {
+.modal-jorge div {
   text-align: center;
   // background-color: #333; //#100E19;
   width:   300px;
 }
-.modal .close {
+.modal-jorge .close {
   font-size: 8;
   display: inline-block;
 }
-.modal .X {
+.modal-jorge .X {
   text-decoration: underline;
   cursor: pointer;
 }
