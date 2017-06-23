@@ -191,25 +191,34 @@ st1.grades_subjects_teachers << gst1
 
 plan0 = Planification.new(
   name:      'matplan1',
+  date: '2017-07-23',
+  school: 'Teresiano Enrique de Ossó',
   subject: 'Matemáticas',
   grade: '1° Basico',
   author_id: p0.id,
+  original: true,
   owner:     p0.id
 )
 gst0.planifications << plan0
 plan1 = Planification.new(
   name: 'matplan2',
+  date: '2017-08-23',
+  school: 'Teresiano Enrique de Ossó',
   subject: 'Matemáticas',
   grade: '1° Basico',
   author_id: p0.id,
+  original: true,
   owner:     p0.id
 )
 gst0.planifications << plan1
 plan2 = Planification.new(
   name: 'matplan3',
+  date: '2017-09-23',
+  school: 'Teresiano Enrique de Ossó',
   subject: 'Matemáticas',
   grade: '1° Basico',
   author_id: p0.id,
+  original: true,
   owner:     p0.id
 )
 gst0.planifications << plan2
