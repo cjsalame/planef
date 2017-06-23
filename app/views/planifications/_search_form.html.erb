@@ -1,4 +1,4 @@
-<div class="form">
+<!-- <div class="form">
   <%= form_tag planifications_path, method: 'get' do %>
 
     <% if params[:keywords] && params[:keywords] != '' %>
@@ -28,4 +28,77 @@
   </div>
     <div class="generate_button"><%= submit_tag 'Buscar' %></div>
   <% end %>
-</div>
+</div> -->
+
+
+<%= form_tag planifications_path, method: 'get' do %>
+<nav class="navbar navbar-default navbar-form" role="navigation">
+<div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Planef</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a data-toggle="dropdown">
+          <% if params[:subject] && params[:subject] != '' %>
+            <%= select_tag :subject, options_for_select(@subjects, selected: params[:subject]), include_blank: true %>
+          <% else %>
+            <%= select_tag :subject, options_for_select(@subjects), prompt: 'Asignatura...' %>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a data-toggle="dropdown">
+          <% if params[:school] && params[:school] != '' %>
+            <%= select_tag :school, options_for_select(@schools, selected: params[:school]), include_blank: true %>
+          <% else %>
+            <%= select_tag :school, options_for_select(@schools), prompt: 'Colegio...' %>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a data-toggle="dropdown">
+          <% if params[:grade] && params[:grade] != '' %>
+            <%= select_tag :grade, options_for_select(@grades, selected: params[:grade]), include_blank: true %>
+          <% else %>
+            <%= select_tag :grade, options_for_select(@grades), prompt: 'Curso...' %>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a data-toggle="dropdown">
+          <% if params[:keywords] && params[:keywords] != '' %>
+            <%= text_field_tag :keywords, params[:keywords], value: params[:keywords] %>
+          <% else %>
+            <%= text_field_tag :keywords, params[:keywords], placeholder: 'Buscar...' %>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <div class="generate_button"><%= submit_tag 'Buscar', class: 'plan-button-2' %></div>
+      </li>
+    </ul>
+
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+
+<% end %>

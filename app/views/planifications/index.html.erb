@@ -3,9 +3,10 @@
 <h1>Descargar Planificaciones</h1>
 
 <%= render 'search_form' %>
-
-<% @planifications.each do |plan| %>
-  <table class="plan_list_wrapper">
-    <%= render partial: 'plan_box', locals: {plan: plan} %>
-  </table>
-<% end %>
+<div class="plan-box-2">
+  <% @planifications.each do |plan| %>
+    <table class="plan_list_wrapper">
+      <%= render partial: 'plan_box', locals: {plan: plan} %>
+    </table>
+  <% end %>
+</div>

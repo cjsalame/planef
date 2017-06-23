@@ -1,19 +1,22 @@
 <tr>
-
   <td>
     <p class="plan_header"><%= plan.name %></p>
     <p class="plan_info"><%= plan.subject %></p>
     <p class="plan_info"><%= plan.grade %></p>
   </td>
-  <td><p class="plan_creator">Creado Original: </p>
+  <td><p class="plan_creator">Creador Original: </p>
   <p class="plan_info"><%= plan.author_name %></p>
   <p class="plan_creator">Última edición por: </P>
   <p class="plan_info"><%= plan.owner_name %></p></td>
-  <td class="plan_info"><%= plan.downloads %> Descargas</td>
-  <td> <%= render partial: '/reviews/form', locals: {plan: plan} %> </td>
-  <td><%= button_to 'Ver', plan, :class=> "plan_buttons" %><br>
 
-    <button type='button' class='plan_buttons' data-toggle='modal'
+  <td>
+    <div class='star-rating' data-score= <%= plan.avg_rating %> ></div>
+    <p class="plan_info"><%= plan.downloads %> Descargas</p>
+
+  </td>
+  <td>
+    <p><%= link_to 'Ver', plan, :class=> "planification-link plan-button" %></p>
+    <button type='button' class='plan_buttons plan-button-3' data-toggle='modal'
         data-target='#SelectSchool' >
           Descargar
     </button>
@@ -39,19 +42,15 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <!-- <% if current_user.role == "Profesor" %>
-    <td><button id="plan-state-change-prof" data-planification-id="<%= plan.id %>"
-    <%= plan.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
-  <% elsif current_user.role == "Jefe UTP" %>
-    <td><button id="plan-state-change-utp" data-planification-id="<%= plan.id %>"
-    <%= plan.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
-  <% end %> -->
-
-
-
 </tr>
 <br>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
