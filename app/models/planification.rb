@@ -6,7 +6,17 @@ class Planification < ApplicationRecord
 
   accepts_nested_attributes_for :lectures
   after_initialize :set_defaults, unless: :persisted?
-  after_update :send_email, if: :state_changed?
+  after_commit :send_email, if: Proc.new { |record|  record.previous_changes.key?(:state) && record.previous_changes[:state].first != record.previous_changes[:state].last }
+
+  def author_name
+    @user = User.find(author_id)
+    "#{@user.name} #{@user.lastname}"
+  end
+
+  def owner_name
+    @user = User.find(owner)
+    "#{@user.name} #{@user.lastname}"
+  end
 
   def avg_rating
     if reviews.any?
@@ -16,12 +26,16 @@ class Planification < ApplicationRecord
     end
   end
 
-  def send_email
-    if self.state_was
-      CheckMailer.prof_to_utp_email(self).deliver_later
+  def check_rating
+    if reviews.any?
+      self.rating = reviews.average(:rating).round(2)
     else
-      CheckMailer.utp_to_prof_email(self).deliver_later
+      0
     end
+  end
+
+  def send_email
+    self.state ? CheckMailer.utp_to_prof_email(self).deliver_later : CheckMailer.prof_to_utp_email(self).deliver_later
   end
 
   def set_defaults

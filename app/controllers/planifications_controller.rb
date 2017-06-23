@@ -20,11 +20,16 @@ class PlanificationsController < ApplicationController
     @schools = School.all.uniq.pluck(:name)
     @grades = Grade.all.uniq.pluck(:name)
     @planifications = Planification.search(params)
+    @planifications.each(&:check_rating)
+    @planifications.order('rating')
+    @planification = Planification.new
   end
 
   # GET /planifications/1
   # GET /planifications/1.json
   def show
+    @user = current_user
+    @review = Review.new
     # En vez de renderizar HTML para las vistas del show, renderiza pretty JSON.
     # Luego:
     # + Mostrar además los campos no propios a la planificación (school.{name,
@@ -54,6 +59,7 @@ class PlanificationsController < ApplicationController
 
   # GET /planifications/new
   def new
+    @user = current_user
     @planification = Planification.new
     @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
     session[:gst_grade] = @grades_subjects_teacher.grade.name
@@ -69,11 +75,24 @@ class PlanificationsController < ApplicationController
   # POST /planifications
   # POST /planifications.json
   def create
+    @user = current_user
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:gst])
+    @planification = Planification.new(planification_params)
     @gst = GradesSubjectsTeacher.find(params[:gst])
-    @planification = @gst.planifications.build(planification_params)
     @planification.subject = @gst.subjects_teacher.subject.name
-    @planification.school = @gst.subjects_teacher.subject.school.name
     @planification.grade = @gst.grade.name
+    @planification.owner = @user.id
+    if @user.id == @planification.author_id
+      @planification.grades_subjects_teacher_id = @gst.id
+      @planification.school = @gst.subjects_teacher.subject.school.name
+    else
+      grade = Grade.find_by(name: @planification.grade)
+      subject = @user.subjects.find_by(name: @planification.subject)
+      st = @user.subjects_teachers.find_by(subject_id: subject.id)
+      @gst = GradesSubjectsTeacher.find_by(subjects_teacher_id: st.id, grade_id: grade.id)
+      @planification.grades_subjects_teacher_id = @gst.id
+    end
+
     respond_to do |format|
       if @planification.save
         format.html { redirect_to @gst , notice: 'Planification was successfully created.' }
@@ -119,12 +138,15 @@ class PlanificationsController < ApplicationController
     @expected_learnings = ExpectedLearning.all
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def planification_params
-    params.require(:planification).permit(:name, :date, :rating, :downloads, :state,
-    lectures_attributes: [:id, :lectures, :objectives, :starting, :developing,
-    :grades_subjects_teacher_id, :finalizing, :content, :resources, :duration, :evaluation ])
+    params.require(:planification).permit(
+      :name, :date, :grades_subjects_teacher_id, :school, :author_id, :original,
+      lectures_attributes:
+        [:id, :lectures, :objectives, :starting, :developing,
+         :grades_subjects_teacher_id, :finalizing, :content, :resources,
+         :duration, :evaluation]
+    )
   end
-
-
 end

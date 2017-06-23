@@ -9,10 +9,17 @@
 
   <article>
   	<p>El Jefe UTP <%= @utp_name %> notifica a ud. que se ha hecho revisión de la siguiente planificación:</p>
-  	<p><strong>Título:</strong> <%= @planification.name %></p>
-  	<p><strong>Fecha de Creación:</strong> <%= @planification.date %></p>
-  	<p><strong>Asignatura:</strong> <%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %></p>
-  	<p><strong>Curso:</strong> <%= @planification.grades_subjects_teacher.grade.name %></p>
+		<section>
+	  	<p><strong>Título:</strong> <%= @planification.name %></p>
+	  	<p><strong>Fecha de Creación:</strong> <%= @planification.date %></p>
+	  	<p><strong>Asignatura:</strong> <%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %></p>
+	  	<p><strong>Curso:</strong> <%= @planification.grades_subjects_teacher.grade.name %></p>
+  	</section>
+
+		<section>
+  		Le desea hacer los siguientes comentarios con respecto a esta planificación:
+  	 <p><em>"<%= @planification.utpcomment %>"</em></p>
+		</section>
   </article>
 
 </body>
