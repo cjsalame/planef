@@ -20,6 +20,8 @@ class PlanificationsController < ApplicationController
     @schools = School.all.uniq.pluck(:name)
     @grades = Grade.all.uniq.pluck(:name)
     @planifications = Planification.search(params)
+    @planifications.each(&:check_rating)
+    @planifications.order('rating')
     @planification = Planification.new
   end
 
@@ -59,9 +61,9 @@ class PlanificationsController < ApplicationController
   def new
     @user = current_user
     @planification = Planification.new
-    grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
-    session[:gst_grade] = grades_subjects_teacher.grade.name
-    session[:gst_subject] = grades_subjects_teacher.subjects_teacher.subject.name
+    @grades_subjects_teacher = GradesSubjectsTeacher.find(params[:grades_subjects_teacher_id])
+    session[:gst_grade] = @grades_subjects_teacher.grade.name
+    session[:gst_subject] = @grades_subjects_teacher.subjects_teacher.subject.name
   end
 
   # GET /planifications/1/edit

@@ -26,6 +26,14 @@ class Planification < ApplicationRecord
     end
   end
 
+  def check_rating
+    if reviews.any?
+      self.rating = reviews.average(:rating).round(2)
+    else
+      0
+    end
+  end
+
   def send_email
     self.state ? CheckMailer.utp_to_prof_email(self).deliver_later : CheckMailer.prof_to_utp_email(self).deliver_later
   end
