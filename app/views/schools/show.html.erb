@@ -27,6 +27,15 @@
   <div class="info_label">
   <% @school.subjects.each do |s| %>
     <strong><%= s.name %></strong>
+
+
+
+<!-- CHANTARLE  -->
+    <%= link_to "Ver planificaciones", school_subject_path(school_id: s.school_id, id: s.id) %>
+                 
+
+
+
       <% if(current_user.role == 'Jefe UTP') %>
         <%= button_to 'Eliminar', school_subject_path(s.school, s) ,:class=>"links", :method => :delete %> </p>
       <% end %>

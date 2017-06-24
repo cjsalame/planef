@@ -19,7 +19,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
               success: function(data, ts, jq){
                 console.log("Planification " + planification_id + " State Changed to " + boolean_attr);
                 // Cambia el mensaje en columna "Estado"
-                $(".plan-state-show").text( state_msg );
+                $(".plan-state-show."+planification_id).text( state_msg );
                 // Hace al botón unclickable luego de mandar correo
                 $that.attr("disabled", true);
 
@@ -40,7 +40,7 @@ function state_shift(button_el, boolean_attr, state_msg, counterpart) {
             success: function(data, ts, jq){
               console.log("Planification " + planification_id + " State Changed to " + boolean_attr);
               // Cambia el mensaje en columna "Estado"
-              $(".plan-state-show").text( state_msg );
+              $(".plan-state-show."+planification_id).text( state_msg );
               // Hace al botón unclickable
               $that.attr("disabled", true);
 

@@ -18,6 +18,16 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def show
+    @school = School.find(params[:school_id])
+    @subject = Subject.find(params[:id])
+    # @planification = Planification.find_by(school: @school, subject: @subject)
+    @plans_schools_subjects = []
+    Planification.all.each do |p|
+      @plans_schools_subjects << p if p.school == @school.name && p.subject == @subject.name
+    end
+  end
+
   private
 
   def subjects_params
