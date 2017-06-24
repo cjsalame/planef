@@ -1,0 +1,12 @@
+<div class="dimmer"></div>
+<h1> <%= @school.name %> </h1>
+<h2 style="text-align: center"> <%= @subject.name %> </h2>
+
+<div class="plan-box">
+	<% @plans_schools_subjects.each do |plan| %>
+		<table class="plan_list_wrapper">
+			<%= render partial: 'grades_subjects_teachers/plan', locals: {plan: plan} %>
+		</table>
+	<% end %>
+
+</div>

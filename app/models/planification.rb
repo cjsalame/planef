@@ -9,12 +9,12 @@ class Planification < ApplicationRecord
   after_commit :send_email, if: Proc.new { |record|  record.previous_changes.key?(:state) && record.previous_changes[:state].first != record.previous_changes[:state].last }
 
   def author_name
-    @user = User.find(author_id)
+    @user = User.find(self.author_id)
     "#{@user.name} #{@user.lastname}"
   end
 
   def owner_name
-    @user = User.find(owner)
+    @user = User.find(self.owner)
     "#{@user.name} #{@user.lastname}"
   end
 
