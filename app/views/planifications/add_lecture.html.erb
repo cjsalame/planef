@@ -1,0 +1,11 @@
+<% @el_filt = @expected_learnings.select do |ea| %>
+  <% ea.grade == @grade %>
+  <% ea.subject == @subject %>
+<% end %>  
+<% @descriptions = [] %>
+<% @el_filt.each { |e| @descriptions.append(e.description) } %>
+
+<%= form_for @planification do |f| %>
+	<%= render partial: 'lectures/form', locals: {f: f, descriptions: @descriptions} %>
+<% end %>
+  

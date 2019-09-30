@@ -1,3 +1,158 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$body-bg: #c1bdba;
+$form-bg: #13232f;
+$white: #ffffff;
+
+$main: #1ab188;
+$main-light: lighten($main,5%);
+$main-dark: darken($main,5%);
+
+$gray-light: #a0b3b0;
+$gray: #ddd;
+
+$thin: 300;
+$normal: 400;
+$bold: 600;
+$br: 4px;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+	background: $body-bg;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.form {
+	margin-top: 80px;
+  margin-bottom: 80px;
+
+  background:rgba($form-bg,.9);
+  padding: 40px;
+  max-width:600px;
+  margin:40px auto;
+  border-radius:$br;
+  box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+}
+
+  .form-heading {
+    text-align:center;
+    color:$white;
+    font-weight:$thin;
+    margin:0 0 40px;
+  }
+	.checkbox {
+    font-weight: normal;
+    position: relative;
+    color:rgba($white,.5);
+    font-size:15px;
+    width: 30px;
+	}
+
+	.field {
+	  position: relative;
+    color:rgba($white,.6);
+	  font-size: 20px;
+	  height: auto;
+	  padding: 10px;
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+  .top-row {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    > div {
+      float:left;
+      width:48%;
+      margin-right:4%;
+      &:last-child {
+        margin:0;
+      }
+    }
+  }
+
+
+  .button {
+    border:0;
+    outline:none;
+    border-radius:0;
+    padding:0 0;
+    font-size:2rem;
+    font-weight:$bold;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    background:$main;
+    color:$white;
+    transition:all.5s ease;
+    -webkit-appearance: none;
+    &:hover, &:focus {
+      background:$main-dark;
+    }
+  }
+
+  .button-block {
+    display:block;
+    width:100%;
+  }
+
+  input {
+  font-size:22px;
+  display:block;
+  width:100%;
+  padding:5px 10px;
+  background:none;
+  background-image:none;
+  border:1px solid $gray-light;
+  color:$white;
+  border-radius:0;
+  transition:border-color .25s ease, box-shadow .25s ease;
+  &:focus {
+		outline:0;
+		border-color:$main;
+  }
+}
+  .small_label {
+    position: relative;
+    color:rgba($white,.5);
+	  font-size: 15px;
+	  height: auto;
+    margin-left:10px;
+    margin-bottom: 10px;
+  }
+  .forgot {
+    margin-top:-20px;
+    text-align:right;
+  }
+
+.links {
+  align:left;
+  display:inline-block;
+  width:100%;
+  background:$form-bg;
+  text-align:center;
+  color:rgba($main-dark,.9);
+  font-weight:$bold;
+  font-size:15px;
+  margin-top:10px;
+  &:hover, &:focus {
+    background:darken($form-bg,5%);
+  }
+}
+
+.select_box {
+  position:relative;
+  width:350px;
+  margin: 10px;
+  background: $form-bg;
+
+}

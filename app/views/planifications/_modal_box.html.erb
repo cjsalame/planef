@@ -1,0 +1,13 @@
+<div class="modal-jorge <%= planId %>" id="plan-comment">
+<div>
+<br>
+	<strong><p class="comment">Incluir comentario para <%= planName %>:</p></strong>
+	<div class="input">
+		<%= text_area_tag 'plan_comment' %>
+	</div>
+	<button class="btn send-comment plan-state-change-utp <%= planId %>">Enviar</button>
+	<aside class="close">
+		<p> <span class="X <%= planId %>">Cerrar [X]</span></p>
+	</aside>
+</div>
+</div>

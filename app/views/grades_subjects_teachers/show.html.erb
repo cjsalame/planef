@@ -1,0 +1,12 @@
+
+	<h1> <%= @grade.name %> </h1>
+	<h2 style="text-align: center"> <%= @subject.name %> </h2>
+<div class="plan-box">
+	<% @grades_subjects_teacher.planifications.each do |plan| %>
+		<table class="plan_list_wrapper">
+			<%= render partial: 'plan', locals: {plan: plan} %>
+		</table>
+	<% end %>
+
+	<%= link_to 'Crear Planificación', new_planification_path(grades_subjects_teacher_id: @grades_subjects_teacher.id), class: "links button button-block", :method => :get  %>
+</div>

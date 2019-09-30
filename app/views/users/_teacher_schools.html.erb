@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="info_form">
+
+  <div class="w3-container">
+    <% if @user.schools.any? %>
+      <h3> Colegios en los que trabajas </h3>
+    <% end %>
+    <p id="notice"><%= notice %></p>
+  <ul class="w3-ul">
+
+    <% @user.schools.each do |school| %>
+      <li>
+        <div class="subject"><%= school.name %></div>
+        <%= form_tag({controller: "users", action: "unsubschool"}, method: "delete") do |f| %>
+          <%= hidden_field_tag "schoolid", school.id %>
+          <div class="generate_button"><%= submit_tag("Eliminar") %></div>
+        <% end %>
+      </li>
+
+      <div class="info_form">
+      <ul>
+        <h3>Asignaturas:</h3>
+        <% @user.subjects.where(school_id: school.id).find_each do |subject| %>
+          <li class="subject"><%= subject.name %></li>
+          <ul>
+            <div class="courses"> Cursos </div>
+            <% @user.subjects_teachers.find_by(subject_id: subject.id).grades.each do |grade| %>
+                <%= button_to grade.name, grades_subjects_teacher_path(GradesSubjectsTeacher.find_by(subjects_teacher_id: SubjectsTeacher.find_by(subject_id: subject.id, user_id: @user.id).id, grade_id: grade.id)),:class=>"links", :method => :get %>
+            <% end %>
+
+            <%= render partial: '/grades_subjects_teachers/form', locals: {user: @user, subject: subject} %>
+
+          </ul>
+        <% end %>
+        <%= render partial: '/subjects_teachers/form', locals: {school: school} %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="info_form">
+    <h3> Agregar Nuevo Colegio </h3><br>
+    <%= form_tag(:action => "subscribe_school") do |f| %>
+
+      <div class="field">
+      <%= select_tag "schoolid", options_for_select(["Selecciona un colegio..."] | School.all.map { |s| [s.name, "#{s.id}"] }) %>
+      </div>
+      <div class="courses">Ingresa el código del colegio</div>
+      <%= text_field_tag "schoolCode", nil, placeholder: 'Código..' %>
+
+      <br>
+      <div class="add_button"><%= submit_tag "Agregar", id: "school-form-submit" %></div>
+  <% end %>
+
+  </ul>
+  </div>
+
+</div>
+</html>

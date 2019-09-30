@@ -10,7 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502020323) do
+ActiveRecord::Schema.define(version: 20170623013503) do
+
+  create_table "expected_learnings", force: :cascade do |t|
+    t.string "grade"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "subject"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grades_subjects_teachers", force: :cascade do |t|
+    t.integer "grade_id"
+    t.integer "subjects_teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["grade_id"], name: "index_grades_subjects_teachers_on_grade_id"
+    t.index ["subjects_teacher_id"], name: "index_grades_subjects_teachers_on_subjects_teacher_id"
+  end
+
+  create_table "lectures", force: :cascade do |t|
+    t.text "objectives"
+    t.text "starting"
+    t.text "developing"
+    t.text "finalizing"
+    t.text "content"
+    t.text "resources"
+    t.text "duration"
+    t.text "evaluation"
+    t.integer "planification_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planification_id"], name: "index_lectures_on_planification_id"
+  end
+
+  create_table "planifications", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.integer "rating"
+    t.integer "downloads"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "lecture_id"
+    t.integer "grades_subjects_teacher_id"
+    t.string "subject"
+    t.string "school"
+    t.string "grade"
+    t.boolean "state", default: true
+    t.integer "author_id"
+    t.boolean "original"
+    t.text "utpcomment"
+    t.integer "owner"
+    t.index ["lecture_id"], name: "index_planifications_on_lecture_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "planification_id"
+    t.index ["planification_id"], name: "index_reviews_on_planification_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
@@ -19,6 +87,8 @@ ActiveRecord::Schema.define(version: 20170502020323) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "code"
   end
 
   create_table "schools_users", id: false, force: :cascade do |t|
@@ -26,6 +96,23 @@ ActiveRecord::Schema.define(version: 20170502020323) do
     t.integer "user_id", null: false
     t.index ["school_id", "user_id"], name: "index_schools_users_on_school_id_and_user_id"
     t.index ["user_id", "school_id"], name: "index_schools_users_on_user_id_and_school_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects_teachers", force: :cascade do |t|
+    t.integer "subject_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_subjects_teachers_on_subject_id"
+    t.index ["user_id"], name: "index_subjects_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +133,7 @@ ActiveRecord::Schema.define(version: 20170502020323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

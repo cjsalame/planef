@@ -1,0 +1,2 @@
+class ExpectedLearning < ApplicationRecord
+end

@@ -1,0 +1,48 @@
+<%= simple_form_for @planification do |f| %>
+
+  <% if @planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% @planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Los campos de la planificación -->
+  <div class="field">
+    <%= f.input :name, label: false, placeholder: 'Título *', input_html: { class: "new-planification-title" } %>
+  </div>
+
+  <div class="field">
+    <%= f.input :date, label: "Fecha" %>
+  </div>
+
+  <%= f.hidden_field :grades_subjects_teacher_id %>
+  <%= f.hidden_field :grades_subjects_teacher_id, value: @grades_subjects_teacher.id %>
+
+  <%= f.hidden_field :author_id %>
+  <%= f.hidden_field :author_id, value: @user.id %>
+
+  <%= f.hidden_field :original %>
+  <%= f.hidden_field :original, value: true %>
+
+  <%= hidden_field_tag 'gst', @grades_subjects_teacher.id %>
+
+  <!-- Los campos de la clase -->
+  <div id="lecture-form">
+
+  </div>
+
+  <button id="add-lecture-link" type="button">Añadir Campos Para Nueva Clase</button>
+  <br>
+
+  <br>
+  <div class="actions">
+    <%= f.submit "Crear Planificación" %>
+  </div>
+
+<% end %>

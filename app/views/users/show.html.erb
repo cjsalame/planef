@@ -1,7 +1,29 @@
-<h1> Hola <%= @user.name %> </h1>
+<p id="notice"><%= notice %></p>
+<div class="form">
+  <div class="info_label">
+    <strong>Nombre:</strong>
+    <h5><%= @user.name %> <%= @user.lastname %></h5>
+  </div>
 
-  <% if @user.role == "Profesor" %>
-    <%= render 'teacher_profile', user: @user %>
-  <% elsif @user.role == "Jefe UTP" %>
-    <%= render 'utp_profile', user: @user %>
-  <% end %>
+  <div class="info_label">
+    <strong>Fecha de Nacimiento:</strong>
+    <h5><%= @user.dob %></h5>
+  </div>
+
+  <div class="info_label">
+    <strong>Teléfono de Contacto:</strong>
+    <h5><%= @user.phone %></h5>
+  </div>
+
+  <div class="info_label">
+    <strong>Dirección de Correo Electrónico:</strong>
+    <h5><%= @user.email %></h5>
+  </div>
+
+  <div class="info_label">
+    <strong>Rol:</strong>
+    <h5><%= @user.role %></h5>
+  </div>
+
+  <%= button_to 'Editar información de usuario', edit_registration_path(@user), :class=>"links", :method => :get %>
+</div>

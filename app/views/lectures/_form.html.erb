@@ -1,0 +1,15 @@
+<hr><br>
+<div class="lecture-fields-wrapper">
+  <%= f.simple_fields_for :lectures, child_index: Time.now.to_i do |g| %>
+
+    <div class="lecture-field"><%= g.input :objectives, collection: descriptions, label: "Objetivos:" %></div>
+    <div class="lecture-field"><%= g.input :starting, label: "Inicio:" %></div>
+    <div class="lecture-field"><%= g.input :developing, label: "Desarrollo:" %></div>
+    <div class="lecture-field"><%= g.input :finalizing, label: "Cierre:" %></div>
+    <div class="lecture-field"><%= g.input :content, label: "Contenidos:" %></div>
+    <div class="lecture-field"><%= g.input :resources, label: "Recursos:" %></div>
+    <div class="lecture-field"><%= g.input :duration, label: "Tiempo:" %></div>
+    <div class="lecture-field"><%= g.input :evaluation, label: "Indicador de Evaluación:" %></div>
+    <br>
+  <% end %>
+</div> 
