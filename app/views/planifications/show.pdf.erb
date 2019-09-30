@@ -1,0 +1,63 @@
+<style type="text/css">
+	body, table {
+		font-size: 12px;
+	}
+</style>
+
+<h2>
+  <strong><%= @planification.name %></strong>
+</h2>
+
+<p>
+	<strong>Colegio:</strong>
+	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.school.name %>
+</p>
+<p>
+	<strong>Asignatura:</strong> 
+	<%= @planification.grades_subjects_teacher.subjects_teacher.subject.name %>
+</p>
+<p>
+	<strong>Nivel:</strong> 
+	<%= @planification.grades_subjects_teacher.grade.name %>
+</p>
+<p>
+	<strong>Profesor:</strong> 
+	<%= @planification.grades_subjects_teacher.subjects_teacher.user.name %>
+	<%= @planification.grades_subjects_teacher.subjects_teacher.user.lastname %>
+</p>
+
+
+<p>
+  <strong>Fecha de creación:</strong> <%= @planification.date %>
+</p>
+
+<table border="1">
+	<tr>
+		<th><strong>Objetivos</strong></th>
+		<th><strong>Inicio</strong></th>
+		<th><strong>Desarrollo</strong></th>
+		<th><strong>Cierre</strong></th>
+		<th><strong>Contenidos</strong></th>
+		<th><strong>Recursos</strong></th>
+		<th><strong>Tiempo</strong></th>
+		<th><strong>Indicador de Evaluación</strong></th>
+
+	</tr>
+
+
+
+<% @planification.lectures.each do |lecture| %>
+	<tr>
+		<td><%= lecture.objectives %></td>
+		<td><%= lecture.starting %></td>
+		<td><%= lecture.developing %>	</td>
+		<td><%= lecture.finalizing %></td>
+		<td><%= lecture.content %></td>
+		<td><%= lecture.resources %></td>
+		<td><%= lecture.duration %></td>
+		<td><%= lecture.evaluation %></td>
+	</tr>
+
+<% end %>
+
+</table>

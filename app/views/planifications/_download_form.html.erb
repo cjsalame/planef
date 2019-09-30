@@ -1,0 +1,41 @@
+<%= simple_form_for @planification do |form| %>
+
+  <% if @planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% @planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Los campos de la planificación -->
+
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :name, value: plan.name %>
+
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :date, value: plan.date %>
+
+
+  <div class="field">
+    <%= form.label :school, "Selecciona el colegio en que quieres utilizar esta planificación:" %></br>
+    <%= form.select :school, options_for_select(@user.schools.all.map { |s| [s.name, "#{s.name}"] })%>
+  </div>
+
+  <%= form.hidden_field :author_id %>
+  <%= form.hidden_field :author_id, value: plan.author_id %>
+
+  <%= form.hidden_field :original %>
+  <%= form.hidden_field :original, value: false %>
+
+  <%= hidden_field_tag 'gst', plan.grades_subjects_teacher_id %>
+
+  <div class="actions">
+    <%= form.submit "Crear Planificación" %>
+  </div>
+
+<% end %>

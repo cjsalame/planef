@@ -1,0 +1,45 @@
+<tr>
+
+  <td>
+    <%= image_tag "140_document-icon.png", :size => "140x140" %>
+  </td>
+  <td>
+    <p class="plan_header"><%= plan.name %></p>
+    <p class="plan-state-show <%= plan.id %> plan_creator" >Estado:</p>
+     <p class="plan_info"><%= plan.state ? "Edición por Profesor" : "Revisión por UTP" %></p>
+    <p class="plan_creator">Creador Original: </p>
+  <p class="plan_info"><%= plan.author_name %></p>
+  <td>
+    <%= link_to 'Ver', plan, :class => "planification-link plan-button", :method => :get  %><br>
+    <% if current_user.role == 'Profesor' %>
+      <%= link_to 'Editar', edit_planification_path(plan), :class => "planification-link plan-button", :method => :get   %><br>
+      <%= link_to 'Eliminar', plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "planification-link plan-button"%><br>
+    <% end %>
+  </td>
+
+  <% if current_user.role == "Profesor" %>
+    <td><button class="plan-state-change-prof <%= plan.id %> plan_id" data-planification-id="<%= plan.id %>" 
+  <%= plan.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
+
+
+
+
+  <% elsif current_user.role == "Jefe UTP" %>
+    <td><button class="modal-jorgeInput plan_id" data-planification-id="<%= plan.id %>" 
+    <%= plan.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
+    <aside>
+      <% planId = plan.id %>
+      <% planName = plan.name %>
+      <%= render partial: 'planifications/modal_box', locals: { planId: planId, planName: planName } %>
+    </aside>
+
+
+
+
+
+
+
+  <% end %>
+
+</tr>
+<br>

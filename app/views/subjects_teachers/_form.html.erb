@@ -1,0 +1,12 @@
+<%= form_for @subjects_teacher do |form| %>
+
+  <div class="centered_droplist">
+    <div class="field">
+    <%= form.hidden_field :subject_id%>
+
+    <%= form.select :subject_id, ["Agrega Asignatura..."] | school.subjects.all.map { |s| [s.name, "#{s.id}"] }, {}, :class=>"select_box" %>
+
+    <div class="add_button"><%= form.submit 'Agregar' %></div>
+  </div>
+  </div>
+<% end %>

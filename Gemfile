@@ -17,13 +17,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
 # User authetication
 gem 'devise'
 gem 'erubis'
 
 # User authorization
 gem 'cancan'
+
+# Frontend
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -64,3 +67,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # console tools
 gem 'hirb'
+
+gem 'simple_form'
+
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+
+# PDF generation plugin
+gem 'wicked_pdf'
+
+# wicked_pdf is a wrapper of wkhtmltopdf, so it needs to be added..
+gem 'wkhtmltopdf-binary'

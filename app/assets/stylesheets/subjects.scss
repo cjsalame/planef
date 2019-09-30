@@ -1,0 +1,66 @@
+.modal-jorge {
+  z-index:    1000;
+  display:    none;
+  // background-color:rgba(66,66,66,1);
+  background-color: #13232f;
+
+  width: 550px;
+  height: 400px;
+  // line-height: 5x;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  margin-top: 400px;
+  margin-left: -15px;
+  border-radius: 5px;
+  text-align: center;
+}
+.modal-jorge p.comment,
+.modal-jorge textarea,
+.modal-jorge .btn.send-comment,
+.modal-jorge .close p
+{
+  font-size: 18px;
+  color: #a0b3b0;
+}
+
+.modal-jorge textarea{
+  width: 80%;
+  height: 80%;
+}
+
+.modal-jorge aside {
+  position: center;
+  margin-right: 200px;
+}
+
+.modal-jorge textarea,
+.modal-jorge .btn.send-comment
+{
+  color: black;
+}
+
+.modal-jorge div {
+  text-align: center;
+  // background-color: #333; //#100E19;
+  width: 100%;
+  height: 80%;
+}
+.modal-jorge .close {
+  font-size: 8;
+  display: inline-block;
+}
+.modal-jorge .X {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.dimmer{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+}

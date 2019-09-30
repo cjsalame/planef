@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+  <h1>Profesor <%= @prof.name %> <%= @prof.lastname %>,</h1>
+
+  <article>
+  	<p>El <%= @utp.role %> <%= @utp.name %>  <%= @utp.lastname %> comparte con ud. los datos de la siguiente escuela:</p>
+  	<p><strong>Nombre:</strong> <%= @school.name %></p>
+  	<p><strong>RBD:</strong> <%= @school.RBD %></p>
+  	<p><strong>Dirección:</strong> <%= @school.address %></p>
+  	<p><strong>Fono:</strong> <%= @school.phone %></p>
+  	<p><strong>Código:</strong> <%= @school.code %></p>
+  </article>
+
+</body>
+</html>

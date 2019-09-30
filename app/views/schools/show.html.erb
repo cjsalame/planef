@@ -1,24 +1,84 @@
 <p id="notice"><%= notice %></p>
+<div class="info_form">
+  <div class="info_label">
+    <strong>Name:</strong>
+    <%= @school.name %>
+  </div>
+  <div class="info_label">
+    <strong>Rbd:</strong>
+    <%= @school.RBD %>
+  </div>
+  <div class="info_label">
+    <strong>Address:</strong>
+    <%= @school.address %>
+  </div>
+  <div class="info_label">
+    <strong>Phone:</strong>
+    <%= @school.phone %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
+<%= button_to 'Editar información del colegio', edit_school_path(@school), :class=>"links", :method => :get %></br>
 
-<p>
-  <strong>Rbd:</strong>
-  <%= @school.RBD %>
-</p>
+<div class="info_form">
+<% if @school.subjects.any? %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @school.address %>
-</p>
+  <h3> Asignaturas dictadas en Colegio <%= @school.name %>: </h3>
+  <div class="info_label">
+  <% @school.subjects.each do |s| %>
+    <strong><%= s.name %></strong>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @school.phone %>
-</p>
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+
+<!-- CHANTARLE  -->
+    <%= link_to "Ver planificaciones", school_subject_path(school_id: s.school_id, id: s.id) %>
+                 
+
+
+
+      <% if(current_user.role == 'Jefe UTP') %>
+        <%= button_to 'Eliminar', school_subject_path(s.school, s) ,:class=>"links", :method => :delete %> </p>
+      <% end %>
+      <br>
+  <% end %>
+  </div>
+  <% end %>
+
+  <div class="info_form">
+  <h3> Agregar nueva asignatura </h3>
+    <%= form_for([@school, @school.subjects.build]) do |f| %>
+      <div class = "field">
+        <%= f.label :name, 'Nombre de la Asignatura' %></br>
+        <%= f.text_field :name %>
+      </div>
+      <div class = "field">
+        <%= f.label :description, 'Descripción de la Asignatura (opcional)' %></br>
+        <div class="text_area"><%= f.text_area :description %></div>
+      </div>
+      <div class="actions">
+        <div class="button button-block">
+          <%= f.submit "Crear Asignatura" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+
+<div class="info_form code">
+  <div style="cursor:pointer;" class="generate_button button-block" id="show-school-code-generator">
+    Generar Código
+  </div></br>
+  <div class="info_label" id="school-id" data-school-id="<%= @school.id %>">Código: <p style="display:inline;" class="code-paragraph"><%= @school.code %></p>
+  </div>
+</div>
+
+<div class="info_form">
+  <div class="code-mailer info_label">Enviar código a profesor: 
+    <input placeholder="profesor" class="prof-mail username"></input>@<input placeholder="dominio.com" class="prof-mail domain"></input>
+  </div>
+
+  <button id="send-email-code" style="color:white;">Enviar</button> 
+
+</div>
+<%= button_to 'Atrás', users_schools_path(current_user.id), :class=>"links", :method => :get %>

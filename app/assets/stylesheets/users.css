@@ -1,0 +1,55 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.div-left{
+    float:left;
+    padding-left:10px;
+}
+.div-right{
+    float:right;
+    padding-right:10px;
+}
+.footer-container{
+    height:40px;
+    max-width:980px;
+    border:1px solid salmon;
+    padding-top:5px;
+}
+.footer {
+    height:30px;
+    line-height:30px;
+    border:solid 1px #E5E5E5;
+}
+.footer li {
+    list-style-type:none;
+    float:left;
+    padding-left:10px;
+}
+.footer a {
+    text-decoration:none;
+    color:#0088CC;
+}
+.footer li:nth-child(1) {
+    text-decoration:none;
+    height:30px;
+    display:block;
+    background-image:url('http://s7.postimg.org/w0nt224pj/bc_separator.png');
+    background-repeat:no-repeat;
+    background-position:right;
+    padding-right: 15px;
+}
+.round-image-70 {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  height: 140px;
+  width: 140px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  horiz-align: center;
+  img { height: 100% }
+}

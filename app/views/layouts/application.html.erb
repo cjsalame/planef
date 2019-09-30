@@ -11,13 +11,28 @@
   <body>
 
     <% if user_signed_in? %>
-      <p> Hola <%= current_user.name %> </p>
-      <br>
-      <p> <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></p>
-      <br>
-      
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div>
+          <div class="round-image-70">
+            <% if current_user.avatar? %>
+              <%= image_tag "users/#{current_user.id}/avatar/#{current_user.avatar}", :size => "140x140" %>
+            <% else %>
+              <%= image_tag "default_teacher_avatar.png", :size => "140x140" %>
+            <% end %>
+          </div>
+          <p class="sidenav_header"> Hola <br><br><%= current_user.name %>! </p>
+          <p> <%= link_to "Mi Perfil", user_path(current_user.id) %> </p>
+          <p> <%= link_to "Colegios", users_schools_path(current_user) %> </p>
+          <p> <%= link_to "Buscador de<br><br>Planifaciones".html_safe, planifications_path %></p>
+          <p> <%= link_to "Cerrar Sesion", destroy_user_session_path, :method => 'delete' %></p>
+        </div>
+      </div>
     <% end %>
 
-    <%= yield %>
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
+      <%= yield %>
+    </div>
   </body>
 </html>

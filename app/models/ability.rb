@@ -5,12 +5,13 @@ class Ability
   def initialize(user)
     if user.role == 'Jefe UTP'
       can :create, School
-      can :update, School do |school|
-        school.users.find_by(id: user.id)
-      end
-      can :destroy, School do |school|
-        school.users.find_by(id: user.id)
-      end
+      # can :update, School do |school|
+      #   school.user_id == user.id
+      # end
+      can :update, School, user_id: user.id
+      can :destroy, School, user_id: user.id
+
+      can :read, School
     end
 
     # Define abilities for the passed in user here. For example:

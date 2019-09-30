@@ -1,0 +1,45 @@
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Fecha</th>
+      <th>Rating</th>
+      <th>Descargas</th>
+      <th>Estado</th>
+      <th colspan=<%= current_user.role=="Profesor" ? "5" : "3" %> ></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planifications.each do |planification| %>
+      <tr>
+        <td><%= planification.name %></td>
+        <td><%= planification.date %></td>
+        <td><%= planification.rating %></td>
+        <td><%= planification.downloads %></td>
+        <td id="plan-state-show"> <%= planification.state ? "Edición por Profesor" : "Revisión por UTP" %></td>
+        <td><%= link_to 'Ver', planification %></td>
+        <% if current_user.role == "Profesor" %>
+          <td><%= link_to 'Editar', edit_planification_path(planification) %></td>
+          <td><%= link_to 'Eliminar', planification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+
+        <% if current_user.role == "Profesor" %>
+          <td><button id="plan-state-change-prof" class="plan_id" data-planification-id="<%= planification.id %>"
+          <%= planification.state ? "enabled" : "disabled" %> >Notificar a UTP</button></td>
+        <% elsif current_user.role == "Jefe UTP" %>
+          <td><button class="modal-jorgeInput plan_id" data-planification-id="<%= planification.id %>"
+          <%= planification.state ? "disabled" : "enabled" %> >Notificar a Profesor</button></td>
+          <aside>
+            <%= render 'modal_box' %>
+          </aside>
+        <% end %>
+      </tr>
+      <br>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>

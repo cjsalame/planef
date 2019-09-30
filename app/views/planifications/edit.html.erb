@@ -1,0 +1,71 @@
+<div class="form-style-5">
+<legend><h1>Editando Planificación</h1></legend>
+
+
+<h2>
+Tienes
+<% if @n_lectures == 1 %>
+  <%= @n_lectures %> clase creada
+<% else %>
+  <%= @n_lectures %> clases creadas
+<% end %>
+</h2>
+
+
+<%= simple_form_for @planification do |f| %>
+
+  <% if @planification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planification.errors.count, "error") %> prohibited this planification from being saved:</h2>
+
+      <ul>
+      <% @planification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Los campos de la planificación -->
+  <div class="field">
+    <%= f.input :name, label: false, placeholder: 'Título *', input_html: { class: "new-planification-title" } %>
+  </div>
+
+  <div class="field">
+    <%= f.input :date, label: "Fecha" %>
+  </div>
+
+  <div id="lecture-form">
+  <br>
+  <div class="lecture-fields-wrapper">
+  <% @planification.lectures.each do |lecture| %>
+    <hr>
+    <%= f.simple_fields_for :lectures, lecture do |g| %>
+
+
+      <div class="lecture-field"><%= g.input :objectives, collection: @descriptions, label: "Objetivos:" %></div>
+      <div class="lecture-field"><%= g.input :starting, label: "Inicio:" %></div>
+      <div class="lecture-field"><%= g.input :developing, label: "Desarrollo:" %></div>
+      <div class="lecture-field"><%= g.input :finalizing, label: "Cierre:" %></div>
+      <div class="lecture-field"><%= g.input :content, label: "Contenidos:" %></div>
+      <div class="lecture-field"><%= g.input :resources, label: "Recursos:" %></div>
+      <div class="lecture-field"><%= g.input :duration, label: "Tiempo:" %></div>
+      <div class="lecture-field"><%= g.input :evaluation, label: "Indicador de Evaluación:" %></div>
+
+      <%= link_to "Eliminar Clase", [@planification, lecture], method: :delete, data: { confirm: "¿Estás Seguro?" } %>
+    <% end %>
+  <% end %>
+
+  </div>
+  </div>
+
+  <button id="add-lecture-link", type="button">Añadir Campos Para Nueva Clase</button>
+
+  <div class="actions">
+    <%= f.submit 'Enviar Cambios' %>
+  </div>
+<% end %>
+
+<%= link_to 'Atrás', @planification.grades_subjects_teacher %>
+
+</div>

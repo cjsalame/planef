@@ -1,0 +1,5 @@
+<% if @user.role == "Profesor" %>
+    <%= render 'teacher_schools', user: @user %>
+  <% elsif @user.role == "Jefe UTP" %>
+    <%= render 'utp_schools', user: @user %>
+  <% end %>
