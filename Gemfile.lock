@@ -131,8 +131,10 @@ GEM
     pg (0.19.0-x64-mingw32)
     pg (0.19.0-x86-mingw32)
     public_suffix (2.0.5)
-    puma (3.8.2)
-    puma (3.8.2-java)
+    puma (4.3.8)
+      nio4r (~> 2.0)
+    puma (4.3.8-java)
+      nio4r (~> 2.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -245,7 +247,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.0)
   sass-rails (~> 5.0)
   selenium-webdriver
